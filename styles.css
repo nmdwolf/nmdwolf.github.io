@@ -9,10 +9,11 @@ div.banner {
 
   border-radius: 0 0 15px 15px;
   background: lightgray;
-  width: calc(100vw-10px);
+  width: calc(100%-10px);
   height: 20vh;
-  padding: 10px;
+  padding: 10px 0 0 10px;
   position: relative;
+  margin: 0 0 10vh 0;
 
 }
 
@@ -34,7 +35,7 @@ a.nav {
   padding: 5px;
 
   border: 1px;
-  border-color: transparent;
+  border-color: darkgray;
   border-style: solid;
 
 }
@@ -42,5 +43,16 @@ a.nav {
 a.nav:hover {
 
   border-color: black;
+
+}
+
+#content {
+
+  width: calc(100% - 10px);
+  border-radius: 15px 15px 0 0;
+
+
+  background-color: lightgray;
+  padding: 10px 0 0 10px;
 
 }
