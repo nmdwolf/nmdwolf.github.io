@@ -40,10 +40,12 @@
       request.open("GET", "https://nmdwolf.github.io/blogs/" + src + ".txt", true);
 
       request.onload = function(){
-        //if(this.status == 200){
-        //  content.innerHTML = this.responseText;
-        //}
-        window.alert(this.status);
+        if(this.status == 200){
+          content.innerHTML = this.responseText;
+        }
+        else {
+          content.innerHTML = "Error 404: The requested blog could not be retrieved."
+        }
       }
 
       request.send();
