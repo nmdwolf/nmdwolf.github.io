@@ -1,1 +1,1 @@
-test
+$$\int_M\mathrm{d}x$$
