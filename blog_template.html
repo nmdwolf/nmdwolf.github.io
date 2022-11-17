@@ -37,7 +37,7 @@
       const url = window.location.search;
       const src = new URLSearchParams(url).get("src");
       const request = new XMLHttpRequest();
-      request.open("GET", "https://github.com/nmdwolf/nmdwolf.github.io/blogs/" + src + "txt", true);
+      request.open("GET", "https://nmdwolf.github.io/blogs/" + src + "txt", true);
 
       request.onload = function(){
         //if(this.status == 200){
