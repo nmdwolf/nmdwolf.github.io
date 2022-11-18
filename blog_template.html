@@ -44,14 +44,17 @@
           content.innerHTML = this.responseText;
         }
         else {
-          //content.innerHTML = "Error 404: The requested blog could not be retrieved."
+          content.innerHTML = "Error 404: The requested blog could not be retrieved.";
 
-          const examples = ["$$\sum_{n=1}^{+\infty}n=-\frac{1}{12}$$", "$$E=mc^2$$"];
-          const index = getRandomInt(0, examples.length);
+          const examples = [
+            "Ramanujan: $$\\sum_{n=1}^{+\\infty}n=-\\frac{1}{12}$$",
+            "Boltzmann: $$\\mathbb{P}(i;T)=\\frac{e^{-\\varepsilon_i/kT}}{\\sum_je^{-\\varepsilon_j/kT}}$$"
+            "Einstein: $$E=mc^2$$"
+          ];
+          const index = getRandomInt(0, examples.length - 1);
 
-          window.alert(index);
-
-          content.innerHTML = examples[index];
+          content.innerHTML += "<br>" + "However, please enjoy one of these beautiful formulas.";
+          content.innerHTML += "<br>" + examples[index];
         }
 
         MathJax.typeset();
