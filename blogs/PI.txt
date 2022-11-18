@@ -8,7 +8,15 @@ it are often these critical cases that are important. Having no idea about how u
 
 When restricting to regression problems, the most straightforward approach to uncertainty quantification (UQ) is the construction of <b>prediction intervals</b> (PI).
 To formalize this notion, denote the input space by \(\mathcal{X}\). A prediction interval for an instance \(x\in\mathcal{X}\) consists of an interval \([l(x),u(x)]\) such that
-$$\mathbb{P}(y\in[l(x),u(x)])\geq1-\alpha$$ for some predetermined <b>significance level</b> \(\alpha\in[0,1]\).
+$$\mathbb{P}\Big(y\in[l(x),u(x)]\Big)\geq1-\alpha$$ for some predetermined <b>significance level</b> \(\alpha\in[0,1]\).
+This condition states the <b>validity</b> of the intervals, if the intervals are required to satisfy this condition, we have a handle on how often they are correct.<br><br>
+
+<div style="padding:0 5% 0 5%">
+  For people familiar with parametric statistics, this validity condition might feel familiar.
+  When estimating parameters, models often return confidence intervals (CI) which satisfy virtually the same condition.
+  However, the main difference between CI and PI is that former will converge to a single point when enough data is gathered (and the correct model is used),
+  while the latter will always be an interval since the data generating process is inherently stochastic.
+</div>
 
 <br><br>UNDER CONSTRUCTION
 
