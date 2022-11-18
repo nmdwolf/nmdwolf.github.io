@@ -44,7 +44,7 @@
           content.innerHTML = this.responseText;
         }
         else {
-          content.innerHTML = "Error 404: The requested blog could not be retrieved.";
+          content.innerHTML = "<div style=\"text-align:center\">Error 404: The requested blog could not be retrieved.</div>";
 
           const examples = [
             "Ramanujan: $$\\sum_{n=1}^{+\\infty}n=-\\frac{1}{12}$$",
@@ -53,8 +53,8 @@
           ];
           const index = getRandomInt(0, examples.length - 1);
 
-          content.innerHTML += "<br>" + "However, please enjoy one of these beautiful formulas.";
-          content.innerHTML += "<br>" + examples[index];
+          content.innerHTML += "<br><br>" + "However, please enjoy one of these beautiful formulas.";
+          content.innerHTML += "<br><br>" + examples[index];
         }
 
         MathJax.typeset();
