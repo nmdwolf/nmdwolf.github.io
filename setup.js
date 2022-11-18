@@ -1,12 +1,13 @@
 function setup() {
-  let total = window.innerHeight;
-  total = total - document.getElementById("content").getBoundingClientRect().top;
-  total = total - parseFloat(window.getComputedStyle(document.getElementById("content")).getPropertyValue('padding-top'));
-  document.getElementById("content").style.height = total + "px";
+  const content = document.getElementById("content");
+  var total = window.innerHeight;
+
+  total = total - content.getBoundingClientRect().top;
+  total = total - parseFloat(window.getComputedStyle(content).getPropertyValue('padding-top'));
+  content.style.height = total + "px";
 
   document.addEventListener("scroll", (event) => {
-    window.alert(document.getElementById("content").style.height);
-    document.getElementById("content").style += window.scrollY;
+    content.style.height = (parseFloat(content.style.height) + window.scrollY) + "px";
   });
 }
 
