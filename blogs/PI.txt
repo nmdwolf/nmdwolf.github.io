@@ -1,4 +1,5 @@
-This blogpost is based on my first paper published earlier this year: "Valid prediction intervals for regression problems".<br><br>
+This blogpost is based on my first paper published earlier this year: "Valid prediction intervals for regression problems" in collaboration
+with my promotors Willem Waegeman and Bernard De Baets.<br><br>
 
 Most people these days recognize that the standard approach to predictive modelling is not sufficient anymore.
 The majority of papers and competitions (e.g. Kaggle) focus purely on predictive accuracy. This has two major downsides.
@@ -7,7 +8,7 @@ A highly accurate model might still be horribly wrong in a small number of situa
 it are often these critical cases that are important. Having no idea about how uncertain the model is, makes it hard to apply it in critical settings.<br><br>
 
 When restricting to regression problems, the most straightforward approach to uncertainty quantification (UQ) is the construction of <b>prediction intervals</b> (PI).
-To formalize this notion, denote the input space by \(\mathcal{X}\). A prediction interval for an instance \(x\in\mathcal{X}\) consists of an interval \([l(x),u(x)]\) such that
+To formalize this notion, denote the input space by \(\mathcal{X}\). A prediction interval for an instance \(x\in\mathcal{X}\) consists of an interval \([l(x),u(x)]\subseteq\mathbb{R}\) such that
 $$\mathbb{P}\Big(y\in[l(x),u(x)]\Big)\geq1-\alpha$$ for some predetermined <b>significance level</b> \(\alpha\in[0,1]\).
 This condition states the <b>validity</b> of the intervals, if the intervals are required to satisfy this condition, we have a handle on how often they are correct.<br><br>
 
@@ -18,6 +19,22 @@ This condition states the <b>validity</b> of the intervals, if the intervals are
   while the latter will always be an interval since the data generating process is inherently stochastic.
 </div>
 
+The main problem, as is usually the case with inferential models, is that, in general, statistical conditions are hard to satisfy.
+It is not hard to come up with interval estimators, but it is hard to come up with ones that are valid. Even those that are derived from
+probabilistic assumptions often fail to be valid in practice. (This effectively turns them useless.) In general this problem can be ascribed to the following issues:
+<ul>
+  <li>Model misspecification.</li>
+  <li>Lack of data.</li>
+</ul>
+The second reason is the most obvious one. Even if the parametric form of the data generating process is known, a lack of data will lead to wrong estimates
+and the resulting PIs will not be valid. The first reason is harder to overcome. A straightforward solution would be to use nonparametric models,
+but these models are harder to train since we cannot leverage any properties.
+
+Some common approaches are quantile regression, ensemble models and Bayesian modelling. Bayesian modelling is often the most powerful approach, but without
+correctly specified priors, the resulting PIs will not be valid. Both quantile regression and ensemble modelling are nonparametric by nature, but suffer from other problems.
+Quantile regression admits a theoretical derivation, but can only be used for predetermined quantiles, while ensemble models are versatile and robust, but still require a distributional prior
+to obtain PIs (unless they are interpreted as a mixture model, but this still gives not theoretical guarantees).
+
 <br><br>UNDER CONSTRUCTION
 
-<br><br>Date: 18/11/2022
+<br><br>Date: 18/11/2022<br>
