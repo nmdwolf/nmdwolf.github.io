@@ -8,6 +8,7 @@ function setup() {
 
   document.addEventListener("scroll", (event) => {
     content.style.height = (parseFloat(content.style.height) + window.scrollY) + "px";
+    content.innerHTML = content.style.height;
   });
 }
 
