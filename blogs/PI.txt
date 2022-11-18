@@ -1,1 +1,15 @@
-$$\int_M\mathrm{d}x$$
+This blogpost is based on my first paper published earlier this year: "Valid prediction intervals for regression problems".<br><br>
+
+Most people these days recognize that the standard approach to predictive modelling is not sufficient anymore.
+The majority of papers and competitions (e.g. Kaggle) focus purely on predictive accuracy. This has two major downsides.
+The first, overfitting, is a by now well-recognized problem, but the second, the lack of an uncertainty estimate, is much less studied.
+A highly accurate model might still be horribly wrong in a small number of situations and in practice, think of self-driving cars or medical support systems,
+it are often these critical cases that are important. Having no idea about how uncertain the model is, makes it hard to apply it in critical settings.<br><br>
+
+When restricting to regression problems, the most straightforward approach to uncertainty quantification (UQ) is the construction of <b>prediction intervals</b> (PI).
+To formalize this notion, denote the input space by $\\mathcal{X}$. A prediction interval for an instance $x\\in\\mathcal{X}$ consists of an interval $$[l(x),u(x)]$$ such that
+$$\mathbb{P}(y\\in[l(x),u(x)])\\geq1-\\alpha$$ for some predetermined <b>significance level</b> $\\alpha\\in[0,1]$.
+
+UNDER CONSTRUCTION
+
+Date: 18/11/2022
