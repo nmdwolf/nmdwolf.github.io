@@ -6,9 +6,10 @@ function setup() {
   total = total - parseFloat(window.getComputedStyle(content).getPropertyValue('padding-top'));
   content.style.height = total + "px";
 
+  const base_height = total;
+
   document.addEventListener("scroll", (event) => {
-    content.style.height = (parseFloat(content.style.height) + window.scrollY) + "px";
-    content.innerHTML = content.style.height;
+    content.style.height = (base_height + window.scrollY) + "px";
   });
 }
 
