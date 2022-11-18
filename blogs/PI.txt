@@ -7,8 +7,8 @@ A highly accurate model might still be horribly wrong in a small number of situa
 it are often these critical cases that are important. Having no idea about how uncertain the model is, makes it hard to apply it in critical settings.<br><br>
 
 When restricting to regression problems, the most straightforward approach to uncertainty quantification (UQ) is the construction of <b>prediction intervals</b> (PI).
-To formalize this notion, denote the input space by \\( \\mathcal{X} \\). A prediction interval for an instance \\(x \\in \\mathcal{X} \\) consists of an interval \\( [l(x),u(x)] \\) such that
-$$\\mathbb{P}(y\\in[l(x),u(x)])\\geq1-\\alpha$$ for some predetermined <b>significance level</b> \\( \\alpha \\in [0,1] \\).
+To formalize this notion, denote the input space by \(\mathcal{X}\). A prediction interval for an instance \(x\in\mathcal{X}\) consists of an interval \([l(x),u(x)]\) such that
+$$\mathbb{P}(y\in[l(x),u(x)])\geq1-\alpha$$ for some predetermined <b>significance level</b> \(\alpha\in[0,1]\).
 
 <br><br>UNDER CONSTRUCTION
 
