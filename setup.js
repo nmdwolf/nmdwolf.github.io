@@ -3,6 +3,11 @@ function setup() {
   total = total - document.getElementById("content").getBoundingClientRect().top;
   total = total - parseFloat(window.getComputedStyle(document.getElementById("content")).getPropertyValue('padding-top'));
   document.getElementById("content").style.height = total + "px";
+
+  document.addEventListener("scroll", (event) => {
+    window.alert(document.getElementById("content").style.height);
+    document.getElementById("content").style += window.scrollY;
+  });
 }
 
 function getRandomInt(min, max) {
