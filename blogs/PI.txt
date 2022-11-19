@@ -54,11 +54,14 @@ the resulting PI can be constructed as (this is pretty easy to show) $$\mathrm{P
 The homoskedasticity makes it a computationally efficient tool, but is it a realistic feature? The whole point was that certain data points
 might be much harder to predict and, hence, have a larger uncertainty. Luckily, two other natural choices exist.<br><br>
 
-The first one is a minor modification of the residual score: $$A_\sigma(x,y):=\frac{|y-\hat{\mu}(x)|}{\sigma(x)}\,,$$
-where \(\sigma:\mathcal{X}\rightarrow\mathbb{R}\) is a "difficulty function", telling us how difficult the point is to estimate. (The most common choice is the standard deviation.)
-The endpoints of the PIs are now determined by \(\sigma(x)q^*\) and, if \(\sigma\) gives a reasonable estimate of the uncertainty, the PIs will better reflect the uncertainty too.
-The second choice of heteroskedastic nonconformity measure is obtained by starting from an existing interval estimator \((l,u):\mathcal{X}\rightarrow\mathbb{R}^2\): $$A_\text{int}(x,y):=\max(y-u(x),l(x)-y).$$
-This can be interpreted as a deficiency score, telling us how much the intervals are too wide or too narrow. 
+The first one is a minor modification of the residual score: $$A_\sigma(x,y):=\frac{|y-\hat{\mu}(x)|}{\hat{\sigma}(x)}\,,$$
+where \(\hat{\sigma}:\mathcal{X}\rightarrow\mathbb{R}\) is a "difficulty function", telling us how difficult the point is to estimate.
+(The most common choice is the standard deviation, hence the notation.) The endpoints of the PIs are now determined by
+\(\hat{\sigma}(x)q^*\) and, if \(\hat{\sigma}\) gives a reasonable estimate of the uncertainty, the PIs will better reflect the uncertainty too.
+The second choice of heteroskedastic nonconformity measure is obtained by starting from an existing interval estimator \((\hat{l},\hat{u}):\mathcal{X}\rightarrow\mathbb{R}^2\): $$A_\text{int}(x,y):=\max(y-\hat{u}(x),l(x)-\hat{y}).$$
+This can be interpreted as a deficiency score, telling us how much the intervals are too wide or too narrow. Again, here, the "calibrated" PIs can be calculated with \(O(1)\)-complexity:
+$$\mathrm{PI}(x) := [\hat{l}(x)-q^*,\hat{u}(x)+q^*].$$ In fact, one can see that the PIs obtained with the residual score are a special case
+of this PI score, where \(\hat{l}(x):=\hat{u}(x):=\hat{\mu}(x)\), i.e. the naive PIs are simply one-element sets.
 
 <br><br>UNDER CONSTRUCTION
 
