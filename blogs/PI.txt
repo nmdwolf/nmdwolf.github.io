@@ -50,7 +50,7 @@ However, for the most commonly used scores, the sets will be intervals.<br><br>
 
 The simplest example is the residual score $$A_\text{res}(x,y) := |y-\hat{\mu}(x)|$$ for a point-predictor \(\hat{\mu}:\mathcal{X}\rightarrow\mathbb{R}\). Since this function is essentially \(\mathcal{X}\)-independent,
 it only depends on behaviour in the target space, the PIs will be homoskedastic (of equal length). This also allows us to calculate the PIs essentialy with \(O(1)\) complexity: for any input \(x\in\mathcal{X}\)
-the resulting PI can be constructed as (this is pretty easy to show) $$\mathrm{PI}(x) := [\hat{\mu}(x)-q^*,\hat{\mu}(x)+q^*].$$.
+the resulting PI can be constructed as (this is pretty easy to show) $$\mathrm{PI}(x) := \left[\hat{\mu}(x)-q^*,\hat{\mu}(x)+q^*\right].$$.
 The homoskedasticity makes it a computationally efficient tool, but is it a realistic feature? The whole point was that certain data points
 might be much harder to predict and, hence, have a larger uncertainty. Luckily, two other natural choices exist.<br><br>
 
@@ -59,7 +59,7 @@ where \(\hat{\sigma}:\mathcal{X}\rightarrow\mathbb{R}\) is a "difficulty functio
 (The most common choice is the standard deviation, hence the notation.) The endpoints of the PIs are now determined by
 \(\hat{\sigma}(x)q^*\) and, if \(\hat{\sigma}\) gives a reasonable estimate of the uncertainty, the PIs will better reflect the uncertainty too.
 The second choice of heteroskedastic nonconformity measure is obtained by starting from an existing interval estimator \((\hat{l},\hat{u}):\mathcal{X}\rightarrow\mathbb{R}^2\):
-$$A_\text{int}(x,y):=\max\left(y-\hat{u}(x),l(x)-\hat{y}\left).$$ This can be interpreted as a deficiency score, telling us how much the intervals are too wide or too narrow.
+$$A_\text{int}(x,y):=\max\left(y-\hat{u}(x),l(x)-\hat{y}\right).$$ This can be interpreted as a deficiency score, telling us how much the intervals are too wide or too narrow.
 Again, here, the "calibrated" PIs can be calculated with \(O(1)\)-complexity: $$\mathrm{PI}(x) := \left[\hat{l}(x)-q^*,\hat{u}(x)+q^*\right].$$
 In fact, one can see that the PIs obtained with the residual score are a special case of this PI score, where \(\hat{l}(x)=\hat{u}(x):=\hat{\mu}(x)\), i.e. the naive PIs are simply one-element sets.
 
