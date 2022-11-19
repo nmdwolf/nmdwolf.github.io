@@ -12,6 +12,8 @@
     <meta property="og:url" content="https://nmdwolf.github.io/">
     <meta property="og:description" content="Personal blog post">
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="./styles.css?v=1.0">
     <script src="./setup.js?v=123"></script>
 
@@ -48,14 +50,14 @@
           content.innerHTML = "<span style=\"text-align:center;font-size:20px\">Error 404: The requested blog could not be retrieved.</span>";
 
           const examples = [
-            "Ramanujan: $$\\sum_{n=1}^{+\\infty}n=-\\frac{1}{12}$$",
-            "Boltzmann: $$\\mathbb{P}(i;T)=\\frac{e^{-\\varepsilon_i/kT}}{\\sum_je^{-\\varepsilon_j/kT}}$$",
-            "Einstein: $$E=mc^2$$"
+            "Ramanujan: $$\\sum_{n=1}^{+\\infty}n=-\\frac{1}{12}.$$",
+            "Boltzmann: $$\\mathbb{P}(i;T)=\\frac{e^{-\\varepsilon_i/kT}}{\\sum_je^{-\\varepsilon_j/kT}}.$$",
+            "Einstein: $$E=mc^2.$$"
           ];
           const index = getRandomInt(0, examples.length - 1);
 
           content.innerHTML += "<br><br>" + "However, please enjoy this beautiful formula by ";
-          content.innerHTML += examples[index] + ".";
+          content.innerHTML += examples[index];
         }
 
         setup();
@@ -63,8 +65,6 @@
       request.send();
     </script>
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </body>
 
 </html>

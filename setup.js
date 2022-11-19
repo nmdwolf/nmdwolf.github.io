@@ -1,4 +1,11 @@
 function setup() {
+  console.log(document.getElementById("content").style.height);
+  const height = parseFloat(document.getElementById("content").style.height);
+  window.onresize = event => fillContent(height, event);
+  window.onload = event => fillContent(height, event);
+}
+
+function fillContent(initial_height) {
 
   /*
   document.addEventListener("scroll", (event) => {
@@ -15,12 +22,15 @@ function setup() {
   if(!!document.getElementById("final")) {
     const top = document.getElementById("content").getBoundingClientRect().top;
     const top2 = document.getElementById("final").getBoundingClientRect().bottom;
-    content.style.height = Math.abs(top2 - top) + "px";
-  }
-  else {
-    const height = content.style.height;
-    content.style.height = "calc(100% - " + (document.getElementById("content").getBoundingClientRect().top + 10) + "px";
-    content.style.height = Math.max(parseFloat(height), parseFloat(content.style.height)) + "px";
+    content.style.height = "calc(100% - " + (top + 10) + "px)";
+    content.style.height = Math.max(top2 - top /*- 10*/, parseFloat(window.getComputedStyle(content).height)) + "px";
+  } else {
+    const top = document.getElementById("content").getBoundingClientRect().top;
+    if(top <= 0) {
+      content.style.height = "calc(100% + " + (-top - 10) + "px)";
+    } else {
+      content.style.height = "calc(100% - " + (top + 10) + "px)";
+    }
   }
 }
 
