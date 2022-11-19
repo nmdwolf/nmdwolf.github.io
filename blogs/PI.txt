@@ -45,17 +45,20 @@ that tells us how different the point is from the training set (it is a measure 
   <li>Determine the \(\left(1-\frac{1}{|\mathcal{V}|}\right)(1-\alpha)\)-quantile \(q^*\)$ of \(A(\mathcal{V})\).</li>
   <li>Construct the prediction set as \(\{y\in\mathbb{R}\mid A(x,y)\leq q^*\}\).</li>
 </ol>
-Note that for general scores \(A\)$, the resulting set might not be connected, i.e. it might not be an interval. (This is a general feature of conformal prediction.)
+Note that for general scores \(A\), the resulting set might not be connected, i.e. it might not be an interval. (This is a general feature of conformal prediction.)
 However, for the most commonly used scores, the sets will be intervals.<br><br>
 
 The simplest example is the residual score $$A_\text{res}(x,y) := |y-\hat{\mu}(x)|$$ for a point-predictor \(\hat{\mu}:\mathcal{X}\rightarrow\mathbb{R}\). Since this function is essentially \(\mathcal{X}\)-independent,
-it only depends on behaviour in the target space, the PIs will be homoskedastic (of equal length). This also allows to calculate the PIs essentialy with \(O(1)\) complexity: for any input \(x\in\mathcal{X}\)
-the resulting PI can be constructed as $$\mathrm{PI}(x) := [\hat{\mu}(x)-q^*,\hat{\mu}(x)+q^*]\,,$$ as can easily be shown.
+it only depends on behaviour in the target space, the PIs will be homoskedastic (of equal length). This also allows us to calculate the PIs essentialy with \(O(1)\) complexity: for any input \(x\in\mathcal{X}\)
+the resulting PI can be constructed as (this is pretty easy to show) $$\mathrm{PI}(x) := [\hat{\mu}(x)-q^*,\hat{\mu}(x)+q^*].$$.
 The homoskedasticity makes it a computationally efficient tool, but is it a realistic feature? The whole point was that certain data points
 might be much harder to predict and, hence, have a larger uncertainty. Luckily, two other natural choices exist.<br><br>
 
 The first one is a minor modification of the residual score: $$A_\sigma(x,y):=\frac{|y-\hat{\mu}(x)|}{\sigma(x)}\,,$$
-where \(\sigma:\mathcal{X}\rightarrow\mathbb{R}\) is a "difficulty function", telling us how difficult the point is to estimate. The most common choice is the standard deviation.
+where \(\sigma:\mathcal{X}\rightarrow\mathbb{R}\) is a "difficulty function", telling us how difficult the point is to estimate. (The most common choice is the standard deviation.)
+The endpoints of the PIs are now determined by \(\sigma(x)q^*\) and, if \(\sigma\) gives a reasonable estimate of the uncertainty, the PIs will better reflect the uncertainty too.
+The second choice of heteroskedastic nonconformity measure is obtained by starting from an existing interval estimator \((l,u):\mathcal{X}\rightarrow\mathbb{R}^2\): $$A_\text{int}(x,y):=\max(y-u(x),l(x)-y).$$
+This can be interpreted as a deficiency score, telling us how much the intervals are too wide or too narrow. 
 
 <br><br>UNDER CONSTRUCTION
 
