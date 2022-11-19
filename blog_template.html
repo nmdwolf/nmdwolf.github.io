@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" href="./styles.css?v=1.0">
 
+    <script src="./setup.js?v=123"></script>
+
     <title>Blog</title>
   </head>
   <body>
@@ -30,7 +32,7 @@
     </div>
 
     <div id="content">
-
+      <br id="final">
     </div>
 
     <script>
@@ -41,7 +43,7 @@
 
       request.onload = function(){
         if(this.status == 200){
-          content.innerHTML = this.responseText;
+          content.innerHTML = this.responseText + "<br id=\"final\">";
         }
         else {
           content.innerHTML = "<span style=\"text-align:center;font-size:20px\">Error 404: The requested blog could not be retrieved.</span>";
@@ -58,13 +60,10 @@
         }
 
         MathJax.typeset();
+        setup();
       }
-
       request.send();
     </script>
-
-    <script src="./setup.js?v=123"></script>
-    <script>setup();</script>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

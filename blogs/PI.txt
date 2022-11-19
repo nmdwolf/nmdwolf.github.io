@@ -19,6 +19,8 @@ This condition states the <b>validity</b> of the intervals, if the intervals are
   while the latter will always be an interval since the data generating process is inherently stochastic.
 </div>
 
+<br><br>
+
 The main problem, as is usually the case with inferential models, is that, in general, statistical conditions are hard to satisfy.
 It is not hard to come up with interval estimators, but it is hard to come up with ones that are valid. Even those that are derived from
 probabilistic assumptions often fail to be valid in practice. (This effectively turns them useless.) In general this problem can be ascribed to the following issues:
@@ -66,4 +68,4 @@ In fact, one can see that the PIs obtained with the residual score are a special
 <br><br>UNDER CONSTRUCTION
 
 <br><br>Started: 18/11/2022<br>
-Last modified: 19/11/2022<br><br>
+Last modified: 19/11/2022<br>
