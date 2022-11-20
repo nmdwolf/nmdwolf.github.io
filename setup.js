@@ -1,20 +1,9 @@
 function setup() {
-  const height = parseFloat(document.getElementById("content").style.height);
-  window.onresize = event => fillContent(height, event);
-  window.onload = event => fillContent(height, event);
+  window.onresize = fillContent;
+  window.onload = fillContent;
 }
 
-function fillContent(initial_height) {
-
-  /*
-  document.addEventListener("scroll", (event) => {
-    if (!isInViewport(document.getElementById("final"))) {
-      const top = document.getElementById("content").getBoundingClientRect().top;
-      const top2 = document.getElementById("final").getBoundingClientRect().bottom;
-      //content.style.height = (top2 - top) + "px";
-    }
-  });
-  */
+function fillContent() {
 
   MathJax.typeset();
 

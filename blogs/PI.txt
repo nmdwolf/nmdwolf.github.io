@@ -76,7 +76,8 @@ the PIs are not independent anymore and the validity theorem does not need to ho
 
 <div class="note">
   It is interesting to note that this is in fact a minor issue. By extending the validation set in an online fashion,
-  it can be shown that the constructed PIs are in fact independent and validity holds in the strong sense.
+  it can be shown that the constructed PIs are in fact independent and validity holds in the strong sense. Moreover,
+  when the validation scores \(A(\mathcal{V})\) are almost surely distinct, the validity will be tight: $$\mathbb{P}\Big(y\in\mathrm{PI}(x)\Big)\geq1-\alpha+\frac{1}{|\mathcal{V}|}.$$
 </div>
 
 <br><br>UNDER CONSTRUCTION
