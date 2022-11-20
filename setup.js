@@ -1,5 +1,4 @@
 function setup() {
-  console.log(document.getElementById("content").style.height);
   const height = parseFloat(document.getElementById("content").style.height);
   window.onresize = event => fillContent(height, event);
   window.onload = event => fillContent(height, event);
