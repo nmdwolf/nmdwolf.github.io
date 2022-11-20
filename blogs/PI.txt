@@ -12,7 +12,7 @@ To formalize this notion, denote the input space by \(\mathcal{X}\). A predictio
 $$\mathbb{P}\Big(y\in[l(x),u(x)]\Big)\geq1-\alpha$$ for some predetermined <b>significance level</b> \(\alpha\in[0,1]\).
 This condition states the <b>validity</b> of the intervals, if the intervals are required to satisfy this condition, we have a handle on how often they are correct.<br><br>
 
-<div style="padding:0 5% 0 5%">
+<div style="padding:0 5% 0 5%;margin: 0">
   For people familiar with parametric statistics, this validity condition might feel familiar.
   When estimating parameters, models often return confidence intervals (CI) which satisfy virtually the same condition.
   However, the main difference between CI and PI is that former will converge to a single point when enough data is gathered (and the correct model is used),
