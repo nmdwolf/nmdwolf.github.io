@@ -18,19 +18,22 @@ function fillContent(initial_height) {
 
   MathJax.typeset();
 
+  const content = document.getElementById("content");
+
   if(!!document.getElementById("final")) {
-    const top = document.getElementById("content").getBoundingClientRect().top;
+    const top = content.getBoundingClientRect().top;
     const top2 = document.getElementById("final").getBoundingClientRect().bottom;
     content.style.height = "calc(100% - " + (top + 10) + "px)";
     content.style.height = Math.max(top2 - top /*- 10*/, parseFloat(window.getComputedStyle(content).height)) + "px";
   } else {
-    const top = document.getElementById("content").getBoundingClientRect().top;
+    const top = content.getBoundingClientRect().top;
     if(top <= 0) {
       content.style.height = "calc(100% + " + (-top - 10) + "px)";
     } else {
       content.style.height = "calc(100% - " + (top + 10) + "px)";
     }
   }
+
 }
 
 function getRandomInt(min, max) {
