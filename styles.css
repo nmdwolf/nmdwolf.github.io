@@ -62,3 +62,18 @@ a.nav:hover {
   padding: 10px 0 0 10px;
 
 }
+
+div.theorem {
+  display: block;
+  font-style: italic;
+}
+
+div.theorem::before {
+  content: "Theorem. ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+div.theorem[text]::before {
+  content: "Theorem (" attr(text) "). ";
+}
