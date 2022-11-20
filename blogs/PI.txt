@@ -63,7 +63,7 @@ $$A_\text{int}(x,y):=\max\left(y-\hat{u}(x),\hat{l}(x)-y\right).$$ This can be i
 Again, here, the "calibrated" PIs can be calculated with \(O(1)\)-complexity: $$\mathrm{PI}(x) := \left[\hat{l}(x)-q^*,\hat{u}(x)+q^*\right].$$
 In fact, one can see that the PIs obtained with the residual score are a special case of this one, where \(\hat{l}(x)=\hat{u}(x):=\hat{\mu}(x)\), i.e. when the naive PIs are simply one-element sets.<br><br>
 
-Now, to round up, we should actually state the most important part: the validity theorem. Sadly enough, plain inductive conformal prediction only satisfies a weak version:<br><br>
+Now, to round up, we should actually state the most important part: the validity theorem. Sadly enough, plain inductive conformal prediction only satisfies a weak version:
 
 <div class="theorem" text="Asymptotic validity">
   Consider a validation set \(\mathcal{V}\subset\mathcal{X}\times\mathbb{R}\) and a new data point \((x,y)\in\mathcal{X}\times\mathbb{R}\)
