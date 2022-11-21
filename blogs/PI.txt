@@ -9,7 +9,7 @@ it are often these critical cases that are important. Having no idea about how u
 
 When restricting to regression problems, the most straightforward approach to uncertainty quantification (UQ) is the construction of <b>prediction intervals</b> (PI).
 To formalize this notion, denote the input space by \(\mathcal{X}\). A prediction interval for an instance \(x\in\mathcal{X}\) consists of an interval \([l(x),u(x)]\subseteq\mathbb{R}\) such that
-$$\mathbb{P}\Big(y\in[l(x),u(x)]\Big)\geq1-\alpha$$ for some predetermined <b>significance level</b> \(\alpha\in[0,1]\).
+$$\mathbb{P}\big(y\in[l(x),u(x)]\big)\geq1-\alpha$$ for some predetermined <b>significance level</b> \(\alpha\in[0,1]\).
 This condition states the <b>validity</b> of the intervals, if the intervals are required to satisfy this condition, we have a handle on how often they are correct.
 
 <div class="note">
@@ -68,7 +68,7 @@ Now, to round up, we should actually state the most important part: the validity
 <div class="theorem" text="Asymptotic validity">
   Consider a validation set \(\mathcal{V}\subset\mathcal{X}\times\mathbb{R}\) and a new data point \((x,y)\in\mathcal{X}\times\mathbb{R}\)
   such that the enhanced data set \(\mathcal{V}\cup\{(x,y)\}\) is exchangeable, i.e. their joint distribution is independent of the order of the points in the data set.
-  The PI satisfies $$\mathbb{P}\Big(y\in\mathrm{PI}(x)\Big)\geq1-\alpha.$$
+  The PI satisfies $$\mathbb{P}\big(y\in\mathrm{PI}(x)\big)\geq1-\alpha.$$
 </div>
 
 The reason for why this is only an asymptotic theorem is that when you apply the conformal predictor to a whole test set, while retaining the same validation set,
@@ -77,7 +77,7 @@ the PIs are not independent anymore and the validity theorem does not need to ho
 <div class="note">
   It is interesting to note that this is in fact a minor issue. By extending the validation set in an online fashion,
   it can be shown that the constructed PIs are in fact independent and validity holds in the strong sense. Moreover,
-  when the validation scores \(A(\mathcal{V})\) are almost surely distinct, the validity will be tight: $$\mathbb{P}\Big(y\in\mathrm{PI}(x)\Big)\geq1-\alpha+\frac{1}{|\mathcal{V}|}.$$
+  when the validation scores \(A(\mathcal{V})\) are almost surely distinct, the validity will be tight: $$\mathbb{P}\big(y\in\mathrm{PI}(x)\big)\geq1-\alpha+\frac{1}{|\mathcal{V}|}.$$
 </div>
 
 <br>UNDER CONSTRUCTION

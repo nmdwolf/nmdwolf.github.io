@@ -97,18 +97,18 @@ $$\Phi^\mu(x) := h(x^\mu;\theta_\mu(x^1,\ldots,x^{\mu-1})).$$
 
 <script type="text/tikz">
   \begin{tikzpicture}
-      \node[draw, circle, minimum size = 0.5] (X1) at (0, 0) {$x^1$};
-      \node[draw, circle, minimum size = 0.5] (X2) at (2, 0) {$x^2$};
-      \node[draw, circle, minimum size = 0.5] (X3) at (4, 0) {$x^3$};
-      \node[draw, circle, minimum size = 0.5] (X4) at (6, 0) {$x^4$};
-      \node[fill, rectangle, minimum size = 0.5, label = {[xshift=-10]$\theta_0$}] (h1) at (-1, 2) {};
-      \node[fill, color = red, rectangle, minimum size = 0.5, label = {[xshift=-10]$\theta_1$}] (h2) at (1, 2) {};
-      \node[fill, color = blue, rectangle, minimum size = 0.5, label = {[xshift=-10]$\theta_2$}] (h3) at (3, 2) {};
-      \node[fill, color = green, rectangle, minimum size = 0.5, label = {[xshift=-10]$\theta_3$}] (h4) at (5, 2) {};
-      \node[draw, circle, minimum size = 0.5] (Y1) at (0, 4) {$\Phi^1$};
-      \node[draw, circle, minimum size = 0.5] (Y2) at (2, 4) {$\Phi^2$};
-      \node[draw, circle, minimum size = 0.5] (Y3) at (4, 4) {$\Phi^3$};
-      \node[draw, circle, minimum size = 0.5] (Y4) at (6, 4) {$\Phi^4$};
+      \node[draw, circle, minimum size = 0.5] (X1) at (0, 0) {\(x^1\)};
+      \node[draw, circle, minimum size = 0.5] (X2) at (2, 0) {\(x^2\)};
+      \node[draw, circle, minimum size = 0.5] (X3) at (4, 0) {\(x^3\)};
+      \node[draw, circle, minimum size = 0.5] (X4) at (6, 0) {\(x^4\)};
+      \node[fill, rectangle, minimum size = 0.5, label = {[xshift=-10]\(\theta_0\)}] (h1) at (-1, 2) {};
+      \node[fill, color = red, rectangle, minimum size = 0.5, label = {[xshift=-10]\(\theta_1\)}] (h2) at (1, 2) {};
+      \node[fill, color = blue, rectangle, minimum size = 0.5, label = {[xshift=-10]\(\theta_2\)}] (h3) at (3, 2) {};
+      \node[fill, color = green, rectangle, minimum size = 0.5, label = {[xshift=-10]\(\theta_3\)}] (h4) at (5, 2) {};
+      \node[draw, circle, minimum size = 0.5] (Y1) at (0, 4) {\(\Phi^1\)};
+      \node[draw, circle, minimum size = 0.5] (Y2) at (2, 4) {\(\Phi^2\)};
+      \node[draw, circle, minimum size = 0.5] (Y3) at (4, 4) {\(\Phi^3\)};
+      \node[draw, circle, minimum size = 0.5] (Y4) at (6, 4) {\(\Phi^4\)};
       \draw[->] (X1) -- (Y1);
       \draw[->] (X2) -- (Y2);
       \draw[->] (X3) -- (Y3);
@@ -144,7 +144,7 @@ This means that instead of directly optimizing the flow parameters, we train a n
 In theory, for univariate absolutely continuous CDFs the following transformation suffices: \(\Psi := G^{-1}\circ F\).
 We first map \(F\) to the uniform distribution on \([0,1]\) and then, with the quantile function, we map the uniform distribution to \(G\).
 However, this requires the knowledge of both \(F\) and \(G^{-1}\) (in closed form). So instead, as before and like for ordinary neural networks, we replace the transformation by a sequence of simpler ones.
-These transformations are optimized using the loglikelihood: $$\mathcal{L}(\mathcal{D}) = \sum_{(\mathbf{x},y)\in\mathcal{D}}\left(\log\left(\mathcal{N}\big(\Psi(y\mid\mathbf{x})\big)\!\right) + \sum_{i=1}^k\log\dot{\Phi}_i\big(\Phi_{i-1}(y\mid\mathbf{x})\big)\right)\,,$$
+These transformations are optimized using the loglikelihood: $$\mathcal{L}(\mathcal{D}) = \sum_{(\mathbf{x},y)\in\mathcal{D}}\left(\log\Big(\mathcal{N}\big(\Psi(y\mid\mathbf{x})\big)\!\Big) + \sum_{i=1}^k\log\dot{\Phi}_i\big(\Phi_{i-1}(y\mid\mathbf{x})\big)\!\right)\,,$$
 where:
 <ul>
   <li>\(\Psi(\,\cdot\mid X):\mathbb{R}\rightarrow\mathbb{R}\) is the total transformation \(P(Y\mid X)\rightarrow\mathcal{N}\).</li>
