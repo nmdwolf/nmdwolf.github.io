@@ -1,17 +1,17 @@
 <link rel="stylesheet" href="http://tikzjax.com/v1/fonts.css">
 <script src="http://tikzjax.com/v1/tikzjax.js"></script>
 
-This talk given for the Machine Learning Discussion Group of KERMIT has three goals:
+This talk, given as part of the Machine Learning Discussion Group of KERMIT, had three goals:
 <ol>
   <li>Giving an introduction to the formal (measure-theoretic) foundations of probability theory.</li>
   <li>Explaining how to transform an arbitrary distribution into a normal distribution.</li>
   <li>Applying the normalizing flow framework to regression problems.</li>
 </ol>
 
-<h3>Measure theory</h3>
+<h3>1) Measure theory</h3>
 
 In the past people noticed that, given the foundations of set theory,
-it was impossible to consistently assign a volume to all subsets of a Euclidean space \(\mathbb{R}^d\).
+it was impossible to consistently assign a volume to all subsets of a Euclidean space \(\mathbb{R}^d\) (see <a href="https://en.wikipedia.org/wiki/Non-measurable_set">here</a>).
 The solution was to, instead of first choosing a measuring function (such as the volume) and applying this to arbitrary sets,
 first fix the sets that we want to measure and then consider all consistent measures on the collection of those sets.
 
@@ -60,11 +60,11 @@ for all bounded, continuous functions \(g:\mathcal{X}\rightarrow\mathbb{R}\). No
 If a sequence of measurable functions \((f_n)_{n\in\mathbb{N}}\) converges pointwise to a function \(f:\mathcal{X}\rightarrow\mathcal{Y}\), the pushforwards converge weakly:
 $$\forall x\in\mathcal{X}:\lim_{n\rightarrow\infty}f_n(x)=f(x)\implies f_{n,\ast}\mu\rightsquigarrow f_\ast\mu.$$
 
-<h3>Flows</h3>
+<h3>2) Flows</h3>
 
 A <b>flow</b> is a continuous function \(\phi:\mathbb{R}\times\mathcal{X}\rightarrow\mathcal{X}:(t,x)\mapsto\phi_t(x)\) satisfying:
 <ul>
-  <li>\(\phi_0=\mathbbm{1}_\mathcal{X}\),</li>
+  <li>\(\phi_0=\unicode{x1D7D9}_\mathcal{X}\),</li>
   <li>\(\phi_t\circ\phi_s=\phi_{t+s}\) for all \(s,t\in\mathbb{R}\), and (as a consequence)</li>
   <li>\(\phi_t\) is invertible for all \(t\in\mathbb{R}\) with \(\phi_{-t}=(\phi_t)^{-1}\).</li>
 </ul>
@@ -74,7 +74,7 @@ As a further approximation, we can replace the power structure of \(\Psi\) by an
 with all \(\Phi_i\) being invertible. If all these transformations are diffeomorphisms, the change-of-variables formula becomes:
 $$f_X(x) = f_{\Psi(X)}\big(\Psi(x)\big)\prod_{i=1}^k\left|\frac{\partial\Phi_i}{\partial\Phi_{i-1}}\big(\Phi_{i-1}(x)\big)\right|.$$
 
-To obtain a <b>normalizing flow</b> (on \(\mathbb{R}^d\)) we make the crucial assumption $$\Psi(X)\sim\mathcal{N}(0,\mathbbm{1}_{d\times d}).$$
+To obtain a <b>normalizing flow</b> (on \(\mathbb{R}^d\)) we make the crucial assumption $$\Psi(X)\sim\mathcal{N}(0,\unicode{x1D7D9}_{d\times d}).$$
 (We could essentially use any fixed distribution, but normal distributions are much easier to work with.)
 To numerically optimize the parameters in the transformations \(\Phi_i\), we will use maximum (log-)likelihood optimization:
 $$\log(\mathcal{L}(\mathcal{D})) = \sum_{x\in\mathcal{D}}\left(\log\left(\rho\big(\Psi(x)\big)\!\right) + \sum_{i=1}^k\log\left|\frac{\partial\Phi_i}{\partial\Phi_{i-1}}\big(\Phi_{i-1}(x)\big)\right|\right).$$
@@ -130,11 +130,11 @@ The reason for why autoregressive flows are so important is given by the followi
 
 <div class="theorem" text="Bogachev et al.">
   Every two absolutely continuous distributions on \(\mathbb{R}^d\) are related by an increasing (in the first argument) triangular Borel function.
-\end{block}\pause
+</div>
 
 This theorem implies universality of the classes of autoregressive flows with increasing coupling functions \(h\) (or any dense subset) for distributions without discrete or singular contributions.
 
-<h3>Regression problems</h3>
+<h3>3) Regression problems</h3>
 
 For generative models, the joint distribution of, for example, the pixels of a picture is transformed to a (multi)normal distribution: $$\Psi:P(X)\Rightarrow\mathcal{N}.$$
 However, for regression problems it is not the joint distribution that is transformed. It is the conditional distribution \(Y\mid X\) that should be transformed.
@@ -156,7 +156,7 @@ where:
 
 Instead of discretizing the flow \(\phi:\mathbb{R}\times\mathbb{R}^d\rightarrow\mathbb{R}^d\),
 we can use the fact that flows are usually the solutions of an ordinary differential equation (ODE).
-For example, consider $$\Phi_{(k)}:=\mathbbm{1}_{d\times d} + \tfrac{1}{k}\xi\qquad\text{with}\qquad\xi\in M_d(\mathbb{R}).$$
+For example, consider $$\Phi_{(k)}:=\unicode{x1D7D9}_{d\times d} + \tfrac{1}{k}\xi\qquad\text{with}\qquad\xi\in M_d(\mathbb{R}).$$
 The powers \(\Phi_{(k)}^k\) converge to the exponential map \(\exp(\xi)\), which is the (time-1 map of the) solution of the ODE
 $$\dot{x}(t) = \xi\triangleright x(t).$$ This observation leads to modelling normalizing flows as <i>neural ODEs</i>.
 Another approach is to model the flows using stochastic differential equations instead of ODEs. For vanishing diffusion term, this recovers the ODE approach.
