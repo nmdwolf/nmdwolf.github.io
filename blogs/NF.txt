@@ -64,7 +64,7 @@ $$\forall x\in\mathcal{X}:\lim_{n\rightarrow\infty}f_n(x)=f(x)\implies f_{n,\ast
 
 A <b>flow</b> is a continuous function \(\phi:\mathbb{R}\times\mathcal{X}\rightarrow\mathcal{X}:(t,x)\mapsto\phi_t(x)\) satisfying:
 <ul>
-  <li>\(\phi_0=\unicode{x1D7D9}_\mathcal{X}\),</li>
+  <li>\(\phi_0=𝟙_\mathcal{X}\),</li>
   <li>\(\phi_t\circ\phi_s=\phi_{t+s}\) for all \(s,t\in\mathbb{R}\), and (as a consequence)</li>
   <li>\(\phi_t\) is invertible for all \(t\in\mathbb{R}\) with \(\phi_{-t}=(\phi_t)^{-1}\).</li>
 </ul>
@@ -74,7 +74,7 @@ As a further approximation, we can replace the power structure of \(\Psi\) by an
 with all \(\Phi_i\) being invertible. If all these transformations are diffeomorphisms, the change-of-variables formula becomes:
 $$f_X(x) = f_{\Psi(X)}\big(\Psi(x)\big)\prod_{i=1}^k\left|\frac{\partial\Phi_i}{\partial\Phi_{i-1}}\big(\Phi_{i-1}(x)\big)\right|.$$
 
-To obtain a <b>normalizing flow</b> (on \(\mathbb{R}^d\)) we make the crucial assumption $$\Psi(X)\sim\mathcal{N}(0,\unicode{x1D7D9}_{d\times d}).$$
+To obtain a <b>normalizing flow</b> (on \(\mathbb{R}^d\)) we make the crucial assumption $$\Psi(X)\sim\mathcal{N}(0,𝟙_{d\times d}).$$
 (We could essentially use any fixed distribution, but normal distributions are much easier to work with.)
 To numerically optimize the parameters in the transformations \(\Phi_i\), we will use maximum (log-)likelihood optimization:
 $$\log(\mathcal{L}(\mathcal{D})) = \sum_{x\in\mathcal{D}}\left(\log\left(\rho\big(\Psi(x)\big)\!\right) + \sum_{i=1}^k\log\left|\frac{\partial\Phi_i}{\partial\Phi_{i-1}}\big(\Phi_{i-1}(x)\big)\right|\right).$$
@@ -156,7 +156,7 @@ where:
 
 Instead of discretizing the flow \(\phi:\mathbb{R}\times\mathbb{R}^d\rightarrow\mathbb{R}^d\),
 we can use the fact that flows are usually the solutions of an ordinary differential equation (ODE).
-For example, consider $$\Phi_{(k)}:=\unicode{x1D7D9}_{d\times d} + \tfrac{1}{k}\xi\qquad\text{with}\qquad\xi\in M_d(\mathbb{R}).$$
+For example, consider $$\Phi_{(k)}:=𝟙_{d\times d} + \tfrac{1}{k}\xi\qquad\text{with}\qquad\xi\in M_d(\mathbb{R}).$$
 The powers \(\Phi_{(k)}^k\) converge to the exponential map \(\exp(\xi)\), which is the (time-1 map of the) solution of the ODE
 $$\dot{x}(t) = \xi\triangleright x(t).$$ This observation leads to modelling normalizing flows as <i>neural ODEs</i>.
 Another approach is to model the flows using stochastic differential equations instead of ODEs. For vanishing diffusion term, this recovers the ODE approach.
