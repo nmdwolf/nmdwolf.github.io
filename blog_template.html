@@ -50,7 +50,7 @@
           content.innerHTML = this.responseText + "<br id=\"final\">";
         }
         else {
-          content.innerHTML = "<span style=\"text-align:center;font-size:20px\">Error 404: The requested blog could not be retrieved.</span>";
+          content.innerHTML = "<div style=\"text-align:center;font-size:20px;margin-bottom:5%\">Error 404: The requested blog could not be retrieved.</div>";
 
           const examples = [
             "Ramanujan: $$\\sum_{n=1}^{+\\infty}n=-\\frac{1}{12}.$$",
@@ -59,8 +59,7 @@
           ];
           const index = getRandomInt(0, examples.length - 1);
 
-          content.innerHTML += "<br><br>" + "However, please enjoy this beautiful formula by ";
-          content.innerHTML += examples[index];
+          content.innerHTML += "<div style=\"text-align:center\">However, please enjoy this beautiful formula by " + examples[index] + "</div>";
         }
 
         fillContent();
