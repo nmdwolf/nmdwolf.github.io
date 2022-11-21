@@ -55,7 +55,7 @@ a.nav:hover {
 
 #content {
 
-  width: calc(100% - 10px);
+  width: calc(100% - 20px);
   border-radius: 15px 15px 0 0;
 
   background-color: lightgray;
