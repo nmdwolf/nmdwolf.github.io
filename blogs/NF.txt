@@ -20,7 +20,7 @@ If this collection satisfies the following condition, it is called a <b>\(\sigma
   <li>Countable unions of measurable sets are measurable: \((A_n)_{n\in\mathbb{N}}\subset\Sigma\implies\bigcup_{i=1}^\infty A_i\in\Sigma\).
 </ul>
 These conditions can be understood in an intuitive way. The first condition is a kind of sanity check. If we cannot say anything about the whole system, why even bother looking at its components.
-The second and third conditions are compatibility conditions stating that we should be able to combine information about parts of the system.<br><br>
+The second and third conditions are compatibility conditions stating that we should be able to combine information about parts of the system.
 
 <div class="note">
   There exist two trivial examples: the <b>trivial \(\sigma\)-algebra</b> \(\{\emptyset,\mathcal{X}\}\) and the <b>discrete \(\sigma\)-algebra</b> \(P(\mathcal{X})\).
@@ -38,7 +38,7 @@ After choosing a measurable space \((\mathcal{X},\Sigma)\), we can define a <b>m
 </ul>
 If \(\mu(\mathcal{X})=1\) we call the measure a <b>probability measure</b>. It is not hard to see that every finite measure can be turned into a probability measure.
 On \(\mathbb{R}^d\) the probability measures are usually defined through cumulative distribution functions or, in some cases, by probability density functions (through the <a href="https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem">Radon-Nikodym theorem</a>).
-On finite sets, the most common measure is the "counting measure" or "uniform distribution": $$\mu_\text{count}(A) := |A|\qquad\qquad\mu_\text{uni}(A):=\frac{|A|}{|\mathcal{X}|}.$$<br>
+On finite sets, the most common measure is the "counting measure" or "uniform distribution": $$\mu_\text{count}(A) := |A|\qquad\qquad\mu_\text{uni}(A):=\frac{|A|}{|\mathcal{X}|}.$$
 
 As with most mathematical objects, we should consider those functions that preserve the structure of interest.
 In the current setting, a function \(f:(\mathcal{X},\Sigma_\mathcal{X})\rightarrow(\mathcal{Y},\Sigma_\mathcal{Y})\) between measurable spaces
@@ -77,7 +77,7 @@ The most common transformations are the following ones:
 <ul>
   <li><b>Affine (or linear) flow</b>: \(\Phi(x) := Ax+b\).</li>
   <li><b>Planar flows</b>: \(\Phi(x) := x + h(w\cdot x + \lambda)v\) for some diffeomorphism \(h:\mathbb{R}\rightarrow\mathbb{R}\).</li>
-  <li><b>Coupling flows</b>: \(\Phi(x) := (x^I,h(x^J;x^I))\) for some diffeomorphism \(h:\mathbb{R}^{|J|}\times\mathbb{R}^{|I|}\rightarrow\mathbb{R}^{|J|}\), where \(x=(x^I,x^J)\) for some partition \(I,J\) of \(\{1,\ldots,d\}\).</li>
+  <li><b>Coupling flows</b>: \(\Phi(x) := \big(x^I,h(x^J;x^I)\big)\) for some diffeomorphism \(h:\mathbb{R}^{|J|}\times\mathbb{R}^{|I|}\rightarrow\mathbb{R}^{|J|}\), where \(x=(x^I,x^J)\) for some partition \(I,J\) of \(\{1,\ldots,d\}\).</li>
 </ul>
 Although not very expressive, e.g. exponential families are mapped to exponential families, affine flows are simple to implement.
 By contrast, the planar flows are expressive, but their inverse generally does not exist in closed form.
