@@ -11,7 +11,7 @@ This talk, given as part of the Machine Learning Discussion Group of KERMIT, had
 <h3>1) Measure theory</h3>
 
 In the past people noticed that, given the foundations of set theory,
-it was impossible to consistently assign a volume to all subsets of a Euclidean space \(\mathbb{R}^d\) (see <a href="https://en.wikipedia.org/wiki/Non-measurable_set">here</a>).
+it was impossible to consistently assign a volume to all subsets of a Euclidean space \(\mathbb{R}^d\) (see <a href="https://en.wikipedia.org/wiki/Non-measurable_set">this Wikipedia article</a>).
 The solution was to, instead of first choosing a measuring function (such as the volume) and applying this to arbitrary sets,
 first fix the sets that we want to measure and then consider all consistent measures on the collection of those sets.
 
@@ -25,13 +25,13 @@ If this collection satisfies the following condition, it is called a <a href="ht
 These conditions can be understood in an intuitive way. The first condition is a kind of sanity check. If we cannot even say anything about the whole system, why even bother looking at its components.
 The second and third conditions are compatibility conditions stating that you should be able to combine information about parts of the system.<br><br>
 
-There exist two trivial examples: the trivial <b>\(\sigma\)-algebra</b> \(\{\emptyset,\mathcal{X}\}\) and the <b>discrete \(\sigma\)-algebra</b> \(P(\mathcal{X})\).
+There exist two trivial examples: the <b>trivial \(\sigma\)-algebra</b> \(\{\emptyset,\mathcal{X}\}\) and the <b>discrete \(\sigma\)-algebra</b> \(P(\mathcal{X})\).
 A much more interesting class of examples is obtained when one has a notion of distance \(d:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}^+\), such as the standard Euclidean distance on \(\mathbb{R}^n\).
 The <a href="https://en.wikipedia.org/wiki/Borel_set">Borel \(\sigma\)-algebra</a> of a <a href="https://en.wikipedia.org/wiki/Metric_space">metric space</a>
-is the smallest \(\sigma\)-algebra containing all open balls $$B(x,r):=\{y\in\mathcal{X}\mid d(x,y)<r\}.$$
+is the smallest \(\sigma\)-algebra containing all open balls $$B(x,r):=\{y\in\mathcal{X}\mid d(x,y)\lt r\}.$$
 For example, on \(\mathbb{R}\), the Borel sets are those "generated" by the open intervals \(]a,b[\) for all \(a<b\in\overline{\mathbb{R}}\). (Generated means that they are constructed using complements and countable unions.)<br><br>
 
-After choosing a measurable space \((\mathcal{X},\Sigma)\), one can introduce a \textbf{measure}. This a nonnegative set function \(\mu:\Sigma\rightarrow\overline{\mathbb{R}}^+\) satisfying:
+After choosing a measurable space \((\mathcal{X},\Sigma)\), one can introduce a <b>measure</b>. This a nonnegative set function \(\mu:\Sigma\rightarrow\overline{\mathbb{R}}^+\) satisfying:
 <ul>
   <li>Empty means empty: \(\mu(\emptyset)=0\).
   <li>\(\sigma\)-additivity: \(\mu\left(\bigsqcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty\mu(A_i)\).
