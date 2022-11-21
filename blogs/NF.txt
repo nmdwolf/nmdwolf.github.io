@@ -97,6 +97,14 @@ $$\Phi^\mu(x) := h(x^\mu;\theta_\mu(x^1,\ldots,x^{\mu-1})).$$
 
 <script type="text/tikz">
   \begin{tikzpicture}
+    \node (A) at (0, 0) {\(A\)};
+    \node (B) at (2, 0) {\(B\)};
+    \draw (A) -- (B);
+  \end{tikzpicture}
+</script>
+
+<!--<script type="text/tikz">
+  \begin{tikzpicture}
       \node[draw, circle, minimum size = 0.5] (X1) at (0, 0) {\(x^1\)};
       \node[draw, circle, minimum size = 0.5] (X2) at (2, 0) {\(x^2\)};
       \node[draw, circle, minimum size = 0.5] (X3) at (4, 0) {\(x^3\)};
@@ -124,7 +132,7 @@ $$\Phi^\mu(x) := h(x^\mu;\theta_\mu(x^1,\ldots,x^{\mu-1})).$$
       \draw[->] (h3) -- (Y3);
       \draw[->] (h4) -- (Y4);
   \end{tikzpicture}
-</script>
+</script>-->
 
 The reason for why autoregressive flows are so important is given by the following theorem:
 
@@ -169,8 +177,8 @@ Here, the challenge is to find the minimal cost for transporting products from p
 <h3>References</h3>
 
 <ul>
-  <li>Kobyzev, I., Prince, S. J., \& Brubaker, M. A. (2020). Normalizing flows: An introduction and review of current methods. IEEE transactions on pattern analysis and machine intelligence, 43(11), 3964-3979.</li>
-  <li>Bogachev, V. I., Kolesnikov, A. V., \& Medvedev, K. V. (2005). Triangular transformations of measures. Sbornik: Mathematics, 196(3), 309-335.</li>
+  <li>Kobyzev, I., Prince, S. J., & Brubaker, M. A. (2020). Normalizing flows: An introduction and review of current methods. IEEE transactions on pattern analysis and machine intelligence, 43(11), 3964-3979.</li>
+  <li>Bogachev, V. I., Kolesnikov, A. V., & Medvedev, K. V. (2005). Triangular transformations of measures. Sbornik: Mathematics, 196(3), 309-335.</li>
 </ul>
 
 <br><br>Started: 21/11/2022<br>
