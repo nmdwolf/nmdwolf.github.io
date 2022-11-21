@@ -16,9 +16,9 @@ The solution was to, instead of first choosing a measuring function (such as the
 first fix the sets that we want to measure and then consider all consistent measures on the collection of those sets.
 
 To this end, consider an arbitrary space \(\mathcal{X}\) and fix a collection of subsets \(\Sigma\subseteq P(\mathcal{X})\).
-If this collection satisfies the following condition, it is called a <a href="https://en.wikipedia.org/wiki/%CE%A3-algebra">\(\sigma\)-algebra</a> and the subsets are said to be <b>measurable</b>:
+If this collection satisfies the following condition, it is called a <b>\(\sigma\)-algebra</b> and the subsets are said to be <b>measurable</b>:
 <ul>
-  <li>\(\mathcal{X}\) itself is measurable.</li>
+  <li>\(\mathcal{X}\) is measurable.</li>
   <li>Complements of measurable sets are measurable: \(A\in\Sigma\implies\mathcal{X}\backslash A\in\Sigma\).
   <li>Countable unions of measurable sets are measurable: \((A_n)_{n\in\mathbb{N}}\subset\Sigma\implies\bigcup_{i=1}^\infty A_i\in\Sigma\).
 </ul>
@@ -26,12 +26,12 @@ These conditions can be understood in an intuitive way. The first condition is a
 The second and third conditions are compatibility conditions stating that you should be able to combine information about parts of the system.<br><br>
 
 There exist two trivial examples: the <b>trivial \(\sigma\)-algebra</b> \(\{\emptyset,\mathcal{X}\}\) and the <b>discrete \(\sigma\)-algebra</b> \(P(\mathcal{X})\).
-A much more interesting class of examples is obtained when one has a notion of distance \(d:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}^+\), such as the standard Euclidean distance on \(\mathbb{R}^n\).
+A much more interesting class of examples is obtained when we have a notion of distance \(d:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}^+\), such as the standard Euclidean distance on \(\mathbb{R}^n\).
 The <a href="https://en.wikipedia.org/wiki/Borel_set">Borel \(\sigma\)-algebra</a> of a <a href="https://en.wikipedia.org/wiki/Metric_space">metric space</a>
-is the smallest \(\sigma\)-algebra containing all open balls $$B(x,r):=\{y\in\mathcal{X}\mid d(x,y)\lt r\}.$$
-For example, on \(\mathbb{R}\), the Borel sets are those "generated" by the open intervals \(]a,b[\) for all \(a<b\in\overline{\mathbb{R}}\). (Generated means that they are constructed using complements and countable unions.)<br><br>
+is the smallest \(\sigma\)-algebra containing all open balls $$B(x,r):=\{y\in\mathcal{X}\mid d(x,y) < r\}.$$
+For example, on \(\mathbb{R}\), the Borel sets are those "generated" by the open intervals \(]a,b[\) for all \(a < b\in\overline{\mathbb{R}}\). (Generated means that they are constructed using complements and countable unions.)<br><br>
 
-After choosing a measurable space \((\mathcal{X},\Sigma)\), one can introduce a <b>measure</b>. This a nonnegative set function \(\mu:\Sigma\rightarrow\overline{\mathbb{R}}^+\) satisfying:
+After choosing a measurable space \((\mathcal{X},\Sigma)\), we can define a <b>measure</b>. This a nonnegative set function \(\mu:\Sigma\rightarrow\overline{\mathbb{R}}^+\) satisfying:
 <ul>
   <li>Empty means empty: \(\mu(\emptyset)=0\).
   <li>\(\sigma\)-additivity: \(\mu\left(\bigsqcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty\mu(A_i)\).
@@ -142,7 +142,7 @@ This is achieved by making the flow parameters \(\mathcal{X}\)-dependent: $$\Psi
 This means that instead of directly optimizing the flow parameters, we train a network that outputs these parameters given the features.<br><br>
 
 In theory, for univariate absolutely continuous CDFs the following transformation suffices: \(\Psi := G^{-1}\circ F\).
-One first maps \(F\) to the uniform distribution on \([0,1]\) and then, with the quantile function, we map the uniform distribution to \(G\).
+We first map \(F\) to the uniform distribution on \([0,1]\) and then, with the quantile function, we map the uniform distribution to \(G\).
 However, this requires the knowledge of both \(F\) and \(G^{-1}\) (in closed form). So instead, as before and like for ordinary neural networks, we replace the transformation by a sequence of simpler ones.
 These transformations are optimized using the loglikelihood: $$\mathcal{L}(\mathcal{D}) = \sum_{(\mathbf{x},y)\in\mathcal{D}}\left(\log\left(\mathcal{N}\big(\Psi(y\mid\mathbf{x})\big)\!\right) + \sum_{i=1}^k\log\dot{\Phi}_i\big(\Phi_{i-1}(y\mid\mathbf{x})\big)\right)\,,$$
 where:
@@ -164,7 +164,7 @@ Another approach is to model the flows using stochastic differential equations i
 The goal of training NFs is to find a measurable function \(\Psi\) such that \(\Psi_\ast P=\mathcal{N}\), where \(P\) is the data generating distribution.
 This problem is actually the same as the one considered in <a href="https://en.wikipedia.org/wiki/Transportation_theory_(mathematics)">optimal transport theory</a>:
 $$\text{minimize }\int_\mathcal{X}c(x,\Psi(x))\,\mathrm{d}\mu(x)\qquad\text{with}\qquad\Psi_\ast\mu=\nu.$$
-Here one tries to find the minimal cost for transporting products from producers, distributed according to \(\mu\), to consumers, distributed according to \(\nu\).
+Here, the challenge is to find the minimal cost for transporting products from producers, distributed according to \(\mu\), to consumers, distributed according to \(\nu\).
 
 <h3>References</h3>
 
