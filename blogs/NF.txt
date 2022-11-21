@@ -1,0 +1,177 @@
+<link rel="stylesheet" href="http://tikzjax.com/v1/fonts.css">
+<script src="http://tikzjax.com/v1/tikzjax.js"></script>
+
+This talk given for the Machine Learning Discussion Group of KERMIT has three goals:
+<ol>
+  <li>Giving an introduction to the formal (measure-theoretic) foundations of probability theory.</li>
+  <li>Explaining how to transform an arbitrary distribution into a normal distribution.</li>
+  <li>Applying the normalizing flow framework to regression problems.</li>
+</ol>
+
+<h3>Measure theory</h3>
+
+In the past people noticed that, given the foundations of set theory,
+it was impossible to consistently assign a volume to all subsets of a Euclidean space \(\mathbb{R}^d\).
+The solution was to, instead of first choosing a measuring function (such as the volume) and applying this to arbitrary sets,
+first fix the sets that we want to measure and then consider all consistent measures on the collection of those sets.
+
+To this end, consider an arbitrary space \(\mathcal{X}\) and fix a collection of subsets \(\Sigma\subseteq P(\mathcal{X})\).
+If this collection satisfies the following condition, it is called a <a href="https://en.wikipedia.org/wiki/%CE%A3-algebra">\(\sigma\)-algebra</a> and the subsets are said to be <b>measurable</b>:
+<ul>
+  <li>\(\mathcal{X}\) itself is measurable.</li>
+  <li>Complements of measurable sets are measurable: \(A\in\Sigma\implies\mathcal{X}\backslash A\in\Sigma\).
+  <li>Countable unions of measurable sets are measurable: \((A_n)_{n\in\mathbb{N}}\subset\Sigma\implies\bigcup_{i=1}^\infty A_i\in\Sigma\).
+</ul>
+These conditions can be understood in an intuitive way. The first condition is a kind of sanity check. If we cannot even say anything about the whole system, why even bother looking at its components.
+The second and third conditions are compatibility conditions stating that you should be able to combine information about parts of the system.<br><br>
+
+There exist two trivial examples: the trivial <b>\(\sigma\)-algebra</b> \(\{\emptyset,\mathcal{X}\}\) and the <b>discrete \(\sigma\)-algebra</b> \(P(\mathcal{X})\).
+A much more interesting class of examples is obtained when one has a notion of distance \(d:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}^+\), such as the standard Euclidean distance on \(\mathbb{R}^n\).
+The <a href="https://en.wikipedia.org/wiki/Borel_set">Borel \(\sigma\)-algebra</a> of a <a href="https://en.wikipedia.org/wiki/Metric_space">metric space</a>
+is the smallest \(\sigma\)-algebra containing all open balls $$B(x,r):=\{y\in\mathcal{X}\mid d(x,y)<r\}.$$
+For example, on \(\mathbb{R}\), the Borel sets are those "generated" by the open intervals \(]a,b[\) for all \(a<b\in\overline{\mathbb{R}}\). (Generated means that they are constructed using complements and countable unions.)<br><br>
+
+After choosing a measurable space \((\mathcal{X},\Sigma)\), one can introduce a \textbf{measure}. This a nonnegative set function \(\mu:\Sigma\rightarrow\overline{\mathbb{R}}^+\) satisfying:
+<ul>
+  <li>Empty means empty: \(\mu(\emptyset)=0\).
+  <li>\(\sigma\)-additivity: \(\mu\left(\bigsqcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty\mu(A_i)\).
+</ul>
+If \(\mu(\mathcal{X})=1\) we call the measure a <b>probability measure</b>.
+On \(\mathbb{R}^d\) the probability measures are usually defined through cumulative distribution functions or, in some cases, a probability density function (through the <a href="https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem">Radon-Nikodym theorem</a>).
+On finite sets, the most common measure is the "counting measure" or "uniform distribution": $$\mu_\text{count}(A) := |A|.$$
+
+As with most mathematical structures, we like to consider functions that preserve this structure. In the current setting, a function \(f:(\mathcal{X},\Sigma_\mathcal{X})\rightarrow(\mathcal{Y},\Sigma_\mathcal{Y})\) between measurable spaces
+is said to be <b>measurable</b> if $$A\in\Sigma_\mathcal{Y}\implies f^{-1}(A)\in\Sigma_\mathcal{X}.$$
+Given this definition we can easily transport measures. The <b>pushforward</b> of a measure \(\mu\) along \(f\) is defined by $$f_\ast\mu(A):=\mu\left(f^{-1}(A)\right).$$
+This begs the question of how the density function of these two measures, if they exist, are related. The answer is given by the change-of-variables formula:
+
+<div class="theorem">
+    For every measure \(\mu\) on \(\mathcal{X}\) and measurable function \(f:\mathcal{X}\rightarrow\mathcal{Y}\) integrals are related as follows:
+    \begin{gather*}
+        \int_{f^{-1}(\mathcal{Y})} g\circ f\,\mathrm{d}\mu = \int_\mathcal{Y} g\,\mathrm{d}f_\ast\mu.
+    \end{gather*}\pause
+    If \(X\) is a random variable on \(\mathbb{R}^d\) with density function \(\rho_X\), for every "diffeomorphism" (a smooth and smoothly invertible function)
+    \(f:\mathbb{R}^d\rightarrow\mathbb{R}^d\) the transformed density satisfies: $$\rho_X(x) = \rho_{f(X)}\big(f(x)\big)\big|\!\det(J(x))\big|,$$ where \(J\) is the Jacobian of \(f\).
+</div>
+
+Before we move to the next part and introduce normalizing flows, it is important to define what it means for a sequence of measures to converge.
+A sequence of measures \((\mu_n)_{n\in\mathbb{N}}\) on \(\mathcal{X}\) is said to <b>converge weakly</b> to a measure \(\mu\) if $$\lim_{n\rightarrow\infty}\int_\mathcal{X}g\,\mathrm{d}\mu_n=\int_\mathcal{X}g\,\mathrm{d}\mu$$
+for all bounded, continuous functions \(g:\mathcal{X}\rightarrow\mathbb{R}\). Note that for probability measures this simply means that the expectations converge.
+If a sequence of measurable functions \((f_n)_{n\in\mathbb{N}}\) converges pointwise to a function \(f:\mathcal{X}\rightarrow\mathcal{Y}\), the pushforwards converge weakly:
+$$\forall x\in\mathcal{X}:\lim_{n\rightarrow\infty}f_n(x)=f(x)\implies f_{n,\ast}\mu\rightsquigarrow f_\ast\mu.$$
+
+<h3>Flows</h3>
+
+A <b>flow</b> is a continuous function \(\phi:\mathbb{R}\times\mathcal{X}\rightarrow\mathcal{X}:(t,x)\mapsto\phi_t(x)\) satisfying:
+<ul>
+  <li>\(\phi_0=\mathbbm{1}_\mathcal{X}\),</li>
+  <li>\(\phi_t\circ\phi_s=\phi_{t+s}\) for all \(s,t\in\mathbb{R}\), and (as a consequence)</li>
+  <li>\(\phi_t\) is invertible for all \(t\in\mathbb{R}\) with \(\phi_{-t}=(\phi_t)^{-1}\).</li>
+</ul>
+In practice this is often approximated by a "discrete flow" \(\phi:\mathbb{Z}\times\mathcal{X}\rightarrow\mathcal{X}\): $$\phi_k:=\Phi^k\,,$$
+for some transformation \(\Phi:\mathcal{X}\rightarrow\mathcal{X}\) (e.g. the <i>time-1</i> map of the continuous flow).
+As a further approximation, we can replace the power structure of \(\Psi\) by an arbitrary sequence of transformations: $$\Psi:=\Phi_k\circ\ldots\Phi_2\circ\Phi_1\,,$$
+with all \(\Phi_i\) being invertible. If all these transformations are diffeomorphisms, the change-of-variables formula becomes:
+$$f_X(x) = f_{\Psi(X)}\big(\Psi(x)\big)\prod_{i=1}^k\left|\frac{\partial\Phi_i}{\partial\Phi_{i-1}}\big(\Phi_{i-1}(x)\big)\right|.$$
+
+To obtain a <b>normalizing flow</b> (on \(\mathbb{R}^d\)) we make the crucial assumption $$\Psi(X)\sim\mathcal{N}(0,\mathbbm{1}_{d\times d}).$$
+(We could essentially use any fixed distribution, but normal distributions are much easier to work with.)
+To numerically optimize the parameters in the transformations \(\Phi_i\), we will use maximum (log-)likelihood optimization:
+$$\log(\mathcal{L}(\mathcal{D})) = \sum_{x\in\mathcal{D}}\left(\log\left(\rho\big(\Psi(x)\big)\!\right) + \sum_{i=1}^k\log\left|\frac{\partial\Phi_i}{\partial\Phi_{i-1}}\big(\Phi_{i-1}(x)\big)\right|\right).$$
+<!--%    If the Jacobians are triangular, the determinants further factorize:\vspace{-0.5\baselineskip}
+%    \begin{gather*}
+%        \log|J| = \sum_{i=1}^n\log|J_{ii}|.
+%    \end{gather*}-->
+
+The most common transformations are the following ones:
+<ul>
+  <li>Affine (or linear) flow: \(\Phi(x) := Ax+b\).
+    Although not very expressive, e.g. exponential families are mapped to exponential families, they are simple to train and implement</li>
+  <li>Planar flows: \(\Phi(x) := x + h(w\cdot x + \lambda)v\) for some diffeomorphism \(h:\mathbb{R}\rightarrow\mathbb{R}\)
+    Expressive, but the inverse generally does not exist in closed form.</li>
+  <li>Coupling flows: \(\Phi(x) := (x^I,h(x^J;x^I))\) for some diffeomorphism \(h:\mathbb{R}^{|J|}\times\mathbb{R}^{|I|}\rightarrow\mathbb{R}^{|J|}\), where \(x=(x^I,x^J)\) for some partition \(I,J\) of \(\{1,\ldots,d\}\).</li>
+</ul>
+
+The most powerful transformation is the so-called <b>autoregressive (or triangular) flow</b>. In components it is given by
+$$\Phi^\mu(x) := h(x^\mu;\theta_\mu(x^1,\ldots,x^{\mu-1})).$$
+
+<script type="text/tikz">
+  \begin{tikzpicture}
+      \node[draw, circle, minimum size = 0.5] (X1) at (0, 0) {$x^1$};
+      \node[draw, circle, minimum size = 0.5] (X2) at (2, 0) {$x^2$};
+      \node[draw, circle, minimum size = 0.5] (X3) at (4, 0) {$x^3$};
+      \node[draw, circle, minimum size = 0.5] (X4) at (6, 0) {$x^4$};
+      \node[fill, rectangle, minimum size = 0.5, label = {[xshift=-10]$\theta_0$}] (h1) at (-1, 2) {};
+      \node[fill, color = red, rectangle, minimum size = 0.5, label = {[xshift=-10]$\theta_1$}] (h2) at (1, 2) {};
+      \node[fill, color = blue, rectangle, minimum size = 0.5, label = {[xshift=-10]$\theta_2$}] (h3) at (3, 2) {};
+      \node[fill, color = green, rectangle, minimum size = 0.5, label = {[xshift=-10]$\theta_3$}] (h4) at (5, 2) {};
+      \node[draw, circle, minimum size = 0.5] (Y1) at (0, 4) {$\Phi^1$};
+      \node[draw, circle, minimum size = 0.5] (Y2) at (2, 4) {$\Phi^2$};
+      \node[draw, circle, minimum size = 0.5] (Y3) at (4, 4) {$\Phi^3$};
+      \node[draw, circle, minimum size = 0.5] (Y4) at (6, 4) {$\Phi^4$};
+      \draw[->] (X1) -- (Y1);
+      \draw[->] (X2) -- (Y2);
+      \draw[->] (X3) -- (Y3);
+      \draw[->] (X4) -- (Y4);
+      \draw[->] (X1) -- (h2);
+      \draw[->] (X1) -- (h3);
+      \draw[->] (X1) -- (h4);
+      \draw[->] (X2) -- (h3);
+      \draw[->] (X2) -- (h4);
+      \draw[->] (X3) -- (h4);
+      \draw[->] (h1) -- (Y1);
+      \draw[->] (h2) -- (Y2);
+      \draw[->] (h3) -- (Y3);
+      \draw[->] (h4) -- (Y4);
+  \end{tikzpicture}
+</script>
+
+The reason for why autoregressive flows are so important is given by the following theorem:
+
+<div class="theorem" text="Bogachev et al.">
+  Every two absolutely continuous distributions on \(\mathbb{R}^d\) are related by an increasing (in the first argument) triangular Borel function.
+\end{block}\pause
+
+This theorem implies universality of the classes of autoregressive flows with increasing coupling functions \(h\) (or any dense subset) for distributions without discrete or singular contributions.
+
+<h3>Regression problems</h3>
+
+For generative models, the joint distribution of, for example, the pixels of a picture is transformed to a (multi)normal distribution: $$\Psi:P(X)\Rightarrow\mathcal{N}.$$
+However, for regression problems it is not the joint distribution that is transformed. It is the conditional distribution \(Y\mid X\) that should be transformed.
+This is achieved by making the flow parameters \(\mathcal{X}\)-dependent: $$\Psi_X:P(Y\mid X)\Rightarrow\mathcal{N}.$$
+This means that instead of directly optimizing the flow parameters, we train a network that outputs these parameters given the features.<br><br>
+
+In theory, for univariate absolutely continuous CDFs the following transformation suffices: \(\Psi := G^{-1}\circ F\).
+One first maps \(F\) to the uniform distribution on \([0,1]\) and then, with the quantile function, we map the uniform distribution to \(G\).
+However, this requires the knowledge of both \(F\) and \(G^{-1}\) (in closed form). So instead, as before and like for ordinary neural networks, we replace the transformation by a sequence of simpler ones.
+These transformations are optimized using the loglikelihood: $$\mathcal{L}(\mathcal{D}) = \sum_{(\mathbf{x},y)\in\mathcal{D}}\left(\log\left(\mathcal{N}\big(\Psi(y\mid\mathbf{x})\big)\!\right) + \sum_{i=1}^k\log\dot{\Phi}_i\big(\Phi_{i-1}(y\mid\mathbf{x})\big)\right)\,,$$
+where:
+<ul>
+  <li>\(\Psi(\,\cdot\mid X):\mathbb{R}\rightarrow\mathbb{R}\) is the total transformation \(P(Y\mid X)\rightarrow\mathcal{N}\).</li>
+  <li>Each \(\Phi_i\) is modeled by a monotone network: $$\Phi_i(y\mid\mathbf{x}) := \int_0^y\big(f_i(u,\mathbf{x})+1\big)\,\mathrm{d}u + \text{cnst}$$
+    with \(f_i:\mathbb{R}\times\mathcal{X}\rightarrow\mathbb{R}\) an unconstrained neural network with final ELU activation.</li>
+</ul>
+
+<h3>Extras</h3>
+
+Instead of discretizing the flow \(\phi:\mathbb{R}\times\mathbb{R}^d\rightarrow\mathbb{R}^d\),
+we can use the fact that flows are usually the solutions of an ordinary differential equation (ODE).
+For example, consider $$\Phi_{(k)}:=\mathbbm{1}_{d\times d} + \tfrac{1}{k}\xi\qquad\text{with}\qquad\xi\in M_d(\mathbb{R}).$$
+The powers \(\Phi_{(k)}^k\) converge to the exponential map \(\exp(\xi)\), which is the (time-1 map of the) solution of the ODE
+$$\dot{x}(t) = \xi\triangleright x(t).$$ This observation leads to modelling normalizing flows as <i>neural ODEs</i>.
+Another approach is to model the flows using stochastic differential equations instead of ODEs. For vanishing diffusion term, this recovers the ODE approach.
+
+The goal of training NFs is to find a measurable function \(\Psi\) such that \(\Psi_\ast P=\mathcal{N}\), where \(P\) is the data generating distribution.
+This problem is actually the same as the one considered in <a href="https://en.wikipedia.org/wiki/Transportation_theory_(mathematics)">optimal transport theory</a>:
+$$\text{minimize }\int_\mathcal{X}c(x,\Psi(x))\,\mathrm{d}\mu(x)\qquad\text{with}\qquad\Psi_\ast\mu=\nu.$$
+Here one tries to find the minimal cost for transporting products from producers, distributed according to \(\mu\), to consumers, distributed according to \(\nu\).
+
+<h3>References</h3>
+
+<ul>
+  <li>Kobyzev, I., Prince, S. J., \& Brubaker, M. A. (2020). Normalizing flows: An introduction and review of current methods. IEEE transactions on pattern analysis and machine intelligence, 43(11), 3964-3979.</li>
+  <li>Bogachev, V. I., Kolesnikov, A. V., \& Medvedev, K. V. (2005). Triangular transformations of measures. Sbornik: Mathematics, 196(3), 309-335.</li>
+</ul>
+
+<br><br>Started: 21/11/2022<br>
+Last modified: 21/11/2022
