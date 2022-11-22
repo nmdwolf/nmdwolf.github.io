@@ -79,8 +79,10 @@ div.theorem[text]::before {
 }
 
 div.note {
-  padding: 0 5% 0 5%;
-  margin: 2% 0 2% 0;
+  padding: 1%;
+  margin: 2% 5% 2% 5%;
+  border-radius: 15px;
+  background-color: white;
 }
 
 li.pubitem {
