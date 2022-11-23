@@ -86,7 +86,14 @@ the PIs are not independent anymore and the validity theorem does not need to ho
   when the validation scores \(A(\mathcal{V})\) are almost surely distinct, the validity will be tight: $$\mathbb{P}\big(y\in\mathrm{PI}(x)\big)\leq1-\alpha+\frac{1}{|\mathcal{V}|}.$$
 </div>
 
-<br>UNDER CONSTRUCTION
+<h3>References</h3>
+
+<ul>
+  <li>Dewolf, N., De Baets, B. & Waegeman, W. Valid prediction intervals for regression problems. <i>Artif Intell Rev</i> (2022). <a href="https://doi.org/10.1007/s10462-022-10178-5 ">https://doi.org/10.1007/s10462-022-10178-5</a></li>
+  <li>A great repository of all things related to Conformal Prediction: <a href="https://github.com/valeman/awesome-conformal-prediction">https://github.com/valeman/awesome-conformal-prediction</a></li>
+  <li>Introductory paper: <a href="https://arxiv.org/abs/2107.07511">https://arxiv.org/abs/2107.07511</a></li>
+  <li>Extension of the above paper with tutorial and more: <a href="https://people.eecs.berkeley.edu/~angelopoulos/blog/posts/gentle-intro/">https://people.eecs.berkeley.edu/~angelopoulos/blog/posts/gentle-intro/</a></li>
+</ul>
 
 <br><br>Started: 18/11/2022<br>
-Last modified: 20/11/2022
+Last modified: 23/11/2022
