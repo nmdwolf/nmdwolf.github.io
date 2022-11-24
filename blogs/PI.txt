@@ -65,7 +65,7 @@ Again, here, the "calibrated" PIs can be calculated with \(O(1)\)-complexity: $$
 <div class="note">
   In fact, we can see that the PIs obtained with the residual score are a special case of this one where \(\hat{l}(x)=\hat{u}(x):=\hat{\mu}(x)\), i.e. when the naive PIs are simply one-element sets.
   More can actually be said. The residual score \(A_\text{res}\) and the "normalized" residual score \(A_\sigma\) are both derived from <a href="https://en.wikipedia.org/wiki/Metric_space">metrics</a> on \(\mathbb{R}\): the Euclidean and Mahalonobis metrics.
-  With this insight, all of the above nonconformity measures can be unified since they simply represent the distance from the new point to the boundary of the existing PI: $$A_{C,d}(x,y) := \min_{p\in\partial C(x)}d\big(p,(x,y)\big)\,,$$
+  With this insight, all of the above nonconformity measures can be unified since they simply represent the distance from the new point to the boundary of the existing PI: $$A_{C,d}(x,y) := \max_{p\in\partial C(x)}d(p,y)\,,$$
   where \(d:\mathbb{R}\times\mathbb{R}\rightarrow\mathbb{R}^+\) is the distance function and \(C:\mathcal{X}\rightarrow P(\mathbb{R})\) is the pre-existing PI estimator.
 </div>
 
@@ -90,8 +90,9 @@ the PIs are not independent anymore and the validity theorem does not need to ho
 
 <ul>
   <li>Dewolf, N., De Baets, B. & Waegeman, W. Valid prediction intervals for regression problems. <i>Artif Intell Rev</i> (2022). <a href="https://doi.org/10.1007/s10462-022-10178-5 ">https://doi.org/10.1007/s10462-022-10178-5</a></li>
+  <li>Angelopoulos, A. N., & Bates, S. (2021). A gentle introduction to conformal prediction and distribution-free uncertainty quantification. arXiv preprint arXiv:2107.07511.
+    Link: <a href="https://arxiv.org/abs/2107.07511">https://arxiv.org/abs/2107.07511</a></li>
   <li>A great repository of all things related to Conformal Prediction: <a href="https://github.com/valeman/awesome-conformal-prediction">https://github.com/valeman/awesome-conformal-prediction</a></li>
-  <li>Introductory paper: <a href="https://arxiv.org/abs/2107.07511">https://arxiv.org/abs/2107.07511</a></li>
   <li>Extension of the above paper with tutorial and more: <a href="https://people.eecs.berkeley.edu/~angelopoulos/blog/posts/gentle-intro/">https://people.eecs.berkeley.edu/~angelopoulos/blog/posts/gentle-intro/</a></li>
 </ul>
 
