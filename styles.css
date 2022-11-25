@@ -55,11 +55,11 @@ a.nav:hover {
 
 #content {
 
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
   border-radius: 15px 15px 0 0;
 
   background-color: lightgray;
-  padding: 10px 10px 0 10px;
+  padding: 10px 20px 0 20px;
 
 }
 
@@ -85,6 +85,9 @@ div.note {
   background-color: white;
 }
 
-li.pubitem {
-  margin-bottom: 10px;
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
 }

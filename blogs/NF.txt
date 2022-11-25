@@ -1,5 +1,5 @@
 This talk, given as part of the Machine Learning Discussion Group of KERMIT, had three goals:
-<ol>
+<ol class="list">
   <li class="pubitem">Giving an introduction to the formal (measure-theoretic) foundations of probability theory.</li>
   <li class="pubitem">Explaining how to transform an arbitrary distribution into a normal distribution.</li>
   <li>Applying the normalizing flow framework to regression problems.</li>
@@ -14,7 +14,7 @@ to first fix the sets that should be measurable and then consider all consistent
 
 To this end, consider an arbitrary space \(\mathcal{X}\) and fix a collection of subsets \(\Sigma\subseteq P(\mathcal{X})\).
 If this collection satisfies the following conditions, it is called a <b>\(\sigma\)-algebra</b> and the subsets are said to be <b>measurable</b>:
-<ul>
+<ul class="list">
   <li>Totality: \(\mathcal{X}\in\Sigma\).</li>
   <li>Complements of measurable sets are measurable: \(A\in\Sigma\implies\mathcal{X}\backslash A\in\Sigma\).
   <li>Countable unions of measurable sets are measurable: \((A_n)_{n\in\mathbb{N}}\subset\Sigma\implies\bigcup_{i=1}^\infty A_i\in\Sigma\).
@@ -32,7 +32,7 @@ The second and third conditions are compatibility conditions stating that we sho
 </div>
 
 After choosing a measurable space \((\mathcal{X},\Sigma)\), we can define a <b>measure</b>. This a nonnegative set function \(\mu:\Sigma\rightarrow\overline{\mathbb{R}}^+\) satisfying:
-<ul>
+<ul class="list">
   <li>Emptiness: \(\mu(\emptyset)=0\).
   <li><b>\(\sigma\)-additivity</b>: \(\mu\left(\bigsqcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty\mu(A_i)\).
 </ul>
@@ -63,7 +63,7 @@ $$\forall x\in\mathcal{X}:\lim_{n\rightarrow\infty}f_n(x)=f(x)\implies f_{n,\ast
 <h3>2) Flows</h3>
 
 A <b>flow</b> is a continuous function \(\phi:\mathbb{R}\times\mathcal{X}\rightarrow\mathcal{X}:(t,x)\mapsto\phi_t(x)\) satisfying:
-<ul>
+<ul class="list">
   <li>\(\phi_0=𝟙_\mathcal{X}\),</li>
   <li>\(\phi_t\circ\phi_s=\phi_{t+s}\) for all \(s,t\in\mathbb{R}\), and (as a consequence)</li>
   <li>\(\phi_t\) is invertible for all \(t\in\mathbb{R}\) with \(\phi_{-t}=(\phi_t)^{-1}\).</li>
@@ -81,7 +81,7 @@ with all \(\Phi_i\) invertible. If all these transformations are diffeomorphisms
 $$f_X(x) = f_{\Psi(X)}\big(\Psi(x)\big)\prod_{i=1}^k\left|\frac{\partial\Phi_i}{\partial\Phi_{i-1}}\big(\Phi_{i-1}(x)\big)\right|.$$
 
 The most common transformations are the following ones (here it is assumed that $\mathcal{X}$ is a vector space):
-<ul>
+<ul class="list">
   <li><b>Affine (or linear) flow</b>: \(\Phi(x) := Ax+b\).</li>
   <li><b>Planar flows</b>: \(\Phi(x) := x + h(w\cdot x + \lambda)v\) for some diffeomorphism \(h:\mathbb{R}\rightarrow\mathbb{R}\).</li>
   <li><b>Coupling flows</b>: \(\Phi(x) := \big(x^I,h(x^J;x^I)\big)\) for some diffeomorphism \(h:\mathbb{R}^{|J|}\times\mathbb{R}^{|I|}\rightarrow\mathbb{R}^{|J|}\),
@@ -123,7 +123,7 @@ However, this requires the knowledge of both \(F\) and \(G^{-1}\) (in closed for
 Since this is not possible, we replace the transformation by a sequence of simpler ones and apply variational optimization using the loglikelihood
 $$\mathcal{L}(\mathcal{D}) = \sum_{(\mathbf{x},y)\in\mathcal{D}}\left(\log\Big(\mathcal{N}\big(\Psi(y\mid\mathbf{x})\big)\!\Big) + \sum_{i=1}^k\log\dot{\Phi}_i\big(\Phi_{i-1}(y\mid\mathbf{x})\big)\!\right)\,,$$
 where:
-<ul>
+<ul class="list">
   <li>$\Psi(\,\cdot\mid X):\mathbb{R}\rightarrow\mathbb{R}$ is the total transformation $P(Y\mid X)\rightarrow\mathcal{N}$.</li>
   <li>Each $\Phi_i$ is modeled by a monotone network: $$\Phi_i(y\mid\mathbf{x}) := \int_0^y\big(f_i(u,\mathbf{x})+1\big)\,\mathrm{d}u + \text{cnst}$$
     with $f_i:\mathbb{R}\times\mathcal{X}\rightarrow\mathbb{R}$ an unconstrained neural network with final ELU activation.</li>
@@ -150,7 +150,7 @@ where:
 
 <h3>References</h3>
 
-<ul>
+<ul class="list">
   <li>Kobyzev, I., Prince, S. J., & Brubaker, M. A. (2020). Normalizing flows: An introduction and review of current methods. IEEE transactions on pattern analysis and machine intelligence, 43(11), 3964-3979.</li>
   <li>Bogachev, V. I., Kolesnikov, A. V., & Medvedev, K. V. (2005). Triangular transformations of measures. Sbornik: Mathematics, 196(3), 309-335.</li>
 </ul>

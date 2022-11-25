@@ -22,7 +22,7 @@ This condition states the <b>validity</b> of the intervals, if the intervals are
 The main problem, as is usually the case with inferential models, is that, in general, statistical conditions are hard to satisfy.
 It is not hard to come up with interval estimators, but it is hard to come up with ones that are valid. Even those that are derived from
 probabilistic assumptions often fail to be valid in practice. (This effectively turns them useless.) In general this problem can be ascribed to the following issues:
-<ul>
+<ul class="list">
   <li>Model misspecification.</li>
   <li>Lack of data.</li>
 </ul>
@@ -40,7 +40,7 @@ In comes <b>Conformal Prediction</b>. This framework, initially developed by V. 
 this estimator will be valid. (In a next blog I might say a little more about the general framework of conformal prediction and how it also ecompasses classification problems etc.)
 The main idea is to start from a <b>nonconformity score</b>$$A:\mathcal{X}\times\mathbb{R}\rightarrow\mathbb{R}\,,$$ often extracted from a training set,
 that tells us how different the point is from the training set (it is a measure of the nonconformity). Given a validation set \(\mathcal{V}\subset\mathcal{X}\times\mathbb{R}\), the inductive or split approach then proceeds as follows:
-<ol>
+<ol class="list">
   <li>Calculate the validation scores \(A(\mathcal{V})\).</li>
   <li>Determine the \(\left(1-\frac{1}{|\mathcal{V}|}\right)(1-\alpha)\)-quantile \(q^*\) of \(A(\mathcal{V})\).</li>
   <li>Construct the prediction set as \(\{y\in\mathbb{R}\mid A(x,y)\leq q^*\}\).</li>
@@ -88,7 +88,7 @@ the PIs are not independent anymore and the validity theorem does not need to ho
 
 <h3>References</h3>
 
-<ul>
+<ul class="list">
   <li>Dewolf, N., De Baets, B. & Waegeman, W. Valid prediction intervals for regression problems. <i>Artif Intell Rev</i> (2022). <a href="https://doi.org/10.1007/s10462-022-10178-5 ">https://doi.org/10.1007/s10462-022-10178-5</a></li>
   <li>Angelopoulos, A. N., & Bates, S. (2021). A gentle introduction to conformal prediction and distribution-free uncertainty quantification. arXiv preprint arXiv:2107.07511.
     Link: <a href="https://arxiv.org/abs/2107.07511">https://arxiv.org/abs/2107.07511</a></li>
