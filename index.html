@@ -20,7 +20,7 @@
   </head>
   <body>
 
-    <div class="banner">
+    <div id="banner">
         <p style="font-size:30px;margin:0">Nico's Blog</p>
 
         <div class="navbar">
@@ -30,23 +30,25 @@
         </div>
     </div>
 
-    <div id="content">
+    <div id="box">
+      <div id="background"></div>
+      <div id="content">
 
-      <h1 style="margin-top:0">Welcome to my site</h1>
+        <h1 style="margin-top:0">Welcome to my site</h1>
 
-      <p>
-        I started building this site for two reasons. First of all because I like trying something new and it had been years since I last toyed around
-        with building a website, and secondly because I wanted a place where I could share my academic interests with the rest of the world.
-        I am well aware that I will probably not reach a lot of people, but even if nobody reads my blogs, it still makes for a nice place to write up stuff for myself
-        and see which parts I do not fully understand.
-      </p>
-      <div class="note" style="margin-top:5%;">
-        I'm using MathJax to typeset all equations so as to obtain a nice LateX feel. As a test, the Dirac action should be nicely rendered here:
-        $$S_\text{Dirac}[\psi] := \int_M\overline{\psi}(i/\!\!\!\partial-m)\psi\,\mathrm{Vol}_M.$$
-        However, not all operators or packages are implemented in MathJax, so it is possible that certain formulas do not look as clean as they would when using ordinary \(\LaTeX\).
+        <p>
+          I started building this site for two reasons. First of all because I like trying something new and it had been years since I last toyed around
+          with building a website, and secondly because I wanted a place where I could share my academic interests with the rest of the world.
+          I am well aware that I will probably not reach a lot of people, but even if nobody reads my blogs, it still makes for a nice place to write up stuff for myself
+          and see which parts I do not fully understand.
+        </p>
+        <div class="note" style="margin-top:5%;">
+          I'm using MathJax to typeset all equations so as to obtain a nice LateX feel. As a test, the Dirac action should be nicely rendered here:
+          $$S_\text{Dirac}[\psi] := \int_M\overline{\psi}(i/\!\!\!\partial-m)\psi\,\mathrm{Vol}_M.$$
+          However, not all operators or packages are implemented in MathJax, so it is possible that certain formulas do not look as clean as they would when using ordinary \(\LaTeX\).
+        </div>
+
       </div>
-      <br id="final">
-
     </div>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

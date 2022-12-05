@@ -1,26 +1,24 @@
 function setup() {
   window.onresize = fillContent;
   window.onload = fillContent;
+  window.onscroll = fillContent;
 }
 
 function fillContent() {
 
-  MathJax.typeset();
-
-  const content = document.getElementById("content");
-
-  if(!!document.getElementById("final")) {
-    const top = content.getBoundingClientRect().top;
-    const top2 = document.getElementById("final").getBoundingClientRect().bottom;
-    content.style.height = "calc(100% - " + (top + 10) + "px)";
-    content.style.height = Math.max(top2 - top /*- 10*/, parseFloat(window.getComputedStyle(content).height)) + "px";
+  const bg = document.getElementById("background");
+  if(document.getElementById("content").getBoundingClientRect().top < 0) {
+    bg.style.position = "fixed";
+    bg.style.height = "100vh";
   } else {
-    const top = content.getBoundingClientRect().top;
-    if(top <= 0) {
-      content.style.height = "calc(100% + " + (-top - 10) + "px)";
-    } else {
-      content.style.height = "calc(100% - " + (top + 10) + "px)";
-    }
+    bg.style.position = "absolute";
+    console.log();
+    bg.style.height = "calc(100vh - "
+      + window.getComputedStyle(document.getElementById("banner")).height
+      + " - " + window.getComputedStyle(document.getElementById("banner")).marginBottom
+      + " - " + window.getComputedStyle(document.getElementById("banner")).paddingTop
+      + " - " + document.getElementById("banner").getBoundingClientRect().top + "px"
+      + ")";
   }
 
 }

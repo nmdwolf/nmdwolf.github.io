@@ -20,7 +20,7 @@
   </head>
   <body>
 
-    <div class="banner">
+    <div id="banner">
         <p style = "font-size:30px;margin:0">Nico's Blog</p>
 
         <div class="navbar">
@@ -31,8 +31,12 @@
         </div>
     </div>
 
-    <div id="content">
-      <br id="final">
+    <div id="box">
+      <div id="background">
+      </div>
+
+      <div id="content">
+      </div>
     </div>
 
     <script>
@@ -55,7 +59,7 @@
 
       request.onload = function(){
         if(this.status == 200){
-          content.innerHTML = this.responseText + "<br id=\"final\">";
+          content.innerHTML = this.responseText;
           document.title = src;
         }
         else {
@@ -72,6 +76,7 @@
           content.innerHTML += "<div style=\"text-align:center\">However, please enjoy this beautiful formula by " + examples[index] + "</div>";
         }
 
+        MathJax.typeset();
         fillContent();
       }
       request.send();
