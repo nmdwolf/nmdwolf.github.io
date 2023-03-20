@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="./styles.css?v=1.0">
 
-    <title>Blog</title>
+    <title>Insider</title>
   </head>
   <body>
 
@@ -27,10 +27,6 @@
           <a class="nav" href="./index.html" style="left:10px">Home</a>
           <a class="nav" href="./info.html" style="left:10px">Info</a>
           <a class="nav" href="./pub.html" style="left:30px">Publications</a>
-          <form id="insider" style="visibility:hidden;" >
-            <input type="password" id="password">
-            <input type="submit" id="submit">
-          </form>
         </div>
     </div>
 
@@ -39,28 +35,13 @@
       <div id="content">
 
         <h1 style="margin:0">
-          Blogposts:
+          Future posts:
         </h1>
 
         <ol class="list">
-          <li><a href="./blogview.html?src=PI">Prediction intervals</a></li>
-        </ol>
-
-        <h1>
-          Past talks & seminars:
-        </h1>
-
-        <ol class="list">
-          <li><a href="./blogview.html?src=NF">Normalizing flows for regression problems</a></li>
-        </ol>
-
-        <h1>
-          Upcoming posts:
-        </h1>
-
-        <ol class="list">
-          <li>The era of quantum computing?</li>
-          <li>Does strong typing teach us something about physics?</li>
+          <li><a href="./future/MPS.html">Frieze groups and MPS</a></li>
+          <li><a href="./future/Type1.html">Type Theory 1</a></li>
+          <li><a href="./future/Type2.html">Type Theory 2</a></li>
         </ol>
 
       </div>
@@ -70,22 +51,6 @@
     <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="./setup.js?v=123"></script>
     <script>setup()</script>
-
-    <!--
-      This code is not for security reasons. It is merely to hide future posts. People can access it if they want to the post are just not finished yet.
-    -->
-    <script>
-      document.addEventListener("keydown", (event) => {
-        if(event.ctrlKey & event.key == "i") {
-          document.getElementById("insider").style.visibility = "visible";
-          document.getElementById("submit").onclick = function() {
-            if(document.getElementById("password").textContent == "insider") {
-              window.location = "./future/insider.html";
-            }
-          };
-        }
-      }, false);
-    </script>
   </body>
 
 </html>
