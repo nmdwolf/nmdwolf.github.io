@@ -29,7 +29,7 @@
           <a class="nav" href="./pub.html" style="left:30px">Publications</a>
           <form id="insider" style="visibility:hidden;" >
             <input type="password" id="password">
-            <input type="submit" id="submit">
+            <input type="submit" id="submit" value="Submit">
           </form>
         </div>
     </div>
@@ -76,11 +76,11 @@
     -->
     <script>
       document.addEventListener("keydown", (event) => {
-        if(event.ctrlKey & event.key == "i") {
+        if(event.ctrlKey & event.altKey & event.key == "i") {
           document.getElementById("insider").style.visibility = "visible";
           document.getElementById("submit").onclick = function() {
             if(document.getElementById("password").textContent == "insider") {
-              window.location = "./future/insider.html";
+              window.location.href = "./future/insider.html";
             }
           };
         }
