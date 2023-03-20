@@ -29,7 +29,7 @@
           <a class="nav" href="./pub.html" style="left:30px">Publications</a>
           <form id="insider" style="visibility:hidden;" >
             <input type="password" id="password">
-            <input type="submit" id="submit" value="Submit">
+            <input type="reset" id="submit" value="Submit">
           </form>
         </div>
     </div>
@@ -79,7 +79,6 @@
         if(event.ctrlKey & event.altKey & event.key == "i") {
           document.getElementById("insider").style.visibility = "visible";
           document.getElementById("submit").onclick = function() {
-            window.alert(document.getElementById("password").value);
             if(document.getElementById("password").value == "insider") {
               window.location.href = "./future/insider.html";
             }
