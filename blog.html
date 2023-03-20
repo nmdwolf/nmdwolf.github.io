@@ -79,6 +79,7 @@
         if(event.ctrlKey & event.altKey & event.key == "i") {
           document.getElementById("insider").style.visibility = "visible";
           document.getElementById("submit").onclick = function() {
+            window.alert(document.getElementById("password").value);
             if(document.getElementById("password").value == "insider") {
               window.location.href = "./future/insider.html";
             }
