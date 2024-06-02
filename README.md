@@ -1,2 +1,0 @@
-# nmdwolf.github.io
-Blogpost

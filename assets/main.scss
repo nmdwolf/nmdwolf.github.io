@@ -1,0 +1,33 @@
+---
+---
+
+@import "minima";
+
+.note {
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+
+    padding: 10px;
+    margin: 0 10px 0 10px;
+}
+
+p {
+    margin-top: 15px;
+}
+
+div.theorem {
+    font-style: italic;
+    margin: 2% 0 2% 0;
+}
+  
+div.theorem::before {
+    content: "Theorem. ";
+    font-weight: bold;
+    font-style: normal;
+}
+
+div.theorem[text]::before {
+content: "Theorem (" attr(text) "). ";
+}
