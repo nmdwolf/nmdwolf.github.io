@@ -57,6 +57,7 @@ On this page, all blog posts, presentations and other updates are listed.
     <h2 class="post-list-heading">Talks and presentations</h2>
     <ul class="post-list">
         {%- for post in site.categories.talk -%}
+        {% if post.done == true %}
         <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <span class="post-meta">{{ post.date | date: date_format }}</span>
@@ -69,6 +70,7 @@ On this page, all blog posts, presentations and other updates are listed.
             {{ post.excerpt }}
         {%- endif -%}
         </li>
+        {% endif %}
         {%- endfor -%}
     </ul>
 {%- endif -%}

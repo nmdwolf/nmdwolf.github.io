@@ -1,6 +1,6 @@
 1. Summer school in Tuscany (Trivia)
 1. Climbing in Fontainebleau (Trivia)
-1. Trip to Cyprus (Trivia)
 1. Public PhD defense (Talk)
-1. Pictorial Bayes (Talk)
+1. Pictorial Bayes a.k.a. Drawing pictures with Nico (Talk)
 1. Cournot and the frequentist's secret (Talk)
+1. Frieze patterns, group cohomology and quantum information theory (Post)

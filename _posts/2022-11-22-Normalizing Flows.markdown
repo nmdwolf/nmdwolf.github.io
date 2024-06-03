@@ -3,6 +3,7 @@ layout: post
 title:  "Normalizing flows for regression problems"
 date:   2022-06-16
 categories: talk
+done: true
 ---
 
 This talk, given as part of the Machine Learning Discussion Group of KERMIT, had three goals:
@@ -108,13 +109,13 @@ By contrast, the planar flows are expressive, but their inverse generally does n
 
 The most powerful transformation is the so-called <b>autoregressive (</b>or <b>triangular) flow</b>. In components it is given by
 
-$$\Phi^\mu(x) := h_\mu\big(x^\mu;\theta_\mu(x^1,\ldots,x^{\mu-1})\big).$$
+$$\Phi^\mu(x) := h_\mu\bigl(x^\mu;\theta_\mu(x^1,\ldots,x^{\mu-1})\bigr).$$
 
 The structure of such a flow is shown in the figure below.
 
-<figure style="display:block;text-align:center">
-  <img src="{{site.baseurl}}/assets/figures/NF.jpg" alt="Autoregressive flow" style="border-radius:15px">
-</figure>
+<center>
+  <img src="{{site.baseurl}}/assets/figures/NF.jpg" alt="Autoregressive flow" style="width: 75%">
+</center>
 
 The reason for why autoregressive flows are so important is given by the following theorem
 which implies the universality of the classes of autoregressive flows with increasing coupling functions (or any dense subset thereof)
@@ -156,7 +157,7 @@ where:
 
 Instead of discretizing the flow $\phi:\mathbb{R}\times\mathbb{R}^d\rightarrow\mathbb{R}^d$, we can use the fact that flows are usually the solutions of an ordinary differential equation (ODE). For example, consider
 
-$$\Phi_{(k)}:=𝟙_{d\times d} + \tfrac{1}{k}\xi\qquad\text{with}\qquad\xi\in M_d(\mathbb{R})\,.$$
+$$\Phi_{(k)}:=\mathbb{1}_{d\times d} + \tfrac{1}{k}\xi\qquad\text{with}\qquad\xi\in M_d(\mathbb{R})\,.$$
 
 The powers $\Phi_{(k)}^k$ converge to the exponential map $\exp(\xi)$, which is the (time-1 map of the) solution of the ODE
 

@@ -3,6 +3,7 @@ layout: post
 title:  "Prediction Intervals"
 date:   2022-11-23
 categories: post
+done: true
 ---
 
 This post is based on my first paper published earlier this year: "Valid prediction intervals for regression problems" in collaboration

@@ -4,13 +4,13 @@
 @import "minima";
 
 .note {
-    border-radius: 5px;
+    border-radius: 10px;
     border-color: black;
     border-style: solid;
     border-width: 2px;
 
     padding: 10px;
-    margin: 0 10px 0 10px;
+    margin: 15px 10px 15px 10px;
 }
 
 p {
@@ -30,6 +30,26 @@ div.theorem::before {
 
 div.theorem[text]::before {
 content: "Theorem (" attr(text) "). ";
+}
+
+div.def {
+    border-radius: 10px;
+    border-color: lightgray;
+    border-style: solid;
+    border-width: 2px;
+
+    padding: 10px;
+    margin: 15px 10px 15px 10px;
+}
+
+div.def::before {
+    content: "Definition. ";
+    font-weight: bold;
+    font-style: normal;
+}
+
+div.def[text]::before {
+content: "Definition (" attr(text) "). ";
 }
 
 .site-nav .page-link-box {
@@ -75,4 +95,12 @@ content: "Theorem (" attr(text) "). ";
     .dp {
         visibility: hidden;
     }
+}
+
+.note p, .def p, .wrapper p {
+    margin: 0;
+}
+
+ul, ol, img {
+    margin-top: 15px;
 }
