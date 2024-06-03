@@ -31,3 +31,36 @@ div.theorem::before {
 div.theorem[text]::before {
 content: "Theorem (" attr(text) "). ";
 }
+
+.site-nav .page-link-box {
+    display: inline-block;
+
+    &:not(:last-child) {
+        border-right: solid 1px #e8e8e8;
+        padding-right: 10px;
+        margin-right: 10px;
+    }
+}
+
+.site-header {
+    line-height: 54px;
+    min-height: 54px;
+}
+
+.site-nav .page-link {
+    transition: bottom ease .5s;
+    transition-timing-function: ease;
+    display: flex;
+    bottom: 0;
+    position: relative;
+    color: rgb(30, 100, 200);
+    text-align: center;
+    align-items: center;
+    align-content: flex-start;
+    line-height: inherit;
+    margin: 0;
+
+    &:hover {
+        bottom: -10px;
+    }
+}

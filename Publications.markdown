@@ -2,7 +2,7 @@
 layout: page
 title: Publications
 permalink: /pub/
-order: 3
+order: 2
 ---
 
 

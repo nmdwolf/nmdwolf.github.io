@@ -3,7 +3,6 @@ layout: post
 title:  "Normalizing flows for regression problems"
 date:   2022-06-16
 categories: talk
-type: talk
 ---
 
 This talk, given as part of the Machine Learning Discussion Group of KERMIT, had three goals:
@@ -147,7 +146,7 @@ This first maps $F$ to the uniform distribution on $[0,1]$ and then, with the qu
 However, this requires the knowledge of both $F$ and $G^{-1}$ (in closed form if we want to implement this).
 Since this is not possible, we replace the transformation by a sequence of simpler ones and apply variational optimization using the loglikelihood
 
-$$\mathcal{L}(\mathcal{D}) = \sum_{(\mathbf{x},y)\in\mathcal{D}}\left(\log\Bigl(\mathcal{N}\bigl(\Psi(y\mid\mathbf{x})\bigr)\!\Bigr) + \sum_{i=1}^k\log\dot{\Phi}_i\big(\Phi_{i-1}(y\mid\mathbf{x})\big)\!\right)\,,$$
+$$\mathcal{L}(\mathcal{D}) = \sum_{(\mathbf{x},y)\in\mathcal{D}}\left(\log\Bigl(\mathcal{N}\bigl(\Psi(y\mid\mathbf{x})\bigr)\!\Bigr) + \sum_{i=1}^k\log\dot{\Phi}_i\bigl(\Phi_{i-1}(y\mid\mathbf{x})\bigr)\!\right)\,,$$
 
 where:
 * $\Psi(\,\cdot\mid X):\mathbb{R}\rightarrow\mathbb{R}$ is the total transformation $P(Y\mid X)\rightarrow\mathcal{N}$.

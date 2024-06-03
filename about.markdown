@@ -2,7 +2,7 @@
 layout: page
 title: About
 permalink: /about/
-order: 2
+order: 3
 ---
 
 <h2>Who am I?</h2>

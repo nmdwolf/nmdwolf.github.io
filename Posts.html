@@ -1,0 +1,56 @@
+---
+layout: page
+title: Posts
+permalink: /posts/
+order: 1
+---
+
+On this page, all blog posts, presentations and other updates are listed. 
+
+<br><br>
+
+{%- if site.categories.post.size > 0 -%}
+    <h2 class="post-list-heading">Posts</h2>
+    <ul class="post-list">
+        {%- for post in site.categories.post -%}
+        <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+            </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+        {%- endif -%}
+        </li>
+        {%- endfor -%}
+    </ul>
+{%- endif -%}
+
+<br><br>
+
+{%- if site.categories.talk.size > 0 -%}
+    <h2 class="post-list-heading">Talks and presentations</h2>
+    <ul class="post-list">
+        {%- for post in site.categories.talk -%}
+        <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+            </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+        {%- endif -%}
+        </li>
+        {%- endfor -%}
+    </ul>
+{%- endif -%}
+
+<br><br>
+
+<h2 class="post-list-heading">Upcoming posts</h2>
