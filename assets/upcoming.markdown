@@ -1,0 +1,6 @@
+1. Summer school in Tuscany (Trivia)
+1. Climbing in Fontainebleau (Trivia)
+1. Trip to Cyprus (Trivia)
+1. Public PhD defense (Talk)
+1. Pictorial Bayes (Talk)
+1. Cournot and the frequentist's secret (Talk)

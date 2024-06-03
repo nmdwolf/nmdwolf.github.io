@@ -64,3 +64,15 @@ content: "Theorem (" attr(text) "). ";
         bottom: -10px;
     }
 }
+
+.dp {
+    position: absolute;
+    width: 250px;
+    margin-top: -30px;
+}
+
+@media (max-width: 1300px) {
+    .dp {
+        visibility: hidden;
+    }
+}
