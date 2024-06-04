@@ -3,16 +3,6 @@
 
 @import "minima";
 
-.note {
-    border-radius: 10px;
-    border-color: black;
-    border-style: solid;
-    border-width: 2px;
-
-    padding: 10px;
-    margin: 15px 10px 15px 10px;
-}
-
 p {
     margin-top: 15px;
 }
@@ -97,10 +87,44 @@ content: "Definition (" attr(text) "). ";
     }
 }
 
+.note {
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+
+    padding: 10px;
+    margin: 15px 10px 15px 10px;
+
+    position: relative;
+}
+
 .note p, .def p, .wrapper p {
     margin: 0;
 }
 
+.note.side {
+    position: absolute;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    left: calc(100% + 40px);
+}
+
 ul, ol, img {
     margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+img.boxed {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(211, 211, 211, 0.75);
+    border-radius: 10px;
+
+    padding: 10px;
 }

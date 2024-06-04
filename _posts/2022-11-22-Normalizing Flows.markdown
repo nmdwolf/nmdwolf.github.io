@@ -27,11 +27,13 @@ These conditions can be understood in an intuitive way. The first condition is a
 The second and third conditions are compatibility conditions stating that we should be able to combine information about parts of the system.
 
 <div class="note">
-  There exist two trivial examples: the <b>trivial $\sigma$-algebra</b> $\{\emptyset,\mathcal{X}\}$ and the <b>discrete $\sigma$-algebra</b> $P(\mathcal{X})$. These correspond to the situation where we know either nothing or everything about the system. As such they are a bit boring. A much more interesting class of examples is obtained when we have a notion of distance $d:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}^+$, such as the standard Euclidean distance on $\mathbb{R}^n$. The <a href="https://en.wikipedia.org/wiki/Borel_set">Borel $\sigma$-algebra</a> of a <a target = "_blank" href="https://en.wikipedia.org/wiki/Metric_space">metric space</a> is the smallest $\sigma$-algebra containing all open balls
+<div class = "side">Note</div>
+
+There exist two trivial examples: the <b>trivial $\sigma$-algebra</b> $\{\emptyset,\mathcal{X}\}$ and the <b>discrete $\sigma$-algebra</b> $P(\mathcal{X})$. These correspond to the situation where we know either nothing or everything about the system. As such they are a bit boring. A much more interesting class of examples is obtained when we have a notion of distance $d:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}^+$, such as the standard Euclidean distance on $\mathbb{R}^n$. The <a href="https://en.wikipedia.org/wiki/Borel_set">Borel $\sigma$-algebra</a> of a <a target = "_blank" href="https://en.wikipedia.org/wiki/Metric_space">metric space</a> is the smallest $\sigma$-algebra containing all open balls
   
-  $$B(x,r):=\{y\in\mathcal{X}\mid d(x,y) < r\}\,.$$
+$$B(x,r):=\{y\in\mathcal{X}\mid d(x,y) < r\}\,.$$
   
-  For example, on $\mathbb{R}$, the Borel sets are those "generated" by the open intervals $]a,b[$ for all $a<b\in\overline{\mathbb{R}}$. (Generated means that they are constructed using complements and countable unions.)
+For example, on $\mathbb{R}$, the Borel sets are those "generated" by the open intervals $]a,b[$ for all $a<b\in\overline{\mathbb{R}}$. (Generated means that they are constructed using complements and countable unions.)
 </div>
 
 After choosing a measurable space $(\mathcal{X},\Sigma)$, we can define a <b>measure</b>. This a nonnegative set function $\mu:\Sigma\rightarrow\overline{\mathbb{R}}^+$ satisfying:
@@ -82,8 +84,9 @@ A <b>flow</b> is a continuous function $\phi:\mathbb{R}\times\mathcal{X}\rightar
 1. $\phi_t$ is invertible for all $t\in\mathbb{R}$ with $\phi_{-t}=(\phi_t)^{-1}$.
 
 <div class="note">
-  For the mathematically inclined reader: This means that under <i>currying</i> a flow is equivalent to a group morphism from the additive group $\mathbb{R}$ to the automorphism group $\mathrm{Aut}(\mathcal{X})$,
-  i.e. the group of all invertible functions $\mathcal{X}\rightarrow\mathcal{X}$.
+<div class = "side">Note</div>
+
+For the mathematically inclined reader: This means that under <i>currying</i> a flow is equivalent to a group morphism from the additive group $\mathbb{R}$ to the automorphism group $\mathrm{Aut}(\mathcal{X})$, i.e. the group of all invertible functions $\mathcal{X}\rightarrow\mathcal{X}$.
 </div>
 
 In practice, this is often approximated by a "discrete flow" $\phi:\mathbb{Z}\times\mathcal{X}\rightarrow\mathcal{X}$:
