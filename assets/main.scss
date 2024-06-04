@@ -103,7 +103,7 @@ content: "Definition (" attr(text) "). ";
     margin: 0;
 }
 
-.note.side {
+.note .side {
     position: absolute;
     transform: rotate(90deg);
     transform-origin: top left;
