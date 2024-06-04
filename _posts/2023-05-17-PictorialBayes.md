@@ -23,10 +23,14 @@ In most (applied) courses on probability theory and statistics, the definition o
 
 The first part of the talk consisted of a formal treatment by first considering the notion of event, and only then, introducing the collection of distributions compatible with these events. For an arbitrary set $\mathcal{X}$, a good choice of events, called <b>measurable subsets</b>, is given by the following notion.
 
-<b>Definition ($\sigma$-algebra).</b> A collection $\Sigma\subseteq2^\mathcal{X}$ of subsets such that:
+<div class = "def">
+Definition ($\sigma$-algebra).</b> A collection $\Sigma\subseteq2^\mathcal{X}$ of subsets such that:
+<div markdown = "1">
 1. The set itself is measurable: $\mathcal{X}\in\Sigma$.
 1. Complements of measurable sets are measurable: \\[A\in\Sigma\implies A^c\in\Sigma\,.\\]
 3. Countable (disjoint) unions of measurable sets are measurable: \\[(A_n)\_{n\in\mathbb{N}}\subseteq\Sigma\implies\bigsqcup\_{i=1}^{+\infty}A\_i\in\Sigma\,.\\]
+</div>
+</div>
 
 There exist two trivial examples:
 * The trivial $\sigma$-algebra: $\Sigma_\text{trivial}:=\\{\emptyset,\mathcal{X}\\}$, and
