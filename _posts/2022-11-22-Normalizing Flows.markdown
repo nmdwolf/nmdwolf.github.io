@@ -4,14 +4,25 @@ title:  "Normalizing flows for regression problems"
 date:   2022-06-16
 categories: talk
 done: true
+ids:
+  - Overview
+  - MeasureTheory
+  - Flows
+  - RegressionProblems
+  - Extras
+  - References
 ---
+
+<hr id = "Overview">
+<div class = "nav-block"><div class = "side">Overview</div></div>
 
 This talk, given as part of the Machine Learning Discussion Group of KERMIT, had three goals:
 1. Giving an introduction to the formal (measure-theoretic) foundations of probability theory.
 2. Explaining how to transform an arbitrary distribution into a normal distribution.
 3. Applying the normalizing flow framework to regression problems.
 
-<h3>1) Measure theory</h3>
+<hr id = "MeasureTheory">
+<div class = "nav-block"><div class = "side">Measure Theory</div></div>
 
 In the past people noticed that, given the foundations of set theory, it was impossible to consistently assign a volume to all subsets of a Euclidean space $\mathbb{R}^d$ (see <a href="https://en.wikipedia.org/wiki/Non-measurable_set">this Wikipedia article</a>).
 The solution was, instead of first choosing a measuring function (such as the volume) and applying this to arbitrary sets,
@@ -40,7 +51,7 @@ After choosing a measurable space $(\mathcal{X},\Sigma)$, we can define a <b>mea
 1. Emptiness: $\mu(\emptyset)=0$.
 1. <b>$\sigma$-additivity</b>: $\mu\left(\bigsqcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty\mu(A_i)$.
 
-If $\mu(\mathcal{X})=1$, we call the measure a <b>probability measure</b>. It is not hard to see that every finite measure can be turned into a probability measure. On $\mathbb{R}^d$, the probability measures are usually defined through cumulative distribution functions or, in some cases, by probability density functions (through the <a target = "_blank" href="https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem">Radon-Nikodym theorem</a>). On finite sets, the most common measure is the "counting measure" or "uniform distribution":
+If $\mu(\mathcal{X})=1$, we call the measure a <b>probability measure</b>. It is not hard to see that every finite measure can be turned into a probability measure. On $\mathbb{R}^d$, the probability measures are usually defined through cumulative distribution functions or, in some cases, by probability density functions (through the <a target = "_blank" href="https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem">Radon&ndash;Nikodym theorem</a>). On finite sets, the most common measure is the "counting measure" or "uniform distribution":
 
 $$\mu_\text{count}(A) := |A|\qquad\qquad\mu_\text{uni}(A):=\frac{|A|}{|\mathcal{X}|}.$$
 
@@ -76,7 +87,8 @@ Now, because of the theorem above, if a sequence of measurable functions $(f_n)_
 
 $$\forall x\in\mathcal{X}:\lim_{n\rightarrow\infty}f_n(x)=f(x)\implies f_{n,\ast}\mu\rightsquigarrow f_\ast\mu\,.$$
 
-<h3>2) Flows</h3>
+<hr id = "Flows">
+<div class = "nav-block"><div class = "side">Flows</div></div>
 
 A <b>flow</b> is a continuous function $\phi:\mathbb{R}\times\mathcal{X}\rightarrow\mathcal{X}:(t,x)\mapsto\phi_t(x)$ satisfying:
 1. $\phi_0=𝟙_\mathcal{X}$,
@@ -117,7 +129,7 @@ $$\Phi^\mu(x) := h_\mu\bigl(x^\mu;\theta_\mu(x^1,\ldots,x^{\mu-1})\bigr).$$
 The structure of such a flow is shown in the figure below.
 
 <center>
-  <img src="{{site.baseurl}}/assets/figures/NF.jpg" alt="Autoregressive flow" style="width: 75%">
+  <img src="{{site.baseurl}}/assets/figures/NF.jpg" alt="Autoregressive flow" style="width: 60%">
 </center>
 
 The reason for why autoregressive flows are so important is given by the following theorem
@@ -135,7 +147,8 @@ $$\Psi(X)\sim\mathcal{N}(0,𝟙_{d\times d})\,.$$
 (We could essentially use any fixed distribution, but normal distributions are much easier to work with.)
 To generate new samples, we simply sample points from a multinormal distribution and pass them through the flow function.
 
-<h3>3) Regression problems</h3>
+<hr id = "RegressionProblems">
+<div class = "nav-block"><div class = "side">Regression Problems</div></div>
 
 As mentioned at the end of the previous section, for generative models the joint distribution of, for example, the pixels of a picture is transformed to a (multi)normal distribution:
 
@@ -156,7 +169,8 @@ where:
 * $\Psi(\,\cdot\mid X):\mathbb{R}\rightarrow\mathbb{R}$ is the total transformation $P(Y\mid X)\rightarrow\mathcal{N}$.
 * Each $\Phi_i$ is modeled by a monotone network: \\[\Phi_i(y\mid\mathbf{x}) := \int_0^y\bigl(f_i(u,\mathbf{x})+1\bigr)\,\mathrm{d}u + \text{cnst}\\] with $f_i:\mathbb{R}\times\mathcal{X}\rightarrow\mathbb{R}$ an unconstrained neural network with final ELU activation.
 
-<h3>4) Extras</h3>
+<hr id = "Extras">
+<div class = "nav-block"><div class = "side">Extras</div></div>
 
 Instead of discretizing the flow $\phi:\mathbb{R}\times\mathbb{R}^d\rightarrow\mathbb{R}^d$, we can use the fact that flows are usually the solutions of an ordinary differential equation (ODE). For example, consider
 
@@ -174,8 +188,8 @@ $$\text{minimize }\int_\mathcal{X}c\bigl(x,\Psi(x)\bigr)\,\mathrm{d}\mu(x)\qquad
 
 Here, the challenge is to find the minimal cost for transporting products from producers, distributed according to $\mu$, to consumers, distributed according to $\nu$.
 
-<br>
-<h3>References</h3>
+<hr id = "References">
+<div class = "nav-block"><div class = "side">References</div></div>
 
 * Kobyzev, I., Prince, S. J., & Brubaker, M. A. (2020). Normalizing flows: An introduction and review of current methods. IEEE transactions on pattern analysis and machine intelligence, 43(11), 3964-3979.
 * Bogachev, V. I., Kolesnikov, A. V., & Medvedev, K. V. (2005). Triangular transformations of measures. Sbornik: Mathematics, 196(3), 309-335.

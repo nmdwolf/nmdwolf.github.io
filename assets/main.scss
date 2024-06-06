@@ -3,6 +3,20 @@
 
 @import "minima";
 
+$spacing-unit:      30px !default;
+$header-height:     $spacing-unit * 1.865;
+
+#navigator {
+    position: fixed;
+    right: 5px;
+    top: calc(#{$header-height} + 5px);
+
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+    border-color: #e8e8e8;
+    padding-right: $spacing-unit;
+}
+
 p {
     margin-top: 15px;
 }
@@ -52,14 +66,8 @@ content: "Definition (" attr(text) "). ";
     }
 }
 
-.site-header {
-    line-height: 54px;
-    min-height: 54px;
-}
-
 .site-nav .page-link {
     transition: bottom ease .5s;
-    transition-timing-function: ease;
     display: flex;
     bottom: 0;
     position: relative;
@@ -75,15 +83,24 @@ content: "Definition (" attr(text) "). ";
     }
 }
 
-.dp {
+.dp_container {
     position: absolute;
     width: 250px;
     margin-top: -30px;
 }
 
-@media (max-width: 1300px) {
-    .dp {
-        visibility: hidden;
+.dp_text {
+    position: absolute;
+}
+
+.dp {
+    position: absolute;
+    margin-top: 0;
+    top: 0;
+    transition: top 1s ease;
+
+    &:hover {
+        top: 100px;
     }
 }
 
@@ -106,18 +123,37 @@ content: "Definition (" attr(text) "). ";
 .note .side {
     position: absolute;
     transform: rotate(90deg);
-    transform-origin: top left;
-    left: calc(100% + 40px);
-}
-
-ul, ol, img {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    transform-origin: center;
+    left: calc(100% + #{$spacing-unit});
 }
 
 hr {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.nav-block {
+    position: relative;
+    top: -11px;
+}
+
+.nav-block .side {
+    position: absolute;
+    transform: translate(calc(-100% - 60px)) rotate(-90deg);
+    transform-origin: top right;
+    border-bottom: solid 2px #111;
+    transition: transform 1.5s ease, left 1.5s ease;
+    left: 0;
+}
+
+.nav-block .side.active {
+    transform: translate(-100%) rotate(0);
+    left: -$spacing-unit;
+}
+
+ul, ol, img {
+    margin-top: calc(#{$spacing-unit} / 2);
+    margin-bottom: calc(#{$spacing-unit} / 2);
 }
 
 img.boxed {
@@ -127,4 +163,14 @@ img.boxed {
     border-radius: 10px;
 
     padding: 10px;
+}
+
+@media (max-width: 1360px) {
+    .dp_container {
+        visibility: hidden;
+    }
+
+    #navigator {
+        visibility: hidden;
+    }
 }

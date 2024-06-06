@@ -5,7 +5,7 @@ permalink: /posts/
 order: 1
 ---
 
-On this page, all blog posts, presentations and other updates are listed. 
+On this page; all blog posts, presentations and other updates are listed. 
 
 {%- if site.categories.post.size > 0 -%}
     <br><br>
@@ -80,7 +80,67 @@ On this page, all blog posts, presentations and other updates are listed.
 <h2 class="post-list-heading">Upcoming posts</h2>
 
 {% capture future %}
-{% include_relative assets/upcoming.markdown %}
+  {% include_relative assets/upcoming.md %}
 {% endcapture %}
 
 {{- future | markdownify -}}
+
+<br><br>
+
+<h2 class="post-list-heading" id = "Index">Index</h2>
+
+{% assign def_array = "" | split: "," %}
+{% assign link_array = "" | split: "," %}
+{% for post in site.posts %}
+  {% assign filename = post.path | split: "/" | last | split: "." | first %}
+  {% if post.defs %}
+    {% for def in post.defs %}
+      {% assign item = def | append: "|" | append: post.url %}
+      {% assign def_array = def_array | push: item %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+{% assign def_array = def_array | sort %}
+{% assign counter = 0 %}
+
+<div style = "display: grid; justify-items: center;">
+    <div style = "grid-column-start: 1">
+        {% assign alphabet = "ABCDEFGHIJKLM" | split: "" %}
+        <ul>
+        {% for letter in alphabet %}
+          <li>{{ letter }}</li>
+          <ul>
+            {% for def in def_array %}
+              {% assign def_split = def | split: "" %}
+              {% if def_split[0] == letter %}
+                {% assign value = def | split: "|" | first %}
+                {% assign postlink = def | split: "|" | last %}
+                <li><a href = "{{ postlink }}#{{ value }}">{{ value }}</a></li>
+                {% assign counter = counter | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div style = "grid-column-start: 2">
+        {% assign alphabet = "NOPQRSTUVWXYZ" | split: "" %}
+        <ul>
+          {% for letter in alphabet %}
+            <li>{{ letter }}</li>
+            <ul>
+            {% for def in def_array %}
+              {% assign def_split = def | split: "" %}
+              {% if def_split[0] == letter %}
+                {% assign value = def | split: "|" | first %}
+                {% assign postlink = def | split: "|" | last %}
+                <li><a href = "{{ postlink }}#{{ value }}">{{ value }}</a></li>
+                {% assign counter = counter | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+            </ul>
+          {% endfor %}
+        </ul>
+</div>

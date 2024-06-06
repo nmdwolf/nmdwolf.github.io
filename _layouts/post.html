@@ -4,6 +4,28 @@ layout: default
 
 {% include mathjax.html %}
 
+{% if page.ids %}
+
+  <div id = "navigator">
+    <ul>
+      <li><a href = "#site-header">Back to top</a></li>
+      <br>
+      {% for id in page.ids %}
+      {% assign words = id | split: " " %}
+      {%- capture full_id -%}
+        {% for word in words %}
+          {{- word | capitalize -}}
+        {% endfor %}
+      {%- endcapture -%}
+        <li>
+          <a href = "#{{ full_id }}">{{ id }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endif %}
+
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
@@ -28,3 +50,18 @@ layout: default
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+<script>
+  function rotator(object) {
+      var active = document.getElementsByClassName("active");
+      for(let obj of active) {
+          obj.className = obj.className.replace(" active", "");
+      }
+      object.className += " active";
+  }
+
+  objects = document.getElementsByClassName("side");
+  for(let object of objects) {
+      object.addEventListener("click", () => rotator(object));
+  }
+</script>
