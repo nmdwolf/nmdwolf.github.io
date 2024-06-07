@@ -9,7 +9,7 @@ layout: home
 
 <h1>Welcome to my site</h1>
 
-<div class = "note">
+<div class = "note" style = "text-align: center">
     This site is still under development. It has recently been ported to a Jekyll build.
 </div>
 

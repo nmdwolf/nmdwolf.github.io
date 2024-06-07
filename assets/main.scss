@@ -132,25 +132,6 @@ hr {
     margin-bottom: 10px;
 }
 
-.nav-block {
-    position: relative;
-    top: -11px;
-}
-
-.nav-block .side {
-    position: absolute;
-    transform: translate(calc(-100% - 60px)) rotate(-90deg);
-    transform-origin: top right;
-    border-bottom: solid 2px #111;
-    transition: transform 1.5s ease, left 1.5s ease;
-    left: 0;
-}
-
-.nav-block .side.active {
-    transform: translate(-100%) rotate(0);
-    left: -$spacing-unit;
-}
-
 ul, ol, img {
     margin-top: calc(#{$spacing-unit} / 2);
     margin-bottom: calc(#{$spacing-unit} / 2);
@@ -165,6 +146,37 @@ img.boxed {
     padding: 10px;
 }
 
+.nav-block .side {
+    border-bottom: solid 2px #111;
+    width: fit-content;
+}
+
+.ongoing {
+    color: rgb(230, 150, 2);
+}
+
+@media (min-width: 1360px) {
+
+    .nav-block {
+        position: relative;
+        top: -11px;
+    }
+
+    .nav-block .side {
+        position: absolute;
+        transform: translate(calc(-100% - 60px)) rotate(-90deg);
+        transform-origin: top right;
+        transition: transform 1.5s ease, left 1.5s ease;
+        left: 0;
+    }
+
+    .nav-block .side.active {
+        transform: translate(-100%) rotate(0);
+        left: -$spacing-unit;
+    }
+
+}
+
 @media (max-width: 1360px) {
     .dp_container {
         visibility: hidden;
@@ -172,5 +184,9 @@ img.boxed {
 
     #navigator {
         visibility: hidden;
+    }
+
+    .nav-block {
+        margin-bottom: $spacing-unit;
     }
 }

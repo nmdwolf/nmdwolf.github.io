@@ -3,22 +3,23 @@ layout: post
 title:  "A new language for science and philosophy"
 date:   2023-06-30
 categories: talk
-done: true
+publish: true
+ongoing: true
 ids:
     - Overview
     - Typing
-    - ComputationalTrilogy
-    - TypeTheory
+    - Computational Trilogy
+    - Type Theory
     - Modalities
     - HoTT
     - References
     - Footnotes
 defs:
     - Adjoints
-    - ComputationalTrilogy
+    - Computational Trilogy
     - Type
     - Term
-    - NaturalDeduction
+    - Natural Deduction
 ---
 
 This post contains the content of a talk, titled "A new language for science and philosophy", that I gave for the Science Cafe at the Faculty of Bioscience Engineering (UGent). This talk was born after reading the book "Modal homotopy type theory: The prospect of a new logic for philosophy" by David Corfield and, although most people in the audience might have felt like they got struck by hammer (a lot of information in an arguably too short time frame), I had a lot of fun preparing and giving it.

@@ -3,12 +3,12 @@ layout: post
 title:  "Normalizing flows for regression problems"
 date:   2022-06-16
 categories: talk
-done: true
+publish: true
 ids:
   - Overview
-  - MeasureTheory
+  - Measure Theory
   - Flows
-  - RegressionProblems
+  - Regression Problems
   - Extras
   - References
 ---
