@@ -155,6 +155,19 @@ img.boxed {
     color: rgb(230, 150, 2);
 }
 
+#index {
+    display: grid;
+    justify-items: center;
+
+    #left {
+        grid-column-start: 1;
+    }
+
+    #right {
+        grid-column-start: 2;
+    }
+}
+
 @media (min-width: 1360px) {
 
     .nav-block {
@@ -188,5 +201,9 @@ img.boxed {
 
     .nav-block {
         margin-bottom: $spacing-unit;
+    }
+
+    #index #right {
+        grid-column-start: 1;
     }
 }

@@ -7,8 +7,8 @@ layout: default
 {% if page.ids %}
 
   <div id = "navigator">
+    <i class = "fa fa-chevron-up" style = "margin-left: calc(1em - 5px)"></i> <a href = "#site-header">Back to top</a>
     <ul>
-      <li><a href = "#site-header">Back to top</a></li>
       <br>
       {% for id in page.ids %}
       {% assign words = id | split: " " %}

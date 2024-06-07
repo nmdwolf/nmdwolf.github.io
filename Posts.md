@@ -124,8 +124,8 @@ On this page, all blog posts, presentations and other updates are listed.
 {% assign def_array = def_array | sort %}
 {% assign counter = 0 %}
 
-<div style = "display: grid; justify-items: center;">
-  <div style = "grid-column-start: 1">
+<div id = "index">
+  <div id = "left">
       {% assign alphabet = "ABCDEFGHIJKLM" | split: "" %}
       <ul>
       {% for letter in alphabet %}
@@ -145,7 +145,7 @@ On this page, all blog posts, presentations and other updates are listed.
       </ul>
   </div>
 
-  <div style = "grid-column-start: 2">
+  <div id = "right">
       {% assign alphabet = "NOPQRSTUVWXYZ" | split: "" %}
       <ul>
         {% for letter in alphabet %}

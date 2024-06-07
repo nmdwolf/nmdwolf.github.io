@@ -6,7 +6,7 @@ categories: talk
 publish: true
 ids:
   - Overview
-  - Measure Theory
+  - Measures
   - Flows
   - Regression Problems
   - Extras
@@ -21,69 +21,14 @@ This talk, given as part of the Machine Learning Discussion Group of KERMIT, had
 2. Explaining how to transform an arbitrary distribution into a normal distribution.
 3. Applying the normalizing flow framework to regression problems.
 
-<hr id = "MeasureTheory">
-<div class = "nav-block"><div class = "side">Measure Theory</div></div>
+<hr id = "Measures">
+<div class = "nav-block"><div class = "side">Measures</div></div>
 
-In the past people noticed that, given the foundations of set theory, it was impossible to consistently assign a volume to all subsets of a Euclidean space $\mathbb{R}^d$ (see <a href="https://en.wikipedia.org/wiki/Non-measurable_set">this Wikipedia article</a>).
-The solution was, instead of first choosing a measuring function (such as the volume) and applying this to arbitrary sets,
-to first fix the sets that should be measurable and then consider all consistent measures on that collection.
+For a refresher (or introduction) on measure theory, see the <a href = "{% post_url 2000-1-1-AppendixMeasures %}">appendix</a>. The most important concept for this post is that of a <a href = "{% post_url 2000-1-1-AppendixMeasures %}#Measure">measure</a>. For the study of (normalizing) flows, it is important to consider the convergence of measures. A sequence of measures $(\mu_n)_{n\in\mathbb{N}}$ on a measurable space $(\mathcal{X},\Sigma\_{\mathcal{X}})$ is said to <b>converge weakly</b> to a measure $\mu$ if
 
-To this end, consider an arbitrary space $\mathcal{X}$ and fix a collection of subsets $\Sigma\subseteq P(\mathcal{X})$.
-If this collection satisfies the following conditions, it is called a <b>$\sigma$-algebra</b> and the subsets are said to be <b>measurable</b>:
-* Totality: $\mathcal{X}\in\Sigma$.
-* Complements of measurable sets are measurable: $A\in\Sigma\implies\mathcal{X}\backslash A\in\Sigma$.
-* Countable unions of measurable sets are measurable: $(A\_n)\_{n\in\mathbb{N}}\subset\Sigma\implies\bigcup\_{i=1}^\infty A\_i\in\Sigma$.
+$$\lim_{n\rightarrow\infty}\int_\mathcal{X}g\,d\mu_n=\int_\mathcal{X}g\,d\mu$$
 
-These conditions can be understood in an intuitive way. The first condition is a kind of sanity check. The least we should be able to do is describe the object as a whole. If we cannot say anything about the whole system, why even bother looking at its components.
-The second and third conditions are compatibility conditions stating that we should be able to combine information about parts of the system.
-
-<div class="note">
-<div class = "side">Note</div>
-
-There exist two trivial examples: the <b>trivial $\sigma$-algebra</b> $\{\emptyset,\mathcal{X}\}$ and the <b>discrete $\sigma$-algebra</b> $P(\mathcal{X})$. These correspond to the situation where we know either nothing or everything about the system. As such they are a bit boring. A much more interesting class of examples is obtained when we have a notion of distance $d:\mathcal{X}\times\mathcal{X}\rightarrow\mathbb{R}^+$, such as the standard Euclidean distance on $\mathbb{R}^n$. The <a href="https://en.wikipedia.org/wiki/Borel_set">Borel $\sigma$-algebra</a> of a <a target = "_blank" href="https://en.wikipedia.org/wiki/Metric_space">metric space</a> is the smallest $\sigma$-algebra containing all open balls
-  
-$$B(x,r):=\{y\in\mathcal{X}\mid d(x,y) < r\}\,.$$
-  
-For example, on $\mathbb{R}$, the Borel sets are those "generated" by the open intervals $]a,b[$ for all $a<b\in\overline{\mathbb{R}}$. (Generated means that they are constructed using complements and countable unions.)
-</div>
-
-After choosing a measurable space $(\mathcal{X},\Sigma)$, we can define a <b>measure</b>. This a nonnegative set function $\mu:\Sigma\rightarrow\overline{\mathbb{R}}^+$ satisfying:
-1. Emptiness: $\mu(\emptyset)=0$.
-1. <b>$\sigma$-additivity</b>: $\mu\left(\bigsqcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty\mu(A_i)$.
-
-If $\mu(\mathcal{X})=1$, we call the measure a <b>probability measure</b>. It is not hard to see that every finite measure can be turned into a probability measure. On $\mathbb{R}^d$, the probability measures are usually defined through cumulative distribution functions or, in some cases, by probability density functions (through the <a target = "_blank" href="https://en.wikipedia.org/wiki/Radon%E2%80%93Nikodym_theorem">Radon&ndash;Nikodym theorem</a>). On finite sets, the most common measure is the "counting measure" or "uniform distribution":
-
-$$\mu_\text{count}(A) := |A|\qquad\qquad\mu_\text{uni}(A):=\frac{|A|}{|\mathcal{X}|}.$$
-
-Now that we have introduced the objects of interest, it is time to move to the morphisms (functions) of interest.
-As with most mathematical objects, we should consider those functions that preserve the relevant structure.
-A function $f:(\mathcal{X},\Sigma_\mathcal{X})\rightarrow(\mathcal{Y},\Sigma_\mathcal{Y})$ between measurable spaces
-is said to be <b>measurable</b> if
-
-$$A\in\Sigma_\mathcal{Y}\implies f^{-1}(A)\in\Sigma_\mathcal{X}\,.$$
-
-Given this definition we can also easily see how to transport measures between spaces. The <b>pushforward</b> of a measure $\mu$ along $f$ is defined by
-
-$$f_\ast\mu(A):=\mu\left(f^{-1}(A)\right)\,.$$
-
-This begs the question of how the density functions of these two measures, if they exist, are related. The answer is given by the change-of-variables formula:
-
-<div class="theorem">
-    For every measure space $(\mathcal{X},\mu)$ and measurable function $f:\mathcal{X}\rightarrow\mathcal{Y}$, <a href="https://en.wikipedia.org/wiki/Lebesgue_integration">integrals</a> with respect to $f_\ast\mu$ can be calculated as follows:
-    
-    $$\int_{f^{-1}(\mathcal{Y})} g\circ f\,\mathrm{d}\mu = \int_{\mathcal{Y}}g\,\mathrm{d}f_\ast\mu\,.$$
-
-    Moreover, if $X$ is a random variable on $\mathbb{R}^d$ with density function $\rho_X$, for every <a href="https://en.wikipedia.org/wiki/Diffeomorphism">diffeomorphism</a>
-    $f:\mathbb{R}^d\rightarrow\mathbb{R}^d$ the transformed density satisfies: $$\rho_X(x) = \rho_{f(X)}\bigl(f(x)\bigr)\bigl|\det\bigl(J(x)\bigr)\bigr|\,,$$ where $J$ is the Jacobian of $f$.
-</div>
-
-Before we move to the next part and introduce normalizing flows, it is important to consider the convergence of measures.
-A sequence of measures $(\mu_n)_{n\in\mathbb{N}}$ on $\mathcal{X}$ is said to <b>converge weakly</b> to a measure $\mu$ if
-
-$$\lim_{n\rightarrow\infty}\int_\mathcal{X}g\,\mathrm{d}\mu_n=\int_\mathcal{X}g\,\mathrm{d}\mu$$
-
-for all bounded, continuous functions $g:\mathcal{X}\rightarrow\mathbb{R}$. Note that for probability measures this simply means that the expectations converge. (This explains why this is a weak form of convergence.)
-Now, because of the theorem above, if a sequence of measurable functions $(f_n)_{n\in\mathbb{N}}$ converges pointwise to a function $f:\mathcal{X}\rightarrow\mathcal{Y}$, the pushforwards converge weakly:
+for all bounded, continuous functions $g:\mathcal{X}\rightarrow\mathbb{R}$. Note that for probability measures, this simply means that the expectations converge. (This explains why this is a weak form of convergence.) Now, because of the theorem above, if a sequence of measurable functions $(f_n)_{n\in\mathbb{N}}$ converges pointwise to a function $f:\mathcal{X}\rightarrow\mathcal{Y}$, the <a href = "{% post_url 2000-1-1-AppendixMeasures %}#Pushforward">pushforwards</a> converge weakly:
 
 $$\forall x\in\mathcal{X}:\lim_{n\rightarrow\infty}f_n(x)=f(x)\implies f_{n,\ast}\mu\rightsquigarrow f_\ast\mu\,.$$
 
@@ -140,7 +85,7 @@ for distributions without discrete or singular contributions:
   Every two absolutely continuous distributions on $\mathbb{R}^d$ are related by an increasing (in the first argument) triangular Borel function.
 </div>
 
-To obtain a <b>normalizing flow</b> (on $\mathbb{R}^d$) we now make the following crucial assumption:
+To obtain a <b>normalizing flow</b> (on $\mathbb{R}^d$), we now make the following crucial assumption:
 
 $$\Psi(X)\sim\mathcal{N}(0,𝟙_{d\times d})\,.$$
 
@@ -180,7 +125,7 @@ The powers $\Phi_{(k)}^k$ converge to the exponential map $\exp(\xi)$, which is 
 
 $$\dot{x}(t) = \xi\triangleright x(t)\,,$$
 
-where $\triangleright$ indicates the action of $M_d(\mathbb{R})$ on $\mathbb{R}^d$. This observation leads to modelling normalizing flows as <i>neural ODEs</i>. Another approach is to model the flows using stochastic differential equations instead of ODEs. For a vanishing diffusion term, this recovers the ODE approach.
+where $\triangleright$ indicates the action of $M_d(\mathbb{R})$ on $\mathbb{R}^d$. This observation leads to modelling normalizing flows as <i>neural ODEs</i>. Another approach is to model the flows using stochastic differential equations instead of ODEs. For a vanishing diffusion term, this recovers the ODE approach.<br><br>
 
 The goal of training NFs is to find a measurable function $\Psi$ such that $\Psi_\ast P=\mathcal{N}$, where $P$ is the data generating distribution. This problem is actually the same as the one considered in <a target = "_blank" href="https://en.wikipedia.org/wiki/Transportation_theory_(mathematics)">optimal transport</a>:
 

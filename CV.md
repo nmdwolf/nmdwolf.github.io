@@ -6,19 +6,6 @@ permalink: /cv/
 order: 3
 ---
 
-<h3>Professional Interests</h3>
-
-Working on the intersection of machine learning and statistics, with a strong focus 
-on statistical guarantees for uncertainty modelling. Personally, I am interested in 
-the interplay of probability theory, statistics and (the theoretical framework of) 
-machine learning.<br><br>
-
-In line with my prior education, I am still interested in (theoretical) physics, in 
-particular gauge theory and category theory, and all subjects related to this. More 
-generally, I am also fascinated by the role these subjects play in other branches of 
-science such as data science, biology, philosophy, etc.
-
-<br>
 <h3>Education</h3>
 
 * 2020 &ndash; 2024: <b>Ph.D. in Machine Learning &mdash; Universiteit Gent</b>, <i>Ghent (Belgium)</i>.<br>
