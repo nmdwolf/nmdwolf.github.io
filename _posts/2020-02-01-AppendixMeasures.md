@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Appendix: Measure Theory"
-date:   2000-1-1
+date:   2020-02-01
 categories: post
 publish: true
 

@@ -26,6 +26,9 @@ layout: default
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
+            {% if post.ongoing == true %}
+              <span class = "ongoing">(Ongoing)</span>
+            {% endif %}
           </a>
         </h3>
         {%- if site.show_excerpts -%}

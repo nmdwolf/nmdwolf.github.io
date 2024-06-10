@@ -8,8 +8,9 @@ $header-height:     $spacing-unit * 1.865;
 
 #navigator {
     position: fixed;
-    right: 5px;
+    right: 0;
     top: calc(#{$header-height} + 5px);
+    background-color: white;
 
     border-style: solid;
     border-width: 1px 0 1px 1px;
@@ -165,6 +166,29 @@ img.boxed {
 
     #right {
         grid-column-start: 2;
+    }
+}
+
+.comment {
+    width: fit-content;
+    margin: 0 auto 0 auto;
+
+    .comment-form {
+        display: grid;
+        justify-items: left;
+        column-gap: $spacing-unit;
+
+        label {
+            grid-column: 1;
+        }
+    
+        #name, #email, #message {
+            grid-column: 2;
+        }
+
+        #message {
+            width: calc(10 * #{$spacing-unit});
+        }
     }
 }
 

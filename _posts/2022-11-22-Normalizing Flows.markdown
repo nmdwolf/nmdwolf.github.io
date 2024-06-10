@@ -13,22 +13,28 @@ ids:
   - References
 ---
 
-<hr id = "Overview">
-<div class = "nav-block"><div class = "side">Overview</div></div>
-
 This talk, given as part of the Machine Learning Discussion Group of KERMIT, had three goals:
 1. Giving an introduction to the formal (measure-theoretic) foundations of probability theory.
 2. Explaining how to transform an arbitrary distribution into a normal distribution.
 3. Applying the normalizing flow framework to regression problems.
 
+<hr id = "Overview">
+<div class = "nav-block"><div class = "side">Overview</div></div>
+
+The structure of the talk was as follows:
+1. Short introduction on <i>measure theory</i>,
+1. Introduction to flows,
+1. How flows can be applied to regression problems, and
+1. Some extras on ODEs.
+
 <hr id = "Measures">
 <div class = "nav-block"><div class = "side">Measures</div></div>
 
-For a refresher (or introduction) on measure theory, see the <a href = "{% post_url 2000-1-1-AppendixMeasures %}">appendix</a>. The most important concept for this post is that of a <a href = "{% post_url 2000-1-1-AppendixMeasures %}#Measure">measure</a>. For the study of (normalizing) flows, it is important to consider the convergence of measures. A sequence of measures $(\mu_n)_{n\in\mathbb{N}}$ on a measurable space $(\mathcal{X},\Sigma\_{\mathcal{X}})$ is said to <b>converge weakly</b> to a measure $\mu$ if
+For a refresher (or introduction) on measure theory, see the <a href = "{% post_url 2020-02-01-AppendixMeasures %}">appendix</a>. The most important concept for this post is that of a <a href = "{% post_url 2020-02-01-AppendixMeasures %}#Measure">measure</a>. For the study of (normalizing) flows, it is important to consider the convergence of measures. A sequence of measures $(\mu_n)_{n\in\mathbb{N}}$ on a measurable space $(\mathcal{X},\Sigma\_{\mathcal{X}})$ is said to <b>converge weakly</b> to a measure $\mu$ if
 
 $$\lim_{n\rightarrow\infty}\int_\mathcal{X}g\,d\mu_n=\int_\mathcal{X}g\,d\mu$$
 
-for all bounded, continuous functions $g:\mathcal{X}\rightarrow\mathbb{R}$. Note that for probability measures, this simply means that the expectations converge. (This explains why this is a weak form of convergence.) Now, because of the theorem above, if a sequence of measurable functions $(f_n)_{n\in\mathbb{N}}$ converges pointwise to a function $f:\mathcal{X}\rightarrow\mathcal{Y}$, the <a href = "{% post_url 2000-1-1-AppendixMeasures %}#Pushforward">pushforwards</a> converge weakly:
+for all bounded, continuous functions $g:\mathcal{X}\rightarrow\mathbb{R}$. Note that for probability measures, this simply means that the expectations converge. (This explains why this is a weak form of convergence.) Now, because of the theorem above, if a sequence of measurable functions $(f_n)_{n\in\mathbb{N}}$ converges pointwise to a function $f:\mathcal{X}\rightarrow\mathcal{Y}$, the <a href = "{% post_url 2020-02-01-AppendixMeasures %}#Pushforward">pushforwards</a> converge weakly:
 
 $$\forall x\in\mathcal{X}:\lim_{n\rightarrow\infty}f_n(x)=f(x)\implies f_{n,\ast}\mu\rightsquigarrow f_\ast\mu\,.$$
 

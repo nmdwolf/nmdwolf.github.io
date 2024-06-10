@@ -99,11 +99,13 @@ On this page, all blog posts, presentations and other updates are listed.
 
 <h2 class="post-list-heading">Upcoming posts</h2>
 
-{% capture future %}
-  {% include_relative assets/upcoming.md %}
-{% endcapture %}
-
-{{- future | markdownify -}}
+<ol>
+{% for post in site.posts %}
+  {% if post.publish == false %}
+    <li>{{ post.title }} ({{- post.categories | first | capitalize -}})</li>
+  {% endif %}
+{% endfor %}
+</ol>
 
 <br><br>
 

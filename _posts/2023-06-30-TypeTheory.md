@@ -27,6 +27,7 @@ This post contains the content of a talk, titled "A new language for science and
 <hr id = "Overview">
 <div class = "nav-block"><div class = "side">Overview</div></div>
 
+The structure of the talk was as follows:
 * What is typing?
 * Why is it useful?
 * What is type theory?
