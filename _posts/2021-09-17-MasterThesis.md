@@ -3,7 +3,7 @@ layout: post
 title:  "Frieze patterns, group cohomology and quantum information theory"
 date:   2024-06-10
 categories: post
-publish: false
+publish: true
 ongoing: true
 
 ids:
@@ -36,7 +36,9 @@ This post is structured as follows:
 <hr id = "QuantumMechanics">
 <div class = "nav-block"><div class = "side">Quantum Mechanics</div></div>
 
-PLACEHOLDER
+Whereas in classical physics, a physical system is completely characterized by specifying the position $\vec{x}\in\mathbb{R}^3$ and momentum $\vec{p}\in\mathbb{R}^3$ of all particles, a system in quantum mechanics is described by a state vector $\|\psi\rangle\in\mathcal{H}$, where $\mathcal{H}$ is the vector space of all possible states. For example, the space of a two-state system such as the electron, which has an <i>up</i> state $\|\uparrow\rangle$ and a <i>down</i> state $\|\downarrow\rangle$, is given by the vector space $\mathbb{C}^2$.[^2]
+
+[^2]: To be entirely correct, we should be working with its projectivization $\mathbb{C}P^2$.
 
 <hr id = "MPS">
 <div class = "nav-block"><div class = "side">Matrix Product States</div></div>
