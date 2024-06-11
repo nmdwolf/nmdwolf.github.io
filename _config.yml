@@ -28,7 +28,7 @@ url: "nmdwolf@github.io" # the base hostname & protocol for your site, e.g. http
 twitter_username: NicoWolf16
 github_username:  nmdwolf
 show_excerpts: true
-last_modified_at:   2024-06-10
+last_modified_at: 2024-06-10
 
 # Build settings
 theme: minima
@@ -37,6 +37,12 @@ plugins:
   - jekyll-sitemap
 
 markdown: kramdown
+
+defaults:
+  - scope:
+      path: "google06afaeb306f1bc80.html"
+    values:
+      sitemap: false
 
 # Exclude from processing.
 # The following items will not be processed, by default.
