@@ -40,9 +40,9 @@ Although we often do not really care about the formalities of a framework in pra
 <hr id = "Measurability">
 <div class = "nav-block"><div class = "side">Measurability</div></div>
 
-In the beginning of the previous century, people realized that probability theory could be formally founded in the same mathematical theory that was being used to formalize notions of area and volume: 'measure theory'. The problem with assigning a volume to all subsets of a Euclidean space $\mathbb{R}^n$ was that, given the axioms of set theory, mathematicians could not consistently define such an operation. No matter how crazy this might sound, there is no way to consistently define a notion of volume for all subsets of Euclidean space, i.e. there is no way to 'measure' all these sets. A famous example is given by the <a href = "https://en.wikipedia.org/wiki/Vitali_set" target = "_blank">Vitali sets</a>.[^1]<br><br>
+In the beginning of the previous century, people realized that probability theory could be formally founded in the same mathematical theory that was being used to formalize notions of area and volume: 'measure theory'. The problem with assigning a volume to all subsets of a Euclidean space $\mathbb{R}^n$ was that, given the axioms of set theory, mathematicians could not consistently define such an operation. No matter how crazy this might sound, there is no way to consistently define a notion of volume for all subsets of Euclidean space, i.e. there is no way to 'measure' all these sets. A famous example is given by the <a href = "https://en.wikipedia.org/wiki/Vitali_set" target = "_blank" rel = "noopener nofollow">Vitali sets</a>.[^1]<br><br>
 
-[^1]: The existence of nonmeasurable sets crucially depends on the <a href = "https://en.wikipedia.org/wiki/Axiom_of_choice" target = "_blank">axiom of choice</a>, one of the most important, yet controversial axioms of set theory. As a consequence, they do not exist in <a href = "https://en.wikipedia.org/wiki/Constructivism_(philosophy_of_mathematics)" target = "_blank">constructive mathematics</a>.
+[^1]: The existence of nonmeasurable sets crucially depends on the <a href = "https://en.wikipedia.org/wiki/Axiom_of_choice" target = "_blank" rel = "noopener nofollow">axiom of choice</a>, one of the most important, yet controversial axioms of set theory. As a consequence, they do not exist in <a href = "https://en.wikipedia.org/wiki/Constructivism_(philosophy_of_mathematics)" target = "_blank" rel = "noopener nofollow">constructive mathematics</a>.
 
 The relation between measuring sets and assigning probabilities should, after all, not come as a surprise. Consider, for example, the set $[n]$ of the first $n\in\mathbb{N}$ integers. What is the probability that a point, uniformly sampled from $[n]$, lies in a subset $S\subseteq[n]$? This is simply the size (or cardinality) of the subset divided by $n$:
 
@@ -52,11 +52,11 @@ As such, calculating this probability is equivalent to determining the size of $
 
 $$\mu_\text{count}(A) := |A|\,.$$
 
-Sadly, in the case of infinite sets, the axiom of choice makes our lives slightly more miserable. For example, as Wikipedia so beautifully explains, the <a href = "https://en.wikipedia.org/wiki/Banach%E2%80%93Tarski_paradox" target = "_blank">Banach&ndash;Tarski paradox</a> shows that there is no way to consistently define a notion of volume in three dimensions unless one of the following five concessions is made:
+Sadly, in the case of infinite sets, the axiom of choice makes our lives slightly more miserable. For example, as Wikipedia so beautifully explains, the <a href = "https://en.wikipedia.org/wiki/Banach%E2%80%93Tarski_paradox" target = "_blank" rel = "noopener nofollow">Banach&ndash;Tarski paradox</a> shows that there is no way to consistently define a notion of volume in three dimensions unless one of the following five concessions is made:
 * The volume of a set changes when it is rotated.
 * The volume of the union of two disjoint sets is different from the sum of their individual volumes.
 * Some sets are deemed 'nonmeasurable', and we need to check whether a set is `measurable' before being able to talk about its volume.
-* The axioms of ZFC (<a href = "https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory" target = "_blank">Zermelo&ndash;Fraenkel set theory</a> with the axiom of choice) have to be altered.
+* The axioms of ZFC (<a href = "https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory" target = "_blank" rel = "noopener nofollow">Zermelo&ndash;Fraenkel set theory</a> with the axiom of choice) have to be altered.
 * The volume of $[0,1]^3$ is either 0 or $+\infty$.
 
 In the case of measure theory, the third option is chosen, i.e. the whole procedure is simply turned around. Instead of starting from a measure and finding out that not all sets are measurable, we start with a collection of sets that we would like to be measurable and study all measures consistent with this collection. This leads to the following notion.
@@ -337,7 +337,7 @@ Without going into too much detail, some things have to be said about the notion
 
     $$P(B\mid A) := \lim_{n\rightarrow\infty}P(B\mid A_n)\,.$$
 
-    However, it can be shown that this does not lead to a well-defined probability distribution, since the resulting value will depend on the choice of sequence (cf. the <a href = "https://en.wikipedia.org/wiki/Borel%E2%80%93Kolmogorov_paradox" target = "_blank">Borel&ndash;Kolmogorov paradox</a>).
+    However, it can be shown that this does not lead to a well-defined probability distribution, since the resulting value will depend on the choice of sequence (cf. the <a href = "https://en.wikipedia.org/wiki/Borel%E2%80%93Kolmogorov_paradox" target = "_blank" rel = "noopener nofollow">Borel&ndash;Kolmogorov paradox</a>).
 </div>
 
 Whenever conditional probabilities exist, this definition immediately implies one of the most famous theorems in probability theory, <b id = "Bayes">Bayes' theorem<b>:

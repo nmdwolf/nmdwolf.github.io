@@ -523,4 +523,4 @@ In a similar way, we could fill in pyramids (3-simplices) by 3-morphisms and so 
 * Capiński, Marek, and Peter E. Kopp. (2004). <i>Measure, integral and probability.</i> Vol. 14. Springer.
 * Fritz, Tobias. (2020). <i>A synthetic approach to Markov kernels, conditional independence and theorems on sufficient statistics.</i> Advances in Mathematics 370: 107239.
 * Coecke, Bob, and Robert W. Spekkens. (2012). <i>Picturing classical and quantum Bayesian inference.</i> Synthese 186: 651&ndash;696.
-* <a href = "http://ncatlab.org/nlab/" target = "_blank">$n$Lab</a>
+* <a href = "http://ncatlab.org/nlab/" target = "_blank" rel = "noopener">$n$Lab</a>

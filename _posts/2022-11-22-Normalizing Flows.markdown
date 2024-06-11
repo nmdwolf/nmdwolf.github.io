@@ -133,7 +133,7 @@ $$\dot{x}(t) = \xi\triangleright x(t)\,,$$
 
 where $\triangleright$ indicates the action of $M_d(\mathbb{R})$ on $\mathbb{R}^d$. This observation leads to modelling normalizing flows as <i>neural ODEs</i>. Another approach is to model the flows using stochastic differential equations instead of ODEs. For a vanishing diffusion term, this recovers the ODE approach.<br><br>
 
-The goal of training NFs is to find a measurable function $\Psi$ such that $\Psi_\ast P=\mathcal{N}$, where $P$ is the data generating distribution. This problem is actually the same as the one considered in <a target = "_blank" href="https://en.wikipedia.org/wiki/Transportation_theory_(mathematics)">optimal transport</a>:
+The goal of training NFs is to find a measurable function $\Psi$ such that $\Psi_\ast P=\mathcal{N}$, where $P$ is the data generating distribution. This problem is actually the same as the one considered in <a target = "_blank" href="https://en.wikipedia.org/wiki/Transportation_theory_(mathematics)" rel = "noopener nofollow">optimal transport</a>:
 
 $$\text{minimize }\int_\mathcal{X}c\bigl(x,\Psi(x)\bigr)\,\mathrm{d}\mu(x)\qquad\text{with}\qquad\Psi_\ast\mu=\nu\,.$$
 

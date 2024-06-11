@@ -3,7 +3,7 @@ layout: post
 title:  "Frieze patterns, group cohomology and quantum information theory"
 date:   2024-06-10
 categories: post
-publish: true
+publish: false
 ongoing: true
 
 ids:
@@ -66,8 +66,8 @@ PLACEHOLDER: spatial symmetries, Frieze groups, higher dimensions, diagrams
 <hr id = "References">
 <div class = "nav-block"><div class = "side">References</div></div>
 
-* Vancraeynest-De Cuiper, B., Bridgeman, J. C., Dewolf, N., Haegeman, J., & Verstraete, F. (2023). <i>One-dimensional symmetric phases protected by frieze symmetries</i>. PHYSICAL REVIEW B, 107(11). <a href = "https://doi.org/10.1103/PhysRevB.107.115123" target = "_blank">https://doi.org/10.1103/PhysRevB.107.115123</a>
-* Dewolf, N. (2019). <i>Ruimtelijke Symmetrieën en Symmetriebreking met Matrix Product Toestanden</i>. Universiteit Gent. <a href = "https://lib.ugent.be/catalog/rug01:002782900" target = "_blank">https://lib.ugent.be/catalog/rug01:002782900</a><br>(<u>Note:</u> An updated Arxiv version will appear as soon as I have updated the manuscript.)
+* Vancraeynest-De Cuiper, B., Bridgeman, J. C., Dewolf, N., Haegeman, J., & Verstraete, F. (2023). <i>One-dimensional symmetric phases protected by frieze symmetries</i>. PHYSICAL REVIEW B, 107(11). <a href = "https://doi.org/10.1103/PhysRevB.107.115123" target = "_blank" rel = "noopener">https://doi.org/10.1103/PhysRevB.107.115123</a>
+* Dewolf, N. (2019). <i>Ruimtelijke Symmetrieën en Symmetriebreking met Matrix Product Toestanden</i>. Universiteit Gent. <a href = "https://lib.ugent.be/catalog/rug01:002782900" target = "_blank" rel = "noopener">https://lib.ugent.be/catalog/rug01:002782900</a><br>(<u>Note:</u> An updated Arxiv version will appear as soon as I have updated the manuscript.)
 
 <hr id = "Footnotes">
 <div class = "nav-block"><div class = "side">Footnotes</div></div>

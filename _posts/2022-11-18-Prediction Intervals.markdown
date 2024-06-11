@@ -35,8 +35,8 @@ probabilistic assumptions often fail to be valid in practice. (This effectively 
 
 The second reason is the most obvious one. Even if the parametric form of the data generating process is known, a lack of data will lead to wrong estimates and the resulting PIs will not be valid. The first reason is harder to overcome. A straightforward solution would be to use nonparametric models, but these models are harder to train since we cannot leverage any properties.<br><br>
 
-Some common approaches are <a href="https://en.wikipedia.org/wiki/Quantile_regression" target="_blank">quantile regression</a>,
-<a href="https://en.wikipedia.org/wiki/Ensemble_learning" target="_blank">ensemble learning</a> and <a href="https://en.wikipedia.org/wiki/Bayesian_inference" target="_blank">Bayesian modelling</a>.
+Some common approaches are <a href="https://en.wikipedia.org/wiki/Quantile_regression" target="_blank" rel = "noopener nofollow">quantile regression</a>,
+<a href="https://en.wikipedia.org/wiki/Ensemble_learning" target="_blank" rel = "noopener nofollow">ensemble learning</a> and <a href="https://en.wikipedia.org/wiki/Bayesian_inference" target="_blank" rel = "noopener nofollow">Bayesian modelling</a>.
 Bayesian modelling is often the most powerful approach, but without correctly specified priors, the resulting PIs will not be valid. Both quantile regression and ensemble modelling are nonparametric by nature, but suffer from other problems.
 Quantile regression admits a theoretical derivation, but can only be used for predetermined quantiles, while ensemble models are versatile and robust, but still require a distributional prior to obtain PIs (unless they are interpreted as a mixture model, but this still gives not theoretical guarantees).<br><br>
 

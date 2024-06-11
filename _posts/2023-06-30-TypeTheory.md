@@ -242,7 +242,7 @@ Consider the category $\mathbf{Set}$. For every proposition $P$ about elements o
 
 * Corfield, David. (2020). Modal homotopy type theory: The prospect of a new logic for philosophy. Oxford University Press.
 * The Univalent Foundations Program. (2013). Homotopy type theory: Univalent foundations of Mathematics. Institute for Advanced Study.
-* <a href = "http://ncatlab.org/nlab/" target = "_blank">$n$Lab</a>
+* <a href = "http://ncatlab.org/nlab/" target = "_blank" rel = "noopener">$n$Lab</a>
 * Many years of struggling.
 
 <hr id = "Footnotes">
