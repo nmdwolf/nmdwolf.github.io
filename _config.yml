@@ -24,7 +24,7 @@ author: Nicolas Dewolf
 description: >- # this means to ignore newlines until "baseurl:"
   This is my personal (academic) site, where I keep track of any publications and (try to) write some blog posts about topics that interest me.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "nmdwolf.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://nmdwolf.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: NicoWolf16
 github_username:  nmdwolf
 show_excerpts: true
