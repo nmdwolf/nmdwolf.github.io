@@ -35,16 +35,14 @@ In 2019, I successfully defended my Master's thesis on <i>matrix product states<
 <div class = "nav-block"><div class = "side">Overview</div></div>
 
 This post is structured as follows:
-* Short introduction to (algebraic[^1]) quantum mechanics.
+* Short introduction to quantum mechanics.
 * Why Matrix Product States?
 * What is topological order?
 * How is group cohomology involved?
 * How to include spatial symmetries?
 * Future perspectives
 
-[^1]: There are two formalisms for quantum mechanics. One based on functional analysis, following Schrödinger, where the physical state is the main object of interest, and one based on matrices (or, more generally, <i>operators</i>), following Heisenberg. We will adopt the latter approach, where the ground state is time-independent.
-
-Note that we will also use a diagrammatic calculus, similar to the one introduced in <a href = "{% post_url 2023-05-17-PictorialBayes %}">the post on Pictorial Bayes</a>.
+<!-- Note that we will also use a diagrammatic calculus, similar to the one introduced in <a href = "{% post_url 2023-05-17-PictorialBayes %}">the post on Pictorial Bayes</a>. -->
 
 <hr id = "QuantumMechanics">
 <div class = "nav-block"><div class = "side">Quantum Mechanics</div></div>
