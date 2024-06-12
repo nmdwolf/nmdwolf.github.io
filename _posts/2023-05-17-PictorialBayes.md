@@ -47,7 +47,7 @@ The structure of the talk was as follows:
 <hr id = "Probability">
 <div class = "nav-block"><div class = "side">Probability</div></div>
 
-In most (applied) courses on probability theory and statistics, the definition of a probability distribution is given for either the case of finite sets or Euclidean spaces, without explicitly referencing the underlying structure. Moreover, many subtleties and possible problems are ignored. For a more complete introduction, see the appendix on <a href = "{% post_url 2020-02-01-AppendixMeasures %}">measure theory</a><br><br>
+In most (applied) courses on probability theory and statistics, the definition of a probability distribution is given for either the case of finite sets or Euclidean spaces, without explicitly referencing the underlying structure. Moreover, many subtleties and possible problems are ignored. For a more complete introduction, see the appendix on <a href = "{% post_url 2020-02-01-AppendixMeasures %}">measure theory</a>.<br><br>
 
 The first part of the talk consisted of a formal treatment by first considering the notion of event, and only then, introducing the collection of distributions compatible with these events. For an arbitrary set $\mathcal{X}$, a good choice of events, called <b>measurable subsets</b>, is given by the notion of <a href = "{% post_url 2020-02-01-AppendixMeasures %}#SigmaAlgebra">$\sigma$-algebras</a>.<br><br>
 
