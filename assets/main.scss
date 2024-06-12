@@ -167,10 +167,24 @@ img.boxed {
 
 .site-nav {
     z-index: 1;
+
+    .page-link-box {
+        border-bottom: solid 1px #e8e8e8;
+    }
 }
 
-.site-nav .page-link-box {
-    border-bottom: solid 1px #e8e8e8;
+.comment-submit {
+    margin-top: $spacing-unit;
+    width: calc(4 * #{$spacing-unit});
+    height: calc(1 * #{$spacing-unit});
+    border-radius: 10px;
+    border-color: lightgray;
+    background-color: white;
+
+    &:hover {
+        background-color: lightgray;
+        cursor: pointer;
+    }
 }
 
 @media (min-width: 1360px) {

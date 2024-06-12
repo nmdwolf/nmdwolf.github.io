@@ -26,6 +26,7 @@
 
       <h2 style = "margin-left: 20%;display:inline">Comments</h2>
       <div class = "comment">
+        If you would like to leave a comment, please use the following form:<br><br>
         <div>
         <form class = "comment-form" action="https://formspree.io/f/mzbnnzgl" method="POST">
           <label for="name">Your name:</label>
@@ -40,7 +41,7 @@
           {% if page.path contains "_posts" %}
             <input type = "hidden" name = "page" value = "Post: {{ page.title }}">
           {% endif %}
-          <button type="submit" style = "margin-top: 30px">Submit</button>
+          <button type="submit" class = "comment-submit">Submit</button>
         </form>
         </div>
       </div>
