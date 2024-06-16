@@ -15,6 +15,7 @@ ids:
     - Cohomological Classification
     - Spatial Symmetries
     - Future
+    - Extras
     - References
     - Footnotes
 
@@ -205,17 +206,63 @@ $$\omega(g_1g_2,g_3)+\omega(g_1,g_2) = \omega(g_1,g_2g_3)+\omega(g_2,g_3)$$
 
 up to an integer multiple of $2\pi$. Because projective representations are only defined up to a phase factor, $\omega(g,h)$ is equivalent to $\omega(g,h)+\varphi(gh)-\varphi(g)-\varphi(h)$ for any function $\varphi:G\rightarrow\text{U}(1)$. Looking back at the previous section, it can be seen that the difference between these two expressions is exactly a $1$-coboundary and, hence, projective representations are classified by the second cohomology group $H^2(G;\text{U}(1))$!<br><br>
 
-To complete the classification of SPT phases with on-site symmetry group $G$, we also have to take into account the representation $varphi:G\rightarrow\text{U}(1)$. Again, by inspecting the definition of cohomology groups in the previous section, it should be clear that $H^1(G;\text{U}(1))$ is exactly the set of inequivalent classes of such representations. It follows that SPT phases in 1D systems are classified by the group $H^1(G;\text{U}(1))\times H^2(G;\text{U}(1))$.
+To complete the classification of SPT phases with on-site symmetry group $G$, we also have to take into account the representation $\varphi:G\rightarrow\text{U}(1)$. Again, by inspecting the definition of cohomology groups in the previous section, it should be clear that $H^1(G;\text{U}(1))$ is exactly the set of inequivalent classes of such representations. It follows that SPT phases in 1D systems are classified by the group $H^1(G;\text{U}(1))\times H^2(G;\text{U}(1))$.
 
 [^4]: This will be proven in the next section.
 
 <!-- <hr id = "SpatialSymmetries">
 <div class = "nav-block"><div class = "side">Spatial Symmetries & Frieze Groups</div></div>
 
-PLACEHOLDER: spatial symmetries, Frieze groups, higher dimensions, diagrams
+In the previous section, we looked at translation-invariant systems with an on-site symmetry. However, on-site (internal) symmetries are not the only type of symmetries that are of relevance in physics. A very important type of symmetry that we did not cover are the spatial symmetries, e.g. rotations. Whereas the on-site symmetries determine the phase classification and the form of single-site MPS tensors, spatial symmetries will also determine how MPS tensors (of a general nonuniform MPS) on different sites are related.
 
+PLACEHOLDER: spatial symmetries, Frieze groups, higher dimensions, diagrams -->
+
+<!-->
 <hr id = "Future">
 <div class = "nav-block"><div class = "side">Future Perspectives</div></div> -->
+
+<hr id = "Extras">
+<div class = "nav-block"><div class = "side">Extras</div></div>
+
+In this section, some (arguably random) other applications of group cohomology are covered. I stumbled upon the first example whilst 'casually' scrolling on the <a href = "https://ncatlab.org/nlab/show/HomePage" target = "_blank" rel = "noopener">$n$Lab</a>, in particular, the page on <i>causal perturbation theory</i>.<br><br>
+
+Consider a group $G$ of would-be renormalization transformations. This group comes equipped with an action on the algebra of local observables of a perturbatively interacting QFT <!--that preserves the <i>causal order</i> of local observables-->. This action also induces an action on $S$-matrix schemes[^5] (by conjugation). More generally, if we have a collection $\\{\text{vac}_h\\}\_{h\in G}$ of free field vacua, indexed by the group $G$, the action of $G$ relates the different induced <i>Wick algebras</i> of local observables:
+
+$$\mathrm{rg}_h(A\star_{h^{-1}h_0} B) = \mathrm{rg}_h(A)\star_{h_0}\mathrm{rg}_h(B)\,,$$
+
+where $\star_h$ denotes the <i>Wick star product</i> induced by the choice of vacuum state $\text{vac}\_h$. Now, if $\\{S_h\\}\_{h\in G}$ is a collection of $S$-matrix schemes around these vacua, the induced action on $S$-matrices
+
+$$S_{h_0}^h = \mathrm{rg}_h\circ S_{h^{-1}h_0}\circ\mathrm{rg}_h^{-1}$$
+
+gives another $S$-matrix scheme around $\text{vac}\_{h_0}$. For a fixed $h_0\in G$, the map $h\mapsto S\_{h_0}^h$ is called the <b>RG flow</b> of $\text{vac}\_{h_0}$. By the <i>main (fundamental) theorem of causal perturbation theory</i> (or perturbative renormalization theory), any two $S$-matrix schemes around the same vacuum are related by a vertex redefinition. It follows that
+
+$$S_{h_0}^h = S_{h_0}\circ Z_{h_0}^h$$
+
+for a perturbative transformation $Z$ on the space of local observables. If the local observables, i.e. the interaction vertices, are thought of as being determined by the values of the coupling constants $\\{g_i\\}\_{i\in\mathscr{I}}$ multiplying the terms in the interaction Lagrangian ($\mathcal{L}\_{\text{int}}=\sum\_{i\in\mathscr{I}}g_i\mathcal{L}_i$), then $G$ induces <b>running coupling constants</b> through $Z$:
+
+$$Z_h: \{g_i\}_{i\in\mathscr{I}}\mapsto\{g_i(h)\}_{i\in\mathscr{I}}\,.$$
+
+Now, acting with two RG transformations $h,h'\in G$, gives:
+
+$$
+    \begin{aligned}
+        S_{h_0}\circ Z_{h_0}^{hh'} &= S_{h_0}^{hh'}\\
+        &= \mathrm{rg}_{h}\circ\mathrm{rg}_{h'}\circ S_{h'^{-1}h^{-1}h_0}\circ\mathrm{rg}_{h'}^{-1}\circ\mathrm{rg}_{h}^{-1}\\
+        &= \mathrm{rg}_{h}\circ S_{h^{-1}h_0}^{h'}\circ\mathrm{rg}_{h}^{-1}\\
+        &= \mathrm{rg}_{h}\circ S_{h^{-1}h_0}\circ Z_{h^{-1}h_0}^{h'}\circ\mathrm{rg}_{h}^{-1}\\
+        &= \mathrm{rg}_{h}\circ S_{h^{-1}h_0}\circ\left(\mathrm{rg}_{h}^{-1}\circ\mathrm{rg}_{h}\right)\circ Z_{h^{-1}h_0}^{h'}\circ\mathrm{rg}_{h}^{-1}\\
+        &= S_{h_0}\circ Z_{h_0}^h\circ\mathrm{rg}_{h}\circ Z_{h^{-1}h_0}^{h'}\circ\mathrm{rg}_{h}^{-1}\,.
+    \end{aligned}
+$$
+
+Now, since the assignment of vertex redefinitions is injective, we obtain:
+
+$$Z_{h_0}^{hh'} = Z_{h_0}^h\circ (\mathrm{rg}_{h}\circ Z_{h^{-1}h_0}^{h'}\circ\mathrm{rg}_{h}^{-1})\,.$$
+
+If we would work out the cocycle condition for $k=1$ in the section on <a href = "#Cohomology">cohomology</a>, we would see that the equation above is exactly the (multiplicative version of[^6]) the $1$-cocycle condition with respect to the adjoint action of $G$ on the <i>Stückelberg&ndash;Petermann group</i> of vertex redefinitions! When $G$ consists of scale transformations, as in the <i>Wilsonian approach</i> to renormalization, the cocycle is known as the <b>Gell-Man&ndash;Low cocycle</b>.
+
+[^5]: The function that maps interactions to time-ordered exponentials.
+[^6]: The nonabelian version of group cohomology is a special theory. Using the ordinary definition of $k$-cocycles, where 'addition' is replaced by the nonabelian product on $A$, only leads to a well-defined theory for $k\in\\{0,1\\}$. The reason for this is that the more abstract definition through homotopy theory requires the construction of so-called <i>deloopings</i>. By the <i>Eckmann&ndash;Hilton argument</i>, these only exist for nonabelian groups.
 
 <hr id = "References">
 <div class = "nav-block"><div class = "side">References</div></div>
@@ -223,6 +270,8 @@ PLACEHOLDER: spatial symmetries, Frieze groups, higher dimensions, diagrams
 * Vancraeynest-De Cuiper, B., Bridgeman, J. C., Dewolf, N., Haegeman, J., & Verstraete, F. (2023). <i>One-dimensional symmetric phases protected by frieze symmetries</i>. PHYSICAL REVIEW B, 107(11). <a href = "https://doi.org/10.1103/PhysRevB.107.115123" target = "_blank" rel = "noopener">https://doi.org/10.1103/PhysRevB.107.115123</a>
 * Dewolf, N. (2019). <i>Ruimtelijke Symmetrieën en Symmetriebreking met Matrix Product Toestanden</i>. Universiteit Gent. <a href = "https://lib.ugent.be/catalog/rug01:002782900" target = "_blank" rel = "noopener">https://lib.ugent.be/catalog/rug01:002782900</a><br>(<u>Note:</u> An updated Arxiv version will appear as soon as I have updated the manuscript.)
 * Haegeman, J., & Verstraete, F. (2017). <i>Diagonalizing transfer matrices and matrix product operators: A medley of exact and computational methods</i>. Annual Review of Condensed Matter Physics, 8(1):355&ndash;406. <a href = "https://doi.org/10.1146/annurev-conmatphys-031016-025507" target = "_blank" rel = "noopener">https://doi.org/10.1146/annurev-conmatphys-031016-025507</a>
+* X. Chen, Z.-C. Gu, Z.-X. Liu, & X.-G. Wen. (2013). <i>Symmetry protected topological orders
+and the group cohomology of their symmetry group</i>. Phys. Rev. B, 87:155114–155162. <a href = "https://link.aps.org/doi/10.1103/PhysRevB.87.155114" target = "_blank" rel = "noopener">https://link.aps.org/doi/10.1103/PhysRevB.87.155114</a>
 
 <hr id = "Footnotes">
 <div class = "nav-block"><div class = "side">Footnotes</div></div>
