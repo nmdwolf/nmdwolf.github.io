@@ -37,7 +37,7 @@ muon Trajectories.<br>
 * 2023: <b>Co-organizer</b>, <i>WUML (2023)</i>.<br>
     Organizing the "Workshop on Uncertainty in Machine Learning" in Ghent (<a href = "https://sites.google.com/view/wuml2023/home" target = "_blank">https://sites.google.com/view/wuml2023/home</a>).<br><br>
 * 2022 &ndash; present: <b>Webmaster & Co-founder</b>, <i>Tumaini Heart For Kids (vzw)</i>.<br>
-    Responsible for social media, website and general organization.<br><br>
+    Responsible for social media, website and general organization. (<a href = "https://tumaini-vzw.github.io/" target = "_blank" rel = "noopener">Website</a>)<br><br>
 * 2020 &ndash; 2022: <b>Teaching Assistant</b>, <i>UGent</i>.<br>
     Assisting with computer labs for the course "Probabilistische modellen" (Second Bachelor Bioscience Engineering).<br><br>
 * 2019: <b>Tutorial Assistant</b>, <i>TENSOR19</i>.<br>
