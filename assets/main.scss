@@ -79,8 +79,8 @@ content: "Definition (" attr(text) "). ";
 }
 
 .wrapper {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
     max-width: unset;
 }
 
@@ -238,6 +238,7 @@ img.boxed {
     #index #right {
         grid-column-start: 1;
     }
+
 }
 
 @media (min-width: 600px) {
@@ -270,4 +271,8 @@ img.boxed {
         }
     }
 
+    .wrapper {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
 }
