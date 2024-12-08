@@ -32,7 +32,7 @@ defs:
     - Frieze Group
 ---
 
-In 2019, I successfully defended my Master's thesis on <i>matrix product states</i> and <i>symmetry-protected phases topological phases</i>. Now, almost 5 years later, I think it is the perfect time to write down a (short) introduction and overview of what I did during my thesis and how it relates to various fields of science.
+In 2019, I successfully defended my Master's thesis on <i>matrix product states</i> and <i>symmetry-protected phases topological phases</i> (see <a href = "{{ site.baseurl }}/Master" target = "_blank">here</a>). Now, almost 5 years later, I think it is the perfect time to write down a (short) introduction and overview of what I did during my thesis and how it relates to various fields of science.
 
 <hr id = "Overview">
 <div class = "nav-block"><div class = "side">Overview</div></div>

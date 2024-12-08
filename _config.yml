@@ -27,6 +27,13 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://nmdwolf.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: NicoWolf16
 github_username:  nmdwolf
+
+mastodon:
+- username: nmdwolf
+  instance: mastodon.social
+
+
+
 show_excerpts: true
 last_modified_at: 2024-06-10
 timezone: Europe/Brussels
