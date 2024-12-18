@@ -16,6 +16,7 @@ ids:
     - Footnotes
 
 defs:
+    - Measure
     - Counting Measure
     - Kolmogorov Axioms
     - Atom

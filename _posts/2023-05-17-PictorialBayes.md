@@ -19,8 +19,6 @@ defs:
     - Rigidity
     - Braiding
     - Monad
-    - Measure
-    - Measurable
     - Causality
     - Deterministic
     - Coupling
