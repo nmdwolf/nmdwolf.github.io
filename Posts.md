@@ -37,12 +37,12 @@ On this page, all blog posts, presentations and other updates are listed.
   </ul>
 {%- endif -%}
 
-{%- if site.categories.trivia.size > 0 -%}
+{%- if site.categories.talk.size > 0 -%}
   <br><br>
 
-  <h2 class="post-list-heading">Trivia</h2>
+  <h2 class="post-list-heading">Talks and presentations</h2>
   <ul class="post-list">
-    {%- for post in site.categories.trivia -%}
+    {%- for post in site.categories.talk -%}
       {% if post.publish == true %}
         <li>
           {%- assign formatted_date = post.date | date: date_format -%}
@@ -66,12 +66,12 @@ On this page, all blog posts, presentations and other updates are listed.
   </ul>
 {%- endif -%}
 
-{%- if site.categories.talk.size > 0 -%}
+{%- if site.categories.trivia.size > 0 -%}
   <br><br>
 
-  <h2 class="post-list-heading">Talks and presentations</h2>
+  <h2 class="post-list-heading">Trivia</h2>
   <ul class="post-list">
-    {%- for post in site.categories.talk -%}
+    {%- for post in site.categories.trivia -%}
       {% if post.publish == true %}
         <li>
           {%- assign formatted_date = post.date | date: date_format -%}

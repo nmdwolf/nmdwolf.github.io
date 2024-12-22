@@ -3,13 +3,16 @@ layout: post
 title:  "Public PhD Defense"
 date:   2024-04-25
 categories: talk
-publish: false
+publish: true
+ongoing: true
 ---
+
+This post contains the content of my PhD defense, together with some extra information and (personal) ideas for further work.
 
 <hr id = "References">
 <div class = "nav-block"><div class = "side">References</div></div>
 
-* Capiński, M., & Kopp, P. E. (2004). Measure, Integral and Probability (Vol. 14). Springer.
+* 
 
 <br><br><br>
 

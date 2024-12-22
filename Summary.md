@@ -2,7 +2,7 @@
 layout: page
 title: Summary
 permalink: /summary/
-order: 4
+order: 3
 ---
 
 During my second Bachelor year, I started writing down everything I found useful or interesting. This 'compendium' quickly grew and, by now, reached monstrous proportions.
