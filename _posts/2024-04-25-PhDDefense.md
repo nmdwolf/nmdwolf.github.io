@@ -5,6 +5,8 @@ date:   2024-04-25
 categories: talk
 publish: true
 ongoing: false
+home: true
+
 ids:
     - Introduction
     - Marginal Validity
@@ -233,6 +235,15 @@ This led to the following contribution.
     If the parametrized collection of probability distributions $\{P_\theta\}_{\theta\in\Theta}$ is Lipschitz continuous in $\theta$, then so will the pushforwards $\{f_*P_\theta\}_{\theta\in\Theta}$ be. As a result, if one uses a feature-based metric clustering method and the feature-conditional distributions are Lipschitz continuous, the clusterwise validity theorem above will hold.
 </div>
 
+<hr id = "Extras">
+<div class = "nav-block"><div class = "side">Extras</div></div>
+
+After a journey of four years, the story is, of course, not over. Many important and/or interesting questions remain. Some that I would have liked to answer or, at least, see answered in the upcoming years are:
+* How can contexts/side information be better incorporated into conformal prediction? (E.g. through novel nonconformity measures, through the design of better, possibly adaptive Mondrian taxonomies, ...)
+* How can conformal prediction be used in the general study of uncertainty quantification (epistemic vs. aleatoric uncertainty, etc.) and vice versa?
+* Can conformal predictors be composed in a sensible way (in the sense of <i>Fong</i> and <i>Spivak</i>[^4]), e.g. do they admit functional composites or (tensor) products?
+
+[^4]: See  "<i>An Invitation to Applied Category Theory: Seven Sketches in Compositionality</i>" by <i>Fong</i> and <i>Spivak</i> (2019).
 
 <hr id = "References">
 <div class = "nav-block"><div class = "side">References</div></div>

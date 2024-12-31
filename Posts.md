@@ -12,6 +12,7 @@ On this page, all blog posts, presentations and other updates are listed.
 * <a href = "#talks">Talks</a>
 * <a href = "#trivia">Trivia</a>
 * <a href = "#more">More</a>
+* <a href = "#index">Index</a>
 
 Have fun!
 

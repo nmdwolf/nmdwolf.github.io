@@ -32,6 +32,7 @@ mastodon:
 - username: nmdwolf
   instance: mastodon.social
 
+SE_username: 8773869/ndewolf
 
 
 show_excerpts: true

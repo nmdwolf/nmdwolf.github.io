@@ -13,10 +13,11 @@ layout: default
 
   {%- if site.posts.size > 0 -%}
 
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <h2 class="post-list-heading">{{ page.list_title | default: "Pinned posts" }}</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
       {% if post.publish == true %}
+      {% if post.home == true %}
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {%- assign formatted_date = post.date | date: date_format -%}
@@ -35,6 +36,7 @@ layout: default
           {{ post.excerpt }}
         {%- endif -%}
       </li>
+      {% endif %}
       {% endif %}
       {%- endfor -%}
     </ul>
