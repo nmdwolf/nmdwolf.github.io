@@ -111,6 +111,8 @@ As usual, the prototypical example is the real line $\mathbb{R}$. In this settin
 
 [^2]: This is how closed sets are defined in general topological spaces.
 
+<div id = "PowerSetAlgebra"></div>
+
 As a last example, we consider the multisets in a measurable space. For the construction of (transductive) conformal predictors, we need to have a measurable structure on multisets. (Casual readers might prefer to skip this example.) Consider a measurable space $(\mathcal{X},\Sigma)$. The set $\mathcal{X}^\*$ can also be turned into a measurable space as follows. For every $n\in\mathbb{N}$, the product $\sigma$-algebra on $\mathcal{X}^n$ is defined to be the smallest $\sigma$-algebra such that all Cartesian products $\prod_{i=1}^nA_i$, where $A_i\in\Sigma$ for all $i\leq n$, are measurable.[^3] Given these measurable spaces $(\mathcal{X}^n,\Sigma_n)$, we then take the (countable) disjoint union. The $\sigma$-algebra $\Sigma_\*$ on $\mathcal{X}^*$ is defined such that[^4]
 
 $$B\in\Sigma_*\iff B\cap\mathcal{X}^n\in\Sigma_n$$

@@ -1,17 +1,25 @@
 ---
 layout: page
-title: Posts
+title: Posts and more
+shorttitle: Posts
 permalink: /posts/
 order: 1
 ---
 
-On this page, all blog posts, presentations and other updates are listed. 
+On this page, all blog posts, presentations and other updates are listed.
+
+* <a href = "#posts">Posts</a>
+* <a href = "#talks">Talks</a>
+* <a href = "#trivia">Trivia</a>
+* <a href = "#more">More</a>
+
+Have fun!
 
 {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 {%- if site.categories.post.size > 0 -%}
   <br><br>
 
-  <h2 class="post-list-heading">Posts</h2>
+  <h2 class="post-list-heading" id = "posts">Posts</h2>
   <ul class="post-list">
       {%- for post in site.categories.post -%}
         {% if post.publish == true %}
@@ -40,7 +48,7 @@ On this page, all blog posts, presentations and other updates are listed.
 {%- if site.categories.talk.size > 0 -%}
   <br><br>
 
-  <h2 class="post-list-heading">Talks and presentations</h2>
+  <h2 class="post-list-heading" id = "talks">Talks and presentations</h2>
   <ul class="post-list">
     {%- for post in site.categories.talk -%}
       {% if post.publish == true %}
@@ -69,7 +77,7 @@ On this page, all blog posts, presentations and other updates are listed.
 {%- if site.categories.trivia.size > 0 -%}
   <br><br>
 
-  <h2 class="post-list-heading">Trivia</h2>
+  <h2 class="post-list-heading" id = "trivia">Trivia</h2>
   <ul class="post-list">
     {%- for post in site.categories.trivia -%}
       {% if post.publish == true %}
@@ -97,7 +105,7 @@ On this page, all blog posts, presentations and other updates are listed.
 
 <br><br>
 
-<h2 class="post-list-heading">Upcoming posts</h2>
+<h2 class="post-list-heading" id = "more">Upcoming posts</h2>
 
 <ol>
 {% for post in site.posts %}
