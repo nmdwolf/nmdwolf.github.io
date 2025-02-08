@@ -36,10 +36,15 @@ Although for most people, these might only superficially be related, they all pl
 <h2 style = "margin-top: 1cm">Reading List</h2>
 
 I am currently reading (or have started reading in the past) the following books:
-* <i>The First Three Minutes: A Modern View of the Origin of the Universe</i> by Steven Weinberg
-* <i>The Book of Why: The New Science of Cause and Effect</i> by Judea Pearl and Dana Mackenzie
-* <i>Helgoland: Making Sense of the Quantum Revolution</i> by Carlo Rovelli
-* <i>Waarom niemand kwantum begrijpt en iedereen er toch iets over moet weten</i> by Frank Verstraete and Céline Broeckaert
-* <i>Relativiteitstheorie: Van stationsklokken tot de big bang</i> by Karel Van Acoleyen
+* <i>Fermat's last theorem</i> by <span style = "color: rgb(230, 150, 2)">Simon Singh</span>
+* <i>The First Three Minutes: A Modern View of the Origin of the Universe</i> by <span style = "color: rgb(230, 150, 2)">Steven Weinberg</span>
+* <i>Helgoland: Making Sense of the Quantum Revolution</i> by <span style = "color: rgb(230, 150, 2)">Carlo Rovelli</span>
+* <i>Waarom niemand kwantum begrijpt en iedereen er toch iets over moet weten</i> by <span style = "color: rgb(230, 150, 2)">Frank Verstraete</span> and <span style = "color: rgb(230, 150, 2)">Céline Broeckaert</span>
+* <i>Relativiteitstheorie: Van stationsklokken tot de big bang</i> by <span style = "color: rgb(230, 150, 2)">Karel Van Acoleyen</span>
 
-
+I have finished and recommend the following books:
+* <i>The Book of Why: The New Science of Cause and Effect</i> by Judea Pearl and Dana Mackenzie  
+    Opinion: A very nice book about the the history and ideas behind causal inference, written by one of its pioneers. It contains the bare minimum in terms of mathematics, but still manages to convey the technical aspects due Pearl's very clear and enlightening way of writing. The many examples and historical side notes make this book even more of a joy to read.
+* <i>Modal homotopy type theory: The prospect of a new logic for philosophy</i> by David Corfield  
+    Opinion: <span style = "color: rgb(230, 150, 2)">To be added</span>
+* 

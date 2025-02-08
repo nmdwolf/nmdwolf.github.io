@@ -143,7 +143,7 @@ Have fun!
         <li>{{ letter }}</li>
         <ul>
           {% for def in def_array %}
-            {% assign def_split = def | split: "" %}
+            {% assign def_split = def | upcase | split: "" %}
             {% if def_split[0] == letter %}
               {% assign value = def | split: "|" | first %}
               {% assign postlink = def | split: "|" | last %}
@@ -163,9 +163,9 @@ Have fun!
           <li>{{ letter }}</li>
           <ul>
           {% for def in def_array %}
-            {% assign def_split = def | split: "" %}
+            {% assign def_split = def | upcase | split: "" %}
             {% if def_split[0] == letter %}
-              {% assign value = def | split: "|" | first %}
+              {% assign value = def | split: "|" |first %} 
               {% assign postlink = def | split: "|" | last %}
               <li><a href = "{{ postlink }}#{{ value | replace: " ", "" }}">{{ value }}</a></li>
               {% assign counter = counter | plus: 1 %}
