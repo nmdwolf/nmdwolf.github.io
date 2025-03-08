@@ -179,6 +179,12 @@ img.boxed {
     }
 }
 
+.list-collapser {
+    ul {
+        margin-top: 0;
+    }
+}
+
 #PDF-viewer {
     width: 100%;
     min-height: 100vh;
@@ -219,7 +225,6 @@ img.boxed {
         transform: translate(-100%) rotate(0);
         left: -$spacing-unit;
     }
-
 }
 
 @media (max-width: 1360px) {

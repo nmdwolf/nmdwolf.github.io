@@ -4,6 +4,16 @@ layout: default
 
 {% include mathjax.html %}
 
+<script>
+  function rotator(object) {
+      var active = document.getElementsByClassName("active");
+      for(let obj of active) {
+          obj.className = obj.className.replace(" active", "");
+      }
+      object.className += " active";
+  }
+</script>
+
 {% if page.ids %}
 
   <div id = "navigator">
@@ -17,8 +27,9 @@ layout: default
           {{- word | capitalize -}}
         {% endfor %}
       {%- endcapture -%}
+
         <li>
-          <a href = "#{{ full_id }}">{{ id }}</a>
+          <a href = "#{{ full_id }}" onclick="rotator(document.getElementById('{{ full_id }}').nextElementSibling.firstChild);">{{ id }}</a>
         </li>
       {% endfor %}
     </ul>
@@ -55,14 +66,6 @@ layout: default
 </article>
 
 <script>
-  function rotator(object) {
-      var active = document.getElementsByClassName("active");
-      for(let obj of active) {
-          obj.className = obj.className.replace(" active", "");
-      }
-      object.className += " active";
-  }
-
   objects = document.getElementsByClassName("side");
   for(let object of objects) {
       object.addEventListener("click", () => rotator(object));

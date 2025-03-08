@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Thesis
-permalink: /Thesis/
+title: Theses
+permalink: /Theses/
 order: 4
 ---
 
