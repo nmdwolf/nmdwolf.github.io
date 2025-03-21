@@ -8,8 +8,25 @@ order: 5
 
 <h3>Work Experience</h3>
 
-* 2024 &ndash; present: <b>Senior Consultant</b>, <i>EY Belgium (FSO Risk)</i>.<br>
-    Quantitative & Financial Risk (Credit Risk & Market Risk). This consists of e.g. reviewing and validating financial risk models (IRB, CCR, ...), assisting audit teams with portfolio valuation, etc.<br><br>
+* 2024, Mar: <b>(Interim) Teacher Physics</b>, <i>Óscar Romerocollege (Dendermonde)</i>.<br>
+<br><br>  
+* 2024, Jan &ndash; 2025, Mar: <b>Senior Consultant</b>, <i>EY Belgium (FSO Risk)</i>.<br>
+    I was part of the Quantitative & Financial Risk and was mainly involved in projects concerning Credit Risk. (I also worked on Market Risk, but to a lesser extent).
+    * Model validation of financial (credit) risk models (IRB, CCR, ...) for leading international financial instutions (banks & insurers),
+    * Verifying responses to regulatory findings
+    * Reviewing model documentation (methodology, implementation, ...),
+    * Validating and challenging catastrophic risk models,
+    * Stress testing credit risk models, and
+    * Assisting audit teams with portfolio valuation (xVA).<br><br>
+* 2020, Feb &ndash; 2024, Apr: <b>Machine Learning & Statistics Researcher</b>, <i>UGent (Bio-science Engineering)</i>.<br>
+    * Implementing and extending <a href = "{{ site.baseurl }}/Theses/#PhD">conformal prediction</a> methods,
+    * Implementing and benchmarking machine learning models for uncertainty quantification (in <code>Python</code>),
+    * Statistical analysis of data sets, and
+    * Presenting research at international conferences.
+    All of this was part of the AI Flanders research project. Within this project, I worked on the following use cases:
+    * Epileptic seizure detection: Construction of a multimodal seizure classifier that could incorporate side-information/contextual information and provide predictions with statistical guarantees.
+    * Predictive maintenance: Construction of a tool for modelling the health of industrial assets, in particular, wind turbines. This involved the combination of time-series forecasting and uncertainty quantification.
+    * Low voltage grid: Providing decision support for the distribution of power in the low voltage grid, taking into account the multitude of sensor data in production units (e.g. solar panels), consumption units (e.g. electric cars) and storage units (e.g. home batteries).<br><br>
 * 2023: <b>Co-organizer</b>, <i>WUML (2023)</i>.<br>
     Organizing the "Workshop on Uncertainty in Machine Learning" in Ghent (<a href = "https://sites.google.com/view/wuml2023/home" target = "_blank">https://sites.google.com/view/wuml2023/home</a>).<br><br>
 * 2022 &ndash; present: <b>Webmaster & Co-founder</b>, <i>Tumaini Heart For Kids (vzw)</i>.<br>

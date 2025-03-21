@@ -5,7 +5,7 @@ permalink: /Theses/
 order: 4
 ---
 
-<h3>PhD Thesis</h3>
+<h3 id = "PhD">PhD Thesis</h3>
 
 <iframe id = "PDF-viewer" src = "{{ site.baseurl }}/assets/PhDThesis.pdf"></iframe>
 
