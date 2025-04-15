@@ -8,7 +8,9 @@ order: 5
 
 <h3>Work Experience</h3>
 
-* 2024, Mar: <b>(Interim) Teacher Physics</b>, <i>Óscar Romerocollege (Dendermonde)</i>.<br>
+* 2025, April &ndash; June: <b>(Interim) Teacher: Mathematics</b>, <i>Sint-Barbaracollege (Gent)</i>.
+<br><br>  
+* 2025, Mar: <b>(Interim) Teacher: Physics</b>, <i>Óscar Romerocollege (Dendermonde)</i>.
 <br><br>  
 * 2024, Jan &ndash; 2025, Mar: <b>Senior Consultant</b>, <i>EY Belgium (FSO Risk)</i>.<br>
     I was part of the Quantitative & Financial Risk and was mainly involved in projects concerning Credit Risk. (I also worked on Market Risk, but to a lesser extent).
