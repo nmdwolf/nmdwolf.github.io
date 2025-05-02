@@ -7,19 +7,35 @@ $spacing-unit:      30px !default;
 $header-height:     $spacing-unit * 1.865;
 
 #navigator {
-    position: fixed;
-    right: 0;
-    top: calc(#{$header-height} + 5px);
+    position: sticky;
+    top: 0;
+    height: 0px;
+    margin-left: 20%;
+    margin-right: 20%;
+    z-index: 999;
 
-    border-style: solid;
-    border-width: 1px 0 1px 1px;
-    border-color: #e8e8e8;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    padding-right: $spacing-unit;
+    #nav-box {
+        position: relative;
+        top: -100%;
+        background-color: white;
 
-    #index-header {
-        display: none;
+        border-style: solid;
+        border-color: #e8e8e8;
+        border-radius: 0 0 10px 10px;
+        border-width: 0 1px 1px 1px;
+
+        #nav-list {
+            column-count: 4;
+        }
+    
+        #back-to-top {
+            display: inline;
+        }
+    
+        #index-header {
+            display: inline;
+            margin-right: 10%;
+        }
     }
 }
 
@@ -241,25 +257,32 @@ img.boxed {
         transform: translate(-100%) rotate(0);
         left: -$spacing-unit;
     }
+
+    #navigator {
+        padding-right: $spacing-unit;
+        margin-left: 85%;
+        margin-right: 0;
+        // top: calc(#{$header-height} + 5px);
+
+        #nav-box {
+            border-width: 1px 0 1px 1px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+
+            #index-header {
+                display: none;
+            }
+
+            #nav-list{
+                column-count: 1;
+            }
+        }
+    }
 }
 
 @media (max-width: 1360px) {
     .dp_container {
         visibility: hidden;
-    }
-
-    #navigator {
-        position: static;
-        border: none;
-        background-color: transparent;
-
-        #back-to-top {
-            display: none;
-        }
-
-        #index-header {
-            display: block;
-        }
     }
 
     .nav-block {
@@ -269,7 +292,6 @@ img.boxed {
     #index #right {
         grid-column-start: 1;
     }
-
 }
 
 @media (min-width: 600px) {

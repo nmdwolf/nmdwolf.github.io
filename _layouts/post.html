@@ -31,32 +31,6 @@ layout: default
       {%- endif -%}</p>
   </header>
 
-  {% if page.ids %}
-
-    <div id = "navigator">
-      <span id = "back-to-top">
-          <i class = "fa fa-chevron-up" style = "margin-left: calc(1em - 5px)"></i> <a href = "#site-header">Back to top</a>
-          <br>
-      </span>
-      <span id = "index-header">Index of this post:<br></span>
-      <ul>
-        {% for id in page.ids %}
-        {% assign words = id | split: " " %}
-        {%- capture full_id -%}
-          {% for word in words %}
-            {{- word | capitalize -}}
-          {% endfor %}
-        {%- endcapture -%}
-
-          <li>
-            <a href = "#{{ full_id }}" onclick="rotator(document.getElementById('{{ full_id }}').nextElementSibling.firstChild);">{{ id }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-  {% endif %}
-
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
