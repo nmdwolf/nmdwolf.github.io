@@ -9,14 +9,11 @@ $header-height:     $spacing-unit * 1.865;
 #navigator {
     position: sticky;
     top: 0;
-    height: 0px;
     margin-left: 20%;
     margin-right: 20%;
-    z-index: 999;
+    z-index: 998;
 
     #nav-box {
-        position: relative;
-        top: -100%;
         background-color: white;
 
         border-style: solid;
@@ -204,7 +201,7 @@ img.boxed {
 }
 
 .site-nav {
-    z-index: 1;
+    z-index: 999;
 
     .page-link-box {
         border-bottom: solid 1px #e8e8e8;
@@ -263,8 +260,12 @@ img.boxed {
         margin-left: 85%;
         margin-right: 0;
         // top: calc(#{$header-height} + 5px);
+        height: 0px;
 
         #nav-box {
+            position: relative;
+            top: -100%;
+
             border-width: 1px 0 1px 1px;
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
@@ -275,6 +276,31 @@ img.boxed {
 
             #nav-list{
                 column-count: 1;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #navigator {
+        position: relative;
+        width: 100%;
+        top: 0;
+        margin: 0;
+        height: unset;
+
+        #nav-box {
+            border-width: 0 0 1px 0;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            padding-left: $spacing-unit;
+
+            #nav-list{
+                column-count: 1;
+            }
+
+            #back-to-top {
+                display: none;
             }
         }
     }
