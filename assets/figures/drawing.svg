@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="17.721582mm"
-   height="14.496971mm"
-   viewBox="0 0 17.721582 14.496971"
+   width="20mm"
+   height="20mm"
+   viewBox="0 0 19.999999 20"
    version="1.1"
    id="svg5"
    sodipodi:docname="drawing.svg"
@@ -28,22 +28,22 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.49887767"
-     inkscape:cx="-185.4162"
-     inkscape:cy="28.062992"
+     inkscape:zoom="1.9886455"
+     inkscape:cx="23.38275"
+     inkscape:cy="8.0456773"
      inkscape:window-width="1301"
      inkscape:window-height="738"
      inkscape:window-x="65"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g146" />
   <defs
      id="defs2" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-25.87782,-141.25244)">
+     transform="translate(-24.598538,-138.57404)">
     <g
        transform="matrix(1.76389,0,0,1.76389,25.8776,141.252)"
        ns1:version="1.8.2"
@@ -68,6 +68,12 @@
           </g>
         </g>
       </defs>
+      <circle
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.377953"
+         id="path239"
+         cx="4.9441504"
+         cy="4.1510763"
+         r="5.6692877" />
       <g
          fill="#000000"
          fill-opacity="1"
