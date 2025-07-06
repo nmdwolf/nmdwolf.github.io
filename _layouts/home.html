@@ -48,6 +48,34 @@ layout: default
       {% endif %}
       {%- endfor -%}
     </ul>
+
+    <h2 class="post-list-heading">{{ page.list_title | default: "Recent posts" }}</h2>
+    <ul class="post-list">
+      {%- assign sorted_posts = site.posts | sort_by: 'date_created' -%}
+      {%- for post in sorted_posts limit:6 -%}
+      {% if post.publish == true %}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {%- assign formatted_date = post.date | date: date_format -%}
+          {% unless formatted_date == "Jan 1, 2000" %}
+            <span class="post-meta">{{ formatted_date }}</span>
+          {% endunless %}
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+            {% if post.ongoing == true %}
+              <span class = "ongoing">(Ongoing)</span>
+            {% endif %}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </li>
+      {% endif %}
+      {%- endfor -%}
+    </ul>
+
   {%- endif -%}
 
 </div>

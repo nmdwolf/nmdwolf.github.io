@@ -7,6 +7,8 @@ publish: yes
 
 ---
 
+As tradition requires, we went bouldering in the woods of Fontainebleau. This time, our group counted over ten people!
+
 <center>
 
     {% for image in site.static_files %}
