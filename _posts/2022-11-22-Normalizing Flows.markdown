@@ -49,7 +49,7 @@ A <b>flow</b> is a continuous function $\phi:\mathbb{R}\times\mathcal{X}\rightar
 <div class="note">
 <div class = "side">Note</div>
 
-For the mathematically inclined reader: This means that under <i>currying</i> a flow is equivalent to a group morphism from the additive group $\mathbb{R}$ to the automorphism group $\mathrm{Aut}(\mathcal{X})$, i.e. the group of all invertible functions $\mathcal{X}\rightarrow\mathcal{X}$.
+For the mathematically inclined reader: This means that, under <i>currying</i>, a flow is equivalent to a group morphism from the additive group $\mathbb{R}$ to the automorphism group $\mathrm{Aut}(\mathcal{X})$, i.e. the group of all invertible functions $\mathcal{X}\rightarrow\mathcal{X}$.
 </div>
 
 In practice, this is often approximated by a "discrete flow" $\phi:\mathbb{Z}\times\mathcal{X}\rightarrow\mathcal{X}$:

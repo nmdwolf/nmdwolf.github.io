@@ -10,6 +10,7 @@ home: true
 ids:
     - Introduction
     - Marginal Validity
+    - Architectures
     - Conditional Validity
     - Clusterwise Validity
     - Extra
@@ -138,7 +139,17 @@ The (<b>inductive</b>) conformal prediction algorithm has the following simple w
     <img src = "{{site.baseurl}}/assets/figures/PhD/Cumulative.png" style = "width: 75%">
 </center>
 
-The true power of this procedure lies in the strong guarantees that come with it!
+The corresponding pseudocode (in <tt>Python</tt>, using the <tt>PyTorch</tt> library) is shown below:
+<pre><code class = "language-python match-braces">
+   def conformalize(model, X, y, alpha, inflate = True):
+        scores = model.predict(X, y)
+        scores, _ = torch.sort(scores)
+        level = min((1 + ((1 / scores.shape[0]) if inflate else 0)) * (1 - alpha), 1)
+        index = math.ceil(level * scores.shape[0]) - 1
+        return scores[index].item()
+</code></pre>
+
+Although the necessary code to perform (inductive) conformal prediction is remarkably short, this procedure's true power lies in the strong guarantees that come with it (for free)!
 <div class = "theorem" text = "Conservative validity">
     If the data is exchangeable, the conformal predictor is (conservatively) valid:
     \begin{gather*}
@@ -151,6 +162,63 @@ The true power of this procedure lies in the strong guarantees that come with it
         P\bigl(Y\in\Gamma^\alpha(X)\bigr)=1-\alpha\,.
     \end{gather*}
 </div>
+
+<hr id = "Architectures">
+<div class = "nav-block"><div class = "side">Architectures</div></div>
+
+One of my favourite baseline models for uncertainty quantification (before applying conformal prediction) is the <b>mean-variance ensemble</b>. In particular, the dropout-based mean-variance ensemble. A mean-variance estimator is a model, beit classical or deep learning-based, that not only gives a point prediction (such as the mean), but at the same time also predicts the standard deviation of variance of the target conditional distribution. Dropout, on the other hand, is a popular regularization technique in deep learning, whereby random neurons turned off during training. However, by extending this behaviour to test time, one can build an implicit ensemble since the stochasticity of dropout leads to different effective models at every pass. Implementationwise, the difference is minimal (for stability, the models predict the logarithm of the variance):
+
+<pre><code class = "language-python match-braces">
+
+    def eval(self):
+        self.model.eval()
+
+    def predict(self, X):
+        self.eval()
+        with torch.no_grad():
+            preds = self.model(X)
+            preds[:, 1] = torch.exp(preds[:, 1])
+</code></pre>
+
+and
+
+<pre><code class = "language-python match-braces">
+
+    def apply_dropout(m):
+        if isinstance(m, nn.Dropout):
+            m.train()
+        
+    def eval(self):
+        self.model.eval()
+        self.model.apply(apply_dropout)
+
+    def predict(self, X):
+        self.eval()
+        with torch.no_grad():
+            preds = self.model(X)
+            preds[:, 1] = torch.exp(preds[:, 1])
+</code></pre>
+
+The latter code just adds a rule where the dropout layers are set to training mode during evaluation. Nothing else is needed. No additional training complexity, no additional data, just a simple trick. However, is is not only simple, but it is effective. Empirical results showed that this approach outperforms essentially all alternatives. The training loss for these models is the log-likelihood of a normal distribution. The <tt>Python</tt> code is also straightforward:
+
+<pre><code class = "language-python match-braces">
+    def GaussianLoss(mean, truth, logvar, regularization = 1e-3):
+
+        mse = torch.square(truth - mean)
+        loss = mse / (torch.exp(logvar) + regularization) + logvar
+        return loss
+</code></pre>
+
+Instead of the pure MSE loss, which looks at the difference between the prediction and the ground truth, it also includes the predicted variance. This means that the model is encouraged to predict a higher variance when the error is high and vice versa. (The regularization term is simply to avoid numerical instabilities coming from division by zero.)<br><br>
+
+Another very interesting model, which is also more general in the class of distributions it can accurately model is the normalizing flow (for a complete introduction, see <a href = "{% post_url 2022-11-22-Normalizing Flows %}">this post</a>). The general idea or workflow is as follows:
+1. The (regression) target is described by a conditional distribution $P_{Y\mid X}$.
+1. There exist a continuous (and, preferably, smooth) path in 'distribution space' from $P_{Y\mid X}$ to $\mathcal{N}$.
+1. This path admits a 'flow' that can be implemented or approximated using parametric functions.
+1. These functions can be represented by neural networks.
+
+Luckily, there exists a foundational (at least for us) result that states that such a path always exists as soon as the target distribution admits a probability density. (This, in particular, includes all distributions that can be modelled by mean-variance estimators.)
+
 
 <hr id = "ConditionalValidity">
 <div class = "nav-block"><div class = "side">Conditional validity</div></div>
@@ -226,14 +294,26 @@ In the figure below, we can see that the data distributions differ between the d
     for all $c\in\omega$.
 </div>
 
-Because this approach is rather recent, there were still some important gaps in the literature. For example, the statement above, although general, only talks about the Mondrian structure, which can be rather complex and is often not determined by clustering methods[^3]. However, to group together similar data points, data-driven clustering methods are very popular. Our idea was then to find out how clustering nonconformity scores could be related to clustering inputs.
+Because this approach is rather recent, there were still some important gaps in the literature. For example, the statement above, although general, only talks about the Mondrian structure, which can be rather complex and is often not determined by clustering methods[^3]. However, to group together similar data points, data-driven clustering methods are very popular. Our idea was then to find out how clustering nonconformity scores could be related to clustering inputs.<br><br>
 
 [^3]: Mondrian taxonomies are often constructed by hand based on domain knowledge.
 
 This led to the following contribution.
 <div class = "theorem" text = "Lipschitz continuity">
-    If the parametrized collection of probability distributions $\{P_\theta\}_{\theta\in\Theta}$ is Lipschitz continuous in $\theta$, then so will the pushforwards $\{f_*P_\theta\}_{\theta\in\Theta}$ be. As a result, if one uses a feature-based metric clustering method and the feature-conditional distributions are Lipschitz continuous, the clusterwise validity theorem above will hold.
+    If the parametrized collection of probability distributions $\{P_\theta\}_{\theta\in\Theta}$ is Lipschitz continuous in $\theta$, so will the pushforwards $\{f_*P_\theta\}_{\theta\in\Theta}$ be. As a result, if one uses a feature-based metric clustering method and the feature-conditional distributions are Lipschitz continuous, the clusterwise validity theorem above will hold.
 </div>
+
+Besides this theoretical contribution, we also looked at a more practical problem. What happens in the case of extreme classification, i.e. classification problems with a large number of classes (e.g. thousands or more). In such cases, it is often impossible to have enough calibration data for every class. Here we looked at an 'informed' approach, where side information could be included. In our case, the side information was presented in the form of a class hierarchy. Such a hierarchy leads to a natural clustering of the classes. In fact, a multilayer hierarchy induces many different clusterings and, as such, allows us to use an adaptive strategy. Given a (cluster) size threshold $\lambda\in\mathbb{N}$, we can use the finest clustering such that every cluster contains at least $\lambda$ data points. This algorithm is presented in pseudocode below:
+
+<center>
+    <img src = "{{site.baseurl}}/assets/figures/PhD/SizeThresholding.png" style = "width: 75%">
+</center>
+
+A natural example of hierarchies is found in biology. For example:
+
+<center>
+    <img src = "{{site.baseurl}}/assets/figures/PhD/Taxonomy.jpg" style = "width: 50%">
+</center>
 
 <hr id = "Extras">
 <div class = "nav-block"><div class = "side">Extras</div></div>

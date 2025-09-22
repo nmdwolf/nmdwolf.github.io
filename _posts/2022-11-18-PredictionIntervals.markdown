@@ -45,9 +45,19 @@ In comes <b>Conformal Prediction</b>. This framework, initially developed by V. 
 $$A:\mathcal{X}\times\mathbb{R}\rightarrow\mathbb{R}\,,$$
 
 often extracted from a training set, that tells us how different the point is from the training set (it is a measure of the nonconformity). Given a validation set $\mathcal{V}\subset\mathcal{X}\times\mathbb{R}$, the inductive or split approach then proceeds as follows:
-1. Calculate the validation scores $$A(\mathcal{V})$$.
-2. Determine the \\(\left(1-\frac{1}{\|\mathcal{V}\|}\right)(1-\alpha)\\)-quantile $$q^*$$ of $$A(\mathcal{V})$$.
-3. Construct the prediction set as $$\\{y\in\mathbb{R}\mid A(x,y)\leq q^*\\}$$.
+1. Calculate the validation scores $A(\mathcal{V})$.
+2. Determine the \\(\left(1-\frac{1}{\|\mathcal{V}\|}\right)(1-\alpha)\\)-quantile $$q^*$$ of $A(\mathcal{V})$.
+3. Construct the prediction set as $\{y\in\mathbb{R}\mid A(x,y)\leq q^*\}$.
+
+The corresponding pseudocode (in <tt>Python</tt>, using the <tt>PyTorch</tt> library) is shown below:
+<pre><code class = "language-python match-braces">
+   def conformalize(model, X, y, alpha, inflate = True):
+        scores = model.predict(X, y)
+        scores, _ = torch.sort(scores)
+        level = min((1 + ((1 / scores.shape[0]) if inflate else 0)) * (1 - alpha), 1)
+        index = math.ceil(level * scores.shape[0]) - 1
+        return scores[index].item()
+</code></pre>
 
 Note that for general scores $$A$$, the resulting set might not be connected, i.e. it might not be an interval. (This is a general feature of conformal prediction.) However, for the most commonly used scores, the sets will be intervals.<br><br>
 
