@@ -29,7 +29,7 @@ layout: default
       <br>
       <time class="dt-published" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="datePublished">
         {%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}
-        {%- assign formatted_date = page.date | date: date_format -%}
+        {%- assign formatted_date = page.last_modified_at | date: date_format -%}
         {% unless formatted_date == "January 1, 2000" %}
           Last modified at: {{ formatted_date }}
         {% endunless %}

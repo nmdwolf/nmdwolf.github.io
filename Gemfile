@@ -28,6 +28,8 @@ source "https://rubygems.org" do
 
 	gem "webrick", "~> 1.8"
 
-	gem "jekyll-last-modified-at"
+	group :jekyll_plugins do
+  		gem "jekyll-last-modified-at"
+	end
 
 end
