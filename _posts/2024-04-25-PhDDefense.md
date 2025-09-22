@@ -13,7 +13,7 @@ ids:
     - Architectures
     - Conditional Validity
     - Clusterwise Validity
-    - Extra
+    - Extras
     - References
     - Footnotes
 defs:
