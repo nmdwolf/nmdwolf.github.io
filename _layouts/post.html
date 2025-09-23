@@ -25,11 +25,13 @@ layout: default
         {{ formatted_date }}
       </time>
       <br>
-      <time class="dt-published" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="datePublished">
+      {%- if page.date_modified and page.date_modified != "" -%}
+      <time class="dt-published" datetime="{{ page.date_modified | date_to_xmlschema }}" itemprop="datePublished">
         {%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}
-        {%- assign formatted_date = page.last_modified_at | date: date_format -%}
+        {%- assign formatted_date = page.date_modified | date: date_format -%}
         Last modified at: {{ formatted_date }}
       </time>
+      {%- endif -%}
       {%- if page.author -%}
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
       {%- endif -%}</p>

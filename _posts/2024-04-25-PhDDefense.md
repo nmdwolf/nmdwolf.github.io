@@ -2,9 +2,10 @@
 layout: post
 title:  "Public PhD Defense"
 date:   2024-04-25
+date_modified: 2025-09-22
 categories: talk
 publish: true
-ongoing: false
+ongoing: true
 home: true
 
 ids:
@@ -166,10 +167,12 @@ Although the necessary code to perform (inductive) conformal prediction is remar
 <hr id = "Architectures">
 <div class = "nav-block"><div class = "side">Architectures</div></div>
 
-One of my favourite baseline models for uncertainty quantification (before applying conformal prediction) is the <b>mean-variance ensemble</b>. In particular, the dropout-based mean-variance ensemble. A mean-variance estimator is a model, beit classical or deep learning-based, that not only gives a point prediction (such as the mean), but at the same time also predicts the standard deviation of variance of the target conditional distribution. Dropout, on the other hand, is a popular regularization technique in deep learning, whereby random neurons turned off during training. However, by extending this behaviour to test time, one can build an implicit ensemble since the stochasticity of dropout leads to different effective models at every pass. Implementationwise, the difference is minimal (for stability, the models predict the logarithm of the variance):
+One of my favourite baseline models for uncertainty quantification (before applying conformal prediction) is the <b>mean-variance ensemble</b>. In particular, the dropout-based mean-variance ensemble. A <b>mean-variance estimator</b> is a model, beit classical or deep learning-based, that not only gives a point prediction (in this case the mean), but at the same time also predicts the standard deviation or variance of the target conditional distribution. <a href = "https://en.wikipedia.org/wiki/Dilution_(neural_networks)" target = "_blank" rel = "noopener">Dropout</a>, on the other hand, is a popular regularization technique in deep learning where random neurons turned off during training. By extending this behaviour to test time, we can build an implicit ensemble, since the stochasticity of dropout leads to different effective models at every forward pass. Implementationwise, the difference is, however, minimal.[^3]
 
+[^3]: For stability, the model predicts the logarithm of the variance.
+
+* Mean-variance estimation:
 <pre><code class = "language-python match-braces">
-
     def eval(self):
         self.model.eval()
 
@@ -182,8 +185,8 @@ One of my favourite baseline models for uncertainty quantification (before apply
 
 and
 
+* Dropout-based mean-variance estimation:
 <pre><code class = "language-python match-braces">
-
     def apply_dropout(m):
         if isinstance(m, nn.Dropout):
             m.train()
@@ -199,7 +202,13 @@ and
             preds[:, 1] = torch.exp(preds[:, 1])
 </code></pre>
 
-The latter code just adds a rule where the dropout layers are set to training mode during evaluation. Nothing else is needed. No additional training complexity, no additional data, just a simple trick. However, is is not only simple, but it is effective. Empirical results showed that this approach outperforms essentially all alternatives. The training loss for these models is the log-likelihood of a normal distribution. The <tt>Python</tt> code is also straightforward:
+The latter code just adds a rule that sets the dropout layers to training mode during evaluation. Nothing else is needed. No additional training complexity, no additional data, just a simple trick. However, is is not only simple, but it is also super effective. Empirical results showed that this approach outperforms essentially all alternatives.
+
+<center>
+    <img src = "{{site.baseurl}}/assets/figures/PhD/pokemon-its-super-effective.png" style = "width: 60%">
+</center>
+
+To actually model the mean and variance of the target distribution, the model has to be trained with a suitable loss function. In this case, the training loss for these models is the log-likelihood of a normal distribution. The <tt>Python</tt> code is straightforward:
 
 <pre><code class = "language-python match-braces">
     def GaussianLoss(mean, truth, logvar, regularization = 1e-3):
@@ -209,16 +218,15 @@ The latter code just adds a rule where the dropout layers are set to training mo
         return loss
 </code></pre>
 
-Instead of the pure MSE loss, which looks at the difference between the prediction and the ground truth, it also includes the predicted variance. This means that the model is encouraged to predict a higher variance when the error is high and vice versa. (The regularization term is simply to avoid numerical instabilities coming from division by zero.)<br><br>
+Instead of the pure MSE loss, which looks at the difference between the prediction and the ground truth, it also includes the predicted variance. This means that the model is encouraged to predict a higher variance when the error is high and vice versa. (The regularization term is simply to avoid numerical instabilities coming from division by zero.) Although this likelihood function is modelled on a normal distribution, <i>Gneiting et al.</i> actually show that this loss function is a good choice for a much more general class of dsitributions (those that are characterized by their mean and variance).<br><br>
 
-Another very interesting model, which is also more general in the class of distributions it can accurately model is the normalizing flow (for a complete introduction, see <a href = "{% post_url 2022-11-22-Normalizing Flows %}">this post</a>). The general idea or workflow is as follows:
+Another very interesting model, which is also more general in the class of distributions it can accurately model, is the normalizing flow (for a complete introduction, see <a href = "{% post_url 2022-11-22-Normalizing Flows %}">this post</a>). The general idea or workflow is as follows:
 1. The (regression) target is described by a conditional distribution $P_{Y\mid X}$.
 1. There exist a continuous (and, preferably, smooth) path in 'distribution space' from $P_{Y\mid X}$ to $\mathcal{N}$.
 1. This path admits a 'flow' that can be implemented or approximated using parametric functions.
 1. These functions can be represented by neural networks.
 
 Luckily, there exists a foundational (at least for us) result that states that such a path always exists as soon as the target distribution admits a probability density. (This, in particular, includes all distributions that can be modelled by mean-variance estimators.)
-
 
 <hr id = "ConditionalValidity">
 <div class = "nav-block"><div class = "side">Conditional validity</div></div>
@@ -294,9 +302,9 @@ In the figure below, we can see that the data distributions differ between the d
     for all $c\in\omega$.
 </div>
 
-Because this approach is rather recent, there were still some important gaps in the literature. For example, the statement above, although general, only talks about the Mondrian structure, which can be rather complex and is often not determined by clustering methods[^3]. However, to group together similar data points, data-driven clustering methods are very popular. Our idea was then to find out how clustering nonconformity scores could be related to clustering inputs.<br><br>
+Because this approach is rather recent, there were still some important gaps in the literature. For example, the statement above, although general, only talks about the Mondrian structure, which can be rather complex and is often not determined by clustering methods[^4]. However, to group together similar data points, data-driven clustering methods are very popular. Our idea was then to find out how clustering nonconformity scores could be related to clustering inputs.<br><br>
 
-[^3]: Mondrian taxonomies are often constructed by hand based on domain knowledge.
+[^4]: Mondrian taxonomies are often constructed by hand based on domain knowledge.
 
 This led to the following contribution.
 <div class = "theorem" text = "Lipschitz continuity">
@@ -321,14 +329,16 @@ A natural example of hierarchies is found in biology. For example:
 After a journey of four years, the story is, of course, not over. Many important and/or interesting questions remain. Some that I would have liked to answer or, at least, see answered in the upcoming years are:
 * How can contexts/side information be better incorporated into conformal prediction? (E.g. through novel nonconformity measures, through the design of better, possibly adaptive Mondrian taxonomies, ...)
 * How can conformal prediction be used in the general study of uncertainty quantification (epistemic vs. aleatoric uncertainty, etc.) and vice versa?
-* Can conformal predictors be composed in a sensible way (in the sense of <i>Fong</i> and <i>Spivak</i>[^4]), e.g. do they admit functional composites or (tensor) products?
+* Can conformal predictors be composed in a sensible way (in the sense of <i>Fong</i> and <i>Spivak</i>[^5]), e.g. do they admit functional composites or (tensor) products?
 
-[^4]: See  "<i>An Invitation to Applied Category Theory: Seven Sketches in Compositionality</i>" by <i>Fong</i> and <i>Spivak</i> (2019).
+[^5]: See  "<i>An Invitation to Applied Category Theory: Seven Sketches in Compositionality</i>" by <i>Fong</i> and <i>Spivak</i> (2019).
 
 <hr id = "References">
 <div class = "nav-block"><div class = "side">References</div></div>
 
-* 
+* T. Gneiting, & A. E. Raftery. (2007). <i>Strictly proper scoring rules, prediction,
+and estimation</i>. Journal of the American statistical Association, 102(477),
+359&ndash;378.
 
 <br><br><br>
 
