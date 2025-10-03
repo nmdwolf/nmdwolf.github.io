@@ -15,7 +15,7 @@ In April 2024, I obtained my PhD degree at the University of Ghent, Belgium (UGe
 
 <br>
 
-Currently, I am working as a financial consultant at EY Belgium in the FSO Risk department. I am also a cofounder of <a href = "https://tumaini-vzw.github.io/" target = "_blank" rel = "noopener">VZW Tumaini Heart For Kids</a>.
+Currently, I am working as a software developer in Gavere. I am also a cofounder of <a href = "https://tumaini-vzw.github.io/" target = "_blank" rel = "noopener">VZW Tumaini Heart For Kids</a>.
 
 <br>
 
