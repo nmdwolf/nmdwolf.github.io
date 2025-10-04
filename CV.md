@@ -8,6 +8,7 @@ order: 5
 
 <h3>Work Experience</h3>
 
+* 2025, October &ndash; Now: <b>Software developer</b>, <i>Rombaut (Gavere)</i>.<br><br>
 * 2025, April &ndash; June: <b>(Interim) Teacher: Mathematics</b>, <i>Sint-Barbaracollege (Gent)</i>.
 <br><br>  
 * 2025, Mar: <b>(Interim) Teacher: Physics</b>, <i>Óscar Romerocollege (Dendermonde)</i>.

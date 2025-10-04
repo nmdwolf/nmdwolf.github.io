@@ -4,7 +4,7 @@ title:  "A new language for science and philosophy"
 date:   2023-06-30
 categories: talk
 publish: true
-ongoing: true
+ongoing: false
 ids:
     - Overview
     - Typing
@@ -140,10 +140,12 @@ $$\prod_{z:\Sigma_{f:\mathrm{Farmer}}\Sigma_{d:\mathrm{Donkey}}\mathrm{Beats}(f,
 <hr id = "Modalities">
 <div class = "nav-block"><div class = "side">Modal Logic</div></div>
 
-Modal logic is a more subtle form of logic where propositions can hold in a 'specific way'. For example, in <b>epistemic</b> (or <b>alethic</b>) logic, there exist the <b>necessity</b> $\square$ and <b>possibility</b> $\diamond$ modalities. $\square P$ means that $P$ nececessarily holds and $\diamond P$ means that $P$ possibly holds. These satisfy some conditions such as $\square P\vdash\square\square P$ and $\square P\vdash P$.[^1]
+Modal logic is a more subtle form of logic where propositions can hold in a 'specific way'. For example, in <b>epistemic</b> (or <b>alethic</b>) logic, there exist the <b>necessity</b> $\square$ and <b>possibility</b> $\diamond$ modalities. $\square P$ means that $P$ nececessarily holds and $\diamond P$ means that $P$ possibly holds. These satisfy some conditions such as $\square P\vdash\square\square P$ and $\square P\vdash P$.[^1] Moreover, in a logic where negation $\lnot$ exists, these can be tied together using **de Morgan duality**: $\diamond P=\lnot\square\lnot P$.<br><br>
 
 [^1]: An interpretation of these operators is given by <i>Kripke's possible world semantics</i>.
 
+
+To obtain categorical semantics for modal logic and modal type theory, we need one of the most foundational concepts in category theory.
 <div class = "def" text = "Adjoints" id = "Adjoint">
 
 Consider two <a href = "{% post_url 2023-05-17-PictorialBayes %}#Functor">functors</a> $F:\mathbf{C}\rightarrow\mathbf{D}$ and $G:\mathbf{D}\rightarrow\mathbf{C}$, i.e. maps between categories that send objects to objects and morphisms to morphisms. These are said to be adjoint if morphism are mapped in a bijective manner, i.e.
@@ -197,7 +199,7 @@ $$\flat\dashv\sharp := \mathrm{Disc}\circ\Gamma\dashv\mathrm{coDisc}\circ\Gamma\
 
 By considering spaces with more structure, such as <i>superspaces</i> or <i>infinitesimal spaces</i>, even longer chains can be found. The induced modalities encode many important phenomena such PDEs, differential operators, differential geometry, ...
 
-<hr id = "HoTT">
+<hr id = "Hott">
 <div class = "nav-block"><div class = "side">HoTT</div></div>
 
 The motivating example is (classical) <i>homotopy theory</i>. Consider the following lines:
@@ -222,7 +224,7 @@ This axiom establishes the homotopic nature of the theory! But what about iterat
 <center>
     <img src = "{{site.baseurl}}/assets/figures/TypeTheory/IteratedIdentity.png" style = "width: 15%">
 </center>
-As in the <a href = "{% post_url 2023-05-17-PictorialBayes %}#HigherDimensions">section on higher dimensions</a> in the study of diagrammatic calculus, these higher diagrams induced by iterated identity types also indicate that we should pass from ordinary category theory to <i>$\infty$-category theory</i> (or, when including logic, <i>$\infty$-topos theory</i>). If the identities/equivalences are seen as morphisms between objects, higher identities can be seen as morphisms between morphisms (and so on). These are called <i>$n$-morphisms</i> in higher category theory. If all higher morphisms are equivalences, an <b>$(\infty,1)$-category</b> is obtained. The term 'topos' indicates that one can treat the objects in the category as some kind of generalized set.<br><br>
+As in the <a href = "{% post_url 2023-05-17-PictorialBayes %}#HigherDimensions">section on higher dimensions</a> in the study of diagrammatic calculus, these higher diagrams induced by iterated identity types also indicate that we should pass from ordinary category theory to <i>$\infty$-category theory</i> (or, when including logic, <i>$\infty$-topos theory</i>). If the identities/equivalences are seen as morphisms between objects, higher identities can be seen as morphisms between morphisms (and so on). These are called <i>$n$-morphisms</i> in higher category theory. If all higher morphisms are equivalences, an <b>$(\infty,1)$-category</b> is obtained. The term 'topos' indicates that we can treat the objects in the category as some kind of generalized set.<br><br>
 
 For modern physics and geometry, some extra ingredients are required on top of mere sets:
 * Spaces of physical objects (particles, fields, ...),
