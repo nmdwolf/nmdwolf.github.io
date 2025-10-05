@@ -7,6 +7,8 @@ order: 2
 
 <h3>Articles</h3>
 
+1. M. Rakhshaninejad, M. Jurgens, N. Dewolf & W. Waegeman (2025). Conformal Prediction for Uncertainty Estimation in Drug-Target Interaction Prediction. <i>(Arxiv preprint.)</i> <a href = "https://arxiv.org/abs/2505.18890" target = "_blank">https://arxiv.org/abs/2505.18890</a>.
+
 1. Dewolf, N., De Baets, B. & Waegeman, W. (2025). Conditional validity of heteroskedastic conformal regression. <i>Information and Inference: a journal of the IMA</i>. <a href = "https://doi.org/10.1093/imaiai/iaaf013" target = "_blank">https://doi.org/10.1093/imaiai/iaaf013</a>.
 <br>
 (<u>Note:</u> The Arxiv version can be found <a target = "_blank" href = "https://arxiv.org/abs/2309.08313">here</a>.)<br><br>
@@ -22,7 +24,7 @@ order: 2
 
 1. Dewolf, N. (2019). Spatial Symmetries and Symmetry Breaking with Matrix Product States. (Master's thesis). <i>Ghent University</i>. <a href = "https://lib.ugent.be/en/catalog/rug01:002782900" target = "_blank">https://lib.ugent.be/en/catalog/rug01:002782900</a>.<br><br>
 
-[^1]: The publisher was made aware of this issue before publication, but did not take our comment into account.
+[^1]: The editor was made aware of this issue before publication, but did not take our comment into account.
 
 <!--<h3>Preprints:</h3>
 

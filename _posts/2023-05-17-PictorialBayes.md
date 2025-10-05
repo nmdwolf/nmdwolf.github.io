@@ -8,7 +8,7 @@ ids:
     - Overview
     - Probability
     - Diagrams
-    - FiniteSets
+    - Finite Sets
     - Abstract Nonsense
     - Higher Dimensions
     - References
