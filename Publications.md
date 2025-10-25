@@ -7,7 +7,8 @@ order: 2
 
 <h3>Articles</h3>
 
-1. M. Rakhshaninejad, M. Jurgens, N. Dewolf & W. Waegeman (2025). Conformal Prediction for Uncertainty Estimation in Drug-Target Interaction Prediction. <i>(Arxiv preprint.)</i> <a href = "https://arxiv.org/abs/2505.18890" target = "_blank">https://arxiv.org/abs/2505.18890</a>.
+1. Rakhshaninejad, M., Jurgens, M., Dewolf, N. & Waegeman W. (2025). Conformal Prediction for Uncertainty Estimation in Drug-Target Interaction Prediction. <i>(Arxiv preprint.)</i> <a href = "https://arxiv.org/abs/2505.18890" target = "_blank">https://arxiv.org/abs/2505.18890</a>.
+<br>
 
 1. Dewolf, N., De Baets, B. & Waegeman, W. (2025). Conditional validity of heteroskedastic conformal regression. <i>Information and Inference: a journal of the IMA</i>. <a href = "https://doi.org/10.1093/imaiai/iaaf013" target = "_blank">https://doi.org/10.1093/imaiai/iaaf013</a>.
 <br>

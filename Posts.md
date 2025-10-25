@@ -106,15 +106,21 @@ Have fun!
 
 <br><br>
 
-<h2 class="post-list-heading" id = "more">Upcoming posts</h2>
+<h2 class="post-list-heading" id = "more">Upcoming</h2>
 
-<ol>
+I am planning to write posts about the following topics:
+<ul>
 {% for post in site.posts %}
   {% if post.publish == false %}
     <li>{{ post.title }} ({{- post.categories | first | capitalize -}})</li>
   {% endif %}
 {% endfor %}
-</ol>
+</ul>
+
+Updates are planned for the following posts:
+* <a href = "{% post_url 2021-09-17-MasterThesis %}">Frieze patterns, quantum information theory and group cohomology</a>: More about matrix decompositions and normal forms. 
+* <a href = "{% post_url 2025-08-31-GameDev %}">Game development</a>: More monads and type theory!
+* <a href = "{% post_url 2024-04-25-PhDDefense %}">Public PhD Defense</a>: Tying up some loose ends.
 
 <br><br>
 

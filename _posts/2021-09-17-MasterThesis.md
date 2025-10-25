@@ -4,7 +4,7 @@ title:  "Frieze patterns, quantum information theory and group cohomology"
 date:   2024-06-10
 categories: post
 publish: true
-ongoing: true
+ongoing: false
 home: false
 
 ids:
@@ -33,7 +33,7 @@ defs:
     - Frieze Group
 ---
 
-In 2019, I successfully defended my Master's thesis on <i>matrix product states</i> and <i>symmetry-protected phases topological phases</i> (see <a href = "{{ site.baseurl }}/Master" target = "_blank">here</a>). Now, almost 5 years later, I think it is the perfect time to write down a (short) introduction and overview of what I did during my thesis and how it relates to various fields of science.
+In 2019, I successfully defended my Master's thesis on <i>matrix product states</i> and <i>symmetry-protected phases topological phases</i> (see <a href = "{{ site.baseurl }}/Theses/#Master">here</a>). Now, almost 5 years later, I think it is the perfect time to write down a (short) introduction and overview of what I did during my thesis and how it relates to various fields of science.
 
 <hr id = "Overview">
 <div class = "nav-block"><div class = "side">Overview</div></div>
@@ -274,7 +274,7 @@ In the trivial solution, all sites are fully symmetric under $\mathbb{Z}_3$. How
     <img src = "{{ site.baseurl }}/assets/figures/Master/Z3.png" style = "width: 50%">
 </center>
 
-Although an explicit construction of MPS tensors for various examples of frieze groups is definitely interesting, we refer the interested reader to the references at the bottom of this post. <!-- However, two topics that we will cover in this post are the <i>Smith normal form</i>, used for numerically solving the cocycle conditions, and a comparison of the SPT classification with and without spatial symmetries. We will start with the former.<br><br> --> We will, however, explain how to numerically solve the cocycle conditions using the <i>Smith normal form</i>. This algorithm is very similar to <i>Gaussian elimination</i>. Given a matrix $A$ wih coefficients in a <i>principal ideal domain</i> $\mathfrak{P}$, the idea is to obtain a decomposition $U\Lambda V$ with $U,V$ invertible and
+Although an explicit construction of MPS tensors for various examples of frieze groups is definitely interesting, we refer the interested reader to the references at the bottom of this post. <!-- However, two topics that we will cover in this post are the <i>Smith normal form</i>, used for numerically solving the cocycle conditions, and a comparison of the SPT classification with and without spatial symmetries. We will start with the former.<br><br> --> We will, however, explain how to numerically solve the cocycle conditions using the <i>Smith normal form</i>. This algorithm is very similar to <i>Gaussian elimination</i>. Given a matrix $A$ with coefficients in a <i>principal ideal domain</i> $\mathfrak{P}$, the idea is to obtain a decomposition $U\Lambda V$ with $U,V$ invertible and
 
 $$
     \Lambda=\left(
@@ -352,11 +352,11 @@ If we would work out the cocycle condition for $k=1$ in the section on <a href =
 <hr id = "References">
 <div class = "nav-block"><div class = "side">References</div></div>
 
-* Vancraeynest-De Cuiper, B., Bridgeman, J. C., Dewolf, N., Haegeman, J., & Verstraete, F. (2023). <i>One-dimensional symmetric phases protected by frieze symmetries</i>. PHYSICAL REVIEW B, 107(11). <a href = "https://doi.org/10.1103/PhysRevB.107.115123" target = "_blank" rel = "noopener">https://doi.org/10.1103/PhysRevB.107.115123</a>
-* Dewolf, N. (2019). <i>Ruimtelijke Symmetrieën en Symmetriebreking met Matrix Product Toestanden</i>. Universiteit Gent. <a href = "https://lib.ugent.be/catalog/rug01:002782900" target = "_blank" rel = "noopener">https://lib.ugent.be/catalog/rug01:002782900</a><br>(<u>Note:</u> An updated Arxiv version will appear as soon as I have updated the manuscript.)
-* Haegeman, J., & Verstraete, F. (2017). <i>Diagonalizing transfer matrices and matrix product operators: A medley of exact and computational methods</i>. Annual Review of Condensed Matter Physics, 8(1):355&ndash;406. <a href = "https://doi.org/10.1146/annurev-conmatphys-031016-025507" target = "_blank" rel = "noopener">https://doi.org/10.1146/annurev-conmatphys-031016-025507</a>
+* Vancraeynest-De Cuiper, B., Bridgeman, J. C., Dewolf, N., Haegeman, J., & Verstraete, F. (2023). <i>One-dimensional symmetric phases protected by frieze symmetries</i>. Phys. Rev. B, 107(11):115123. <a href = "https://doi.org/10.1103/PhysRevB.107.115123" target = "_blank" rel = "noopener">https://doi.org/10.1103/PhysRevB.107.115123</a><br><br>
+* Dewolf, N. (2019). <i>Ruimtelijke Symmetrieën en Symmetriebreking met Matrix Product Toestanden</i>. Universiteit Gent. <a href = "https://lib.ugent.be/catalog/rug01:002782900" target = "_blank" rel = "noopener">https://lib.ugent.be/catalog/rug01:002782900</a><br>(<u>Note:</u> An updated Arxiv version will appear as soon as I have updated the manuscript.)<br><br>
+* Haegeman, J., & Verstraete, F. (2017). <i>Diagonalizing transfer matrices and matrix product operators: A medley of exact and computational methods</i>. Annual Review of Condensed Matter Physics, 8(1):355&ndash;406. <a href = "https://doi.org/10.1146/annurev-conmatphys-031016-025507" target = "_blank" rel = "noopener">https://doi.org/10.1146/annurev-conmatphys-031016-025507</a><br><br>
 * X. Chen, Z.-C. Gu, Z.-X. Liu, & X.-G. Wen. (2013). <i>Symmetry protected topological orders
-and the group cohomology of their symmetry group</i>. Phys. Rev. B, 87:155114–155162. <a href = "https://link.aps.org/doi/10.1103/PhysRevB.87.155114" target = "_blank" rel = "noopener">https://link.aps.org/doi/10.1103/PhysRevB.87.155114</a>
+and the group cohomology of their symmetry group</i>. Phys. Rev. B, 87(15):155114. <a href = "https://link.aps.org/doi/10.1103/PhysRevB.87.155114" target = "_blank" rel = "noopener">https://link.aps.org/doi/10.1103/PhysRevB.87.155114</a>
 
 <hr id = "Footnotes">
 <div class = "nav-block"><div class = "side">Footnotes</div></div>
