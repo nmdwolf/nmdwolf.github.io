@@ -15,6 +15,28 @@ $header-height:     $spacing-unit * 1.865;
 //     font-family: Hundar;
 // }
 
+.site-header {
+    background: radial-gradient(circle,rgba(196, 194, 194, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+picture {
+    display: block;
+    margin: 10px 0;
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.spoiler {
+    opacity: 0;
+    border: solid 2px black;
+}
+    
+.spoiler .content:hover {
+    opacity: 1;
+}
+
 #navigator {
     position: sticky;
     top: 0;
@@ -92,6 +114,11 @@ content: "Definition (" attr(text) "). ";
     position: absolute;
     width: 250px;
     margin-top: -30px;
+    transition: width 1s ease;
+
+    &:hover {
+        width: 500px;
+    }
 }
 
 .dp_text {
@@ -102,10 +129,11 @@ content: "Definition (" attr(text) "). ";
     position: absolute;
     margin-top: 0;
     top: 0;
-    transition: top 1s ease;
+    transition: top 1s ease, rotate 1s ease, width 1s ease;
 
     &:hover {
         top: 100px;
+        rotate: -45deg;
     }
 }
 
@@ -117,9 +145,8 @@ content: "Definition (" attr(text) "). ";
 
 .note {
     border-radius: 10px;
-    border-color: black;
-    border-style: solid;
-    border-width: 2px;
+    border: solid 2px #0000;
+    background: linear-gradient(white, white) padding-box, linear-gradient(to right, rgb(30, 100, 200), rgb(255, 210, 0)) border-box;
 
     padding: 10px;
     margin: 15px 10px 15px 10px;
@@ -141,6 +168,21 @@ content: "Definition (" attr(text) "). ";
 hr {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.gallery {
+    width: 100%;
+    margin-top: calc(#{$spacing-unit} / 2);
+    margin-bottom: calc(#{$spacing-unit} / 2);
+    columns: 2 300px;
+    column-gap: 1em;
+
+    img {
+        margin: 0;
+        display: block;
+        margin-bottom: 1em;
+        width: 100%;
+    }
 }
 
 ul, ol, img {
@@ -274,14 +316,12 @@ img.boxed {
         margin-right: 0;
         // top: calc(#{$header-height} + 5px);
         height: 0px;
+        width: 15%;
 
         #nav-box {
             position: relative;
             top: -100%;
-
-            border-width: 1px 0 1px 1px;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
+            border-width: 0 0 1px 1px;
 
             #index-header {
                 display: none;
@@ -340,7 +380,7 @@ img.boxed {
         border-bottom: none;
     
         &:not(:last-child) {
-            border-right: solid 1px #e8e8e8;
+            // border-right: solid 1px #e8e8e8;
             padding-right: 10px;
             margin-right: 10px;
         }

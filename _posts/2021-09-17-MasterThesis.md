@@ -5,7 +5,7 @@ date:   2024-06-10
 categories: post
 publish: true
 ongoing: false
-home: false
+home: true
 
 ids:
     - Overview
