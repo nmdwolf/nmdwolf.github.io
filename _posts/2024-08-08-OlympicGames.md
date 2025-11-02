@@ -7,7 +7,7 @@ publish: yes
 
 ---
 
-In 2024, the Olympic Games took place in Paris, so we had to be there. To nobody's surprise, we went to see the boulder and lead climbing competition. Since we were in the vicinity anyway, we also went for a outdoor boulder session in Fontainebleau.
+In 2024, the Olympic Games took place in Paris, so we had to be there. To nobody's surprise, we went to see the boulder and lead climbing competition. Since we were in the vicinity anyway, we also went for an outdoor boulder session in Fontainebleau.
 
 <center>
 
