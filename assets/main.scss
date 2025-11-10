@@ -22,6 +22,7 @@ $header-height:     $spacing-unit * 1.865;
 picture {
     display: block;
     margin: 10px 0;
+    
     img {
         display: block;
         margin: 0 auto;
@@ -29,12 +30,40 @@ picture {
 }
 
 .spoiler {
-    opacity: 0;
-    border: solid 2px black;
-}
-    
-.spoiler .content:hover {
-    opacity: 1;
+    margin: 1em;
+    background-color: rgba(211, 211, 211, 0.4);
+    border-radius: 10pt;
+    transition: background-color .5s ease;
+    position: relative;
+    display: grid;
+    place-items: center;
+    grid-template-areas: "inner-div";
+
+    .placeholder {
+        opacity: 1;
+        height: 5em;
+        grid-area: inner-div;
+        transition: opacity .5s ease;
+    }
+
+    .content {
+        opacity: 0;
+        transition: opacity .5s ease;
+        grid-area: inner-div;
+    }
+
+    &:hover{
+        background-color: white;
+
+        .placeholder {
+            opacity: 0;
+        }
+
+        .content{
+           opacity: 1;
+        }
+    }
+
 }
 
 #navigator {
@@ -78,12 +107,12 @@ hr#Overview {
 div.theorem {
     font-style: italic;
     margin: 2% 0 2% 0;
-}
-  
-div.theorem::before {
-    content: "Theorem. ";
-    font-weight: bold;
-    font-style: normal;
+
+    &::before {
+        content: "Theorem. ";
+        font-weight: bold;
+        font-style: normal;
+    }
 }
 
 div.theorem[text]::before {
@@ -98,12 +127,12 @@ div.def {
 
     padding: 10px;
     margin: 15px 10px 15px 10px;
-}
 
-div.def::before {
-    content: "Definition. ";
-    font-weight: bold;
-    font-style: normal;
+    &::before {
+        content: "Definition. ";
+        font-weight: bold;
+        font-style: normal;
+    }
 }
 
 div.def[text]::before {
@@ -152,17 +181,17 @@ content: "Definition (" attr(text) "). ";
     margin: 15px 10px 15px 10px;
 
     position: relative;
+
+    .side {
+        position: absolute;
+        transform: rotate(90deg);
+        transform-origin: center;
+        left: calc(100% + #{$spacing-unit});
+    }
 }
 
 .note p, .def p, .wrapper p {
     margin: 0;
-}
-
-.note .side {
-    position: absolute;
-    transform: rotate(90deg);
-    transform-origin: center;
-    left: calc(100% + #{$spacing-unit});
 }
 
 hr {

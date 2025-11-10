@@ -5,6 +5,7 @@
 
 % Node styles
 \tikzstyle{Node}=[fill=black, draw=black, shape=circle, tikzit shape=circle, inner sep=1pt]
+\tikzstyle{Circle}=[fill=white, draw=black, shape=circle, tikzit draw=black]
 
 % Edge styles
 \tikzstyle{arrow}=[->, draw=black, fill=none, tikzit draw=black]
