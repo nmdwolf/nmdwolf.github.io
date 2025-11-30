@@ -33,6 +33,16 @@ This post is structured as follows:
     <!-- Concepts are defined using this construction. -->
 </div>
 
+<div class = "spoiler">
+    <!-- Spoilers can be hidden using this construction. -->
+    <div class = "placeholder">
+        <!-- This placeholder shows the text that is visible by default. -->
+    </div>
+    <div class = "content">
+        <!-- This div contains the actual spoiler details. -->
+    </div>
+</div>
+
 <hr id = "References">
 <div class = "nav-block"><div class = "side">References</div></div>
 

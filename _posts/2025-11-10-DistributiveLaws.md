@@ -4,7 +4,7 @@ title:  "Distributive laws"
 date:   2025-11-10
 categories: post
 publish: false
-ongoing: False
+ongoing: true
 
 ids:
     - Overview
@@ -16,7 +16,9 @@ defs:
     # Insert defined concepts here
 ---
 
-<!-- ENTER INTRODUCTION -->
+Whilst reading up on categorical probability theory and 'credal prediction', I stumbled upon the issue of monad composition. Credal sets are (informally) sets of probability dsitributions. Whereas the latter part is governed by <i>probability monads</i>, the former is governed by the <i>powerset monad</i>. However, the composition of monads is not as easy as one might hope it to be. For this reason, I deemed it relevant to write a blog post about it.<br><br>
+
+As an additional feature, this sentence will also be the penultimate one in English in this post. As I am learning Spanish and trying to improve my learning rate, I decided to write this blog post in Spanish.
 
 <hr id = "Overview">
 <div class = "nav-block"><div class = "side">Overview</div></div>
