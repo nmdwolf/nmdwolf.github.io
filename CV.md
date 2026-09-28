@@ -3,7 +3,7 @@ layout: page
 title: Curriculum Vitae
 shorttitle: CV
 permalink: /cv/
-order: 5
+order: 9
 ---
 
 <h3>Work Experience</h3>
