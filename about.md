@@ -47,3 +47,5 @@ I have finished and recommend the following books:
     Opinion: A very nice book about the the history and ideas behind causal inference, written by one of its pioneers. It contains the bare minimum in terms of mathematics, but still manages to convey the technical aspects due Pearl's very clear and enlightening way of writing. The many examples and historical side notes make this book even more of a joy to read.
 * <i>Modal homotopy type theory: The prospect of a new logic for philosophy</i> by David Corfield  
     Opinion: <span style = "color: rgb(230, 150, 2)">To be added</span>
+
+    
