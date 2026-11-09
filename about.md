@@ -9,13 +9,13 @@ order: 10
 
 <h2>Who am I?</h2>
 
-In September 2014, I started a Bachelor of Science in Physics & Astronomy at the University of Ghent, Belgium (UGent). After 5 years, I succesfully obtained my Master's degree with a thesis on "Spatial Symmetries and Symmetry Breaking with Matrix Product States" under supervision of Prof. Frank Verstraete. This thesis is situated in theoretical (condensed matter) physics and most of my current academic interests are still strongly tied to that topic.<br><br>
+In September 2014, I started a Bachelor of Science in Physics & Astronomy at the University of Ghent, Belgium (UGent). After 5 years, I successfully obtained my Master's degree with a thesis on "Spatial Symmetries and Symmetry Breaking with Matrix Product States" under supervision of Prof. Frank Verstraete. This thesis is situated in theoretical (condensed matter) physics and most of my current academic interests are still strongly tied to that topic.<br><br>
 
 In April 2024, I obtained my PhD degree at the University of Ghent, Belgium (UGent) in the <a href="https://kermit.ugent.be/" target="_blank">KERMIT</a> research group (more specifically, the <a target = "_blank" href = "https://willemwaegeman.github.io/bioml/">BioML</a> research group) under the supervision of Prof. De Baets and Prof. Waegeman. I started in February 2020 (just before Covid-19 hit), and my main research topic was Uncertainty Quantification (UQ).
 
 <br>
 
-Currently, I am working as a software developer in Gavere. I am also a cofounder of <a href = "https://tumaini-vzw.github.io/" target = "_blank" rel = "noopener">VZW Tumaini Heart For Kids</a>.
+Currently, I am working as a software developer. I am also cofounder of an NGO supporting education in Rwanda.
 
 <br>
 
@@ -47,4 +47,3 @@ I have finished and recommend the following books:
     Opinion: A very nice book about the the history and ideas behind causal inference, written by one of its pioneers. It contains the bare minimum in terms of mathematics, but still manages to convey the technical aspects due Pearl's very clear and enlightening way of writing. The many examples and historical side notes make this book even more of a joy to read.
 * <i>Modal homotopy type theory: The prospect of a new logic for philosophy</i> by David Corfield  
     Opinion: <span style = "color: rgb(230, 150, 2)">To be added</span>
-* 
