@@ -12,7 +12,12 @@ order: 2
 
 1. Dewolf, N., De Baets, B. & Waegeman, W. (2025). Conditional validity of heteroskedastic conformal regression. <i>Information and Inference: a journal of the IMA</i>. <a href = "https://doi.org/10.1093/imaiai/iaaf013" target = "_blank">https://doi.org/10.1093/imaiai/iaaf013</a>.
 <br>
-(<u>Note:</u> The Arxiv version can be found <a target = "_blank" href = "https://arxiv.org/abs/2309.08313">here</a>.)<br><br>
+(<u>Note:</u> The Arxiv version can be found <a target = "_blank" href = "https://arxiv.org/abs/2309.08313">here</a>.)
+<br>
+An implementation error was found in the calculation of the (adaptive) variance-based taxonomy function. Instead of determining the bin boundaries on the training data, obtaining a well-defined inductive taxonomy function, these boundaries were calculated on the calibration data, a data leak that could potentially influence the validity.
+
+However, since the dataset as a whole was treated in an IID manner, the training, calibration and test splits are considered as independent samples of the same distribution and, as such the empirical distributions should converge to the same distribution. Therefore, although the data leakage is definitely an error, it should have limited impact on the experimental part of the paper. Moreover, these experiments were of an expository nature and not fundamental for the paper. 
+<br><br>
 
 1. Dewolf, N. (2024). A comparative study of conformal prediction methods for valid uncertainty quantification in machine learning (Doctoral dissertation). Ghent University. <a target = "_blank" href = "http://hdl.handle.net/1854/LU-01HVK8CNHPMDFGQ8BGF86VMVTY"> http://hdl.handle.net/1854/LU-01HVK8CNHPMDFGQ8BGF86VMVTY</a>.
 <br>
